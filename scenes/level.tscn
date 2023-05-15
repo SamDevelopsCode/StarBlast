@@ -24,6 +24,10 @@ script = ExtResource("1_f04ut")
 
 [node name="HUD" parent="UI" instance=ExtResource("2_b2t5w")]
 
+[node name="FPS" type="Label" parent="UI/HUD"]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Background" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_ekptl")
 offset_left = -8223.0

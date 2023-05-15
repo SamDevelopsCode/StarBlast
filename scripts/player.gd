@@ -111,8 +111,6 @@ func shoot():
 		add_laser_projectile(laser_10_pos)
 		add_laser_projectile(laser_11_pos)
 
-
-
 func take_damage():
 	emit_signal("damage_taken")
 
@@ -133,3 +131,4 @@ func increase_fire_type():
 	
 	if fire_type > 7:
 		fire_type = 7
+		GameData.increase_score(randi_range(500,750))

@@ -23,7 +23,7 @@ color_ramp = SubResource("GradientTexture1D_5tjk1")
 [node name="Explosion" type="GPUParticles2D"]
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_yaxr4")
-lifetime = 2.0
+lifetime = 0.5
 explosiveness = 1.0
 trail_lifetime = 0.1
 trail_sections = 5

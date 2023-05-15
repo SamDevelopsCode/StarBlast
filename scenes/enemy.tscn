@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_tlo2b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mqyko"]
-radius = 26.0
-height = 130.0
+radius = 20.0
+height = 104.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h4kj3"]
-radius = 10.3621
-height = 41.0098
+radius = 6.53426
+height = 32.5168
 
 [node name="Enemy" type="Area2D" groups=["enemy"]]
 collision_layer = 2
@@ -19,19 +19,19 @@ move_speed = 300
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_s67hg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_mqyko")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(35, -13)
+position = Vector2(30, -10)
 rotation = 0.691873
 shape = SubResource("CapsuleShape2D_h4kj3")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(-35, -12)
+position = Vector2(-29, -9)
 rotation = 2.34069
 shape = SubResource("CapsuleShape2D_h4kj3")
 
