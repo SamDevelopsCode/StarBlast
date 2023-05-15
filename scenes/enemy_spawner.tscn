@@ -23,9 +23,11 @@ position = Vector2(919, -200)
 position = Vector2(1183, -200)
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.85
 autostart = true
 
 [node name="EnemyPathTimer" type="Timer" parent="."]
+wait_time = 10.0
 autostart = true
 
 [connection signal="timeout" from="EnemyPathTimer" to="." method="_on_enemy_path_timer_timeout"]
