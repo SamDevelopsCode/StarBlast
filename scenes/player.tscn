@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://cbe5w0jiptt3x"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_movka"]
+[ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://assets/textures/Main Ship - Base - Full health.png" id="2_82vat"]
+[ext_resource type="AudioStream" uid="uid://nlyop6gwuta3" path="res://assets/audio/sfx_laser2.wav" id="3_w60rq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yshd3"]
+radius = 7.07107
+
+[sub_resource type="Gradient" id="Gradient_l2rai"]
+offsets = PackedFloat32Array(0, 0.519164, 1)
+colors = PackedColorArray(1, 1, 0, 0, 1, 0.545098, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qadm7"]
+gradient = SubResource("Gradient_l2rai")
+
+[sub_resource type="Curve" id="Curve_wy8c6"]
+_data = [Vector2(0, 1), 0.0, -1.44444, 0, 0, Vector2(1, 0), 0.944445, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n3as6"]
+curve = SubResource("Curve_wy8c6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oux0u"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 16.58
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_n3as6")
+color_ramp = SubResource("GradientTexture1D_qadm7")
+turbulence_noise_strength = 3.34
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_movka")
+move_speed = 400
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_82vat")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_yshd3")
+
+[node name="LaserContainer" type="Node" parent="."]
+
+[node name="WeaponSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_w60rq")
+volume_db = -20.0
+pitch_scale = 2.25
+
+[node name="EngineFX" type="GPUParticles2D" parent="."]
+position = Vector2(0, 9)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_oux0u")
+lifetime = 0.2
+fixed_fps = 60
+trail_lifetime = 0.1
+
+[node name="Laser1Pos" type="Marker2D" parent="."]
+position = Vector2(0, -10)
+
+[node name="Laser2Pos" type="Marker2D" parent="."]
+position = Vector2(-0.5, -10)
+
+[node name="Laser3Pos" type="Marker2D" parent="."]
+position = Vector2(0.5, -10)
+
+[node name="Laser4Pos" type="Marker2D" parent="."]
+position = Vector2(-1, -10)
+
+[node name="Laser5Pos" type="Marker2D" parent="."]
+position = Vector2(1, -10)
+
+[node name="Laser6Pos" type="Marker2D" parent="."]
+position = Vector2(-1.5, -10)
+
+[node name="Laser7Pos" type="Marker2D" parent="."]
+position = Vector2(1.5, -10)
+
+[node name="Laser8Pos" type="Marker2D" parent="."]
+position = Vector2(-2, -10)
+
+[node name="Laser9Pos" type="Marker2D" parent="."]
+position = Vector2(2, -10)
+
+[node name="Laser10Pos" type="Marker2D" parent="."]
+position = Vector2(-2.5, -10)
+
+[node name="Laser11Pos" type="Marker2D" parent="."]
+position = Vector2(2.5, -10)
