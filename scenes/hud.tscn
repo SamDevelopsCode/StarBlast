@@ -62,3 +62,13 @@ text = "3"
 label_settings = SubResource("LabelSettings_r8bov")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="."]
+self_modulate = Color(0.254902, 0.427451, 0.560784, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -929.0
+offset_right = 32.0
+grow_vertical = 0
