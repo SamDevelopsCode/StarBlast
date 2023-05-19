@@ -29,12 +29,13 @@ var laser_scene := preload("res://scenes/laser.tscn")
 @export var fire_vibration_length := .5
 
 var screen_size : Vector2
+@export var can_fire := true
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot") and can_fire:
 		shoot()
 
 func _physics_process(delta: float) -> void:
@@ -51,6 +52,9 @@ func _physics_process(delta: float) -> void:
 	global_position.y = clampf(global_position.y, 18, screen_size.y - 18)
 
 func shoot():
+	can_fire = false
+	$FireRateTimer.start()
+	
 	if fire_type == 1:
 		weapon_sound.play()
 		add_vibration()
@@ -132,3 +136,8 @@ func increase_fire_type():
 	if fire_type > 7:
 		fire_type = 7
 		GameData.increase_score(randi_range(500,750))
+
+
+func _on_fire_rate_timer_timeout():
+	can_fire = true
+

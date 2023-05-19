@@ -23,7 +23,7 @@ position = Vector2(919, -200)
 position = Vector2(1183, -200)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.85
+wait_time = 0.01
 autostart = true
 
 [node name="EnemyPathTimer" type="Timer" parent="."]

@@ -66,6 +66,10 @@ lifetime = 0.2
 fixed_fps = 60
 trail_lifetime = 0.1
 
+[node name="FireRateTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
 [node name="Laser1Pos" type="Marker2D" parent="."]
 position = Vector2(0, -10)
 
@@ -98,3 +102,5 @@ position = Vector2(-2.5, -10)
 
 [node name="Laser11Pos" type="Marker2D" parent="."]
 position = Vector2(2.5, -10)
+
+[connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

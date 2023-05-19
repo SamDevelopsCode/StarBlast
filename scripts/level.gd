@@ -43,4 +43,4 @@ func _on_enemy_died():
 	enemy_hit_sound.play()
 
 func _on_powerup_spawned(powerup_instance):
-	add_child(powerup_instance)
+	call_deferred("add_child", powerup_instance)

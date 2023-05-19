@@ -25,15 +25,16 @@ script = ExtResource("1_f04ut")
 [node name="HUD" parent="UI" instance=ExtResource("2_b2t5w")]
 
 [node name="FPS" type="Label" parent="UI/HUD"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Background" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_ekptl")
-offset_left = -8223.0
-offset_top = -4091.0
-offset_right = 10818.0
-offset_bottom = 6786.0
+offset_left = -3040.0
+offset_top = -3812.0
+offset_right = 4168.0
+offset_bottom = 4081.0
 texture = ExtResource("4_4irhj")
 stretch_mode = 1
 
@@ -46,7 +47,7 @@ fire_vibration_length = 0.1
 [node name="EnemySpawner" parent="." instance=ExtResource("6_ck48g")]
 
 [node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(702, 2988)
+position = Vector2(613, 1496)
 scale = Vector2(5, 5)
 collision_layer = 8
 collision_mask = 2

@@ -10,6 +10,7 @@ signal path_enemy_spawned(path_enemy_instance)
 var enemy_scene := preload("res://scenes/enemy.tscn")
 var path_enemy_scene := preload("res://scenes/path_enemy.tscn")
 
+
 func _ready() -> void:
 	timer.connect("timeout", spawn_enemy)
 
