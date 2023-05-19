@@ -15,7 +15,7 @@ var explosion_particle_fx = preload("res://scenes/explosion.tscn")
 func _physics_process(delta: float) -> void:
 	global_position.y += move_speed * delta
 
-func take_damage():
+func take_damage() -> void:
 	show_damaged_fx()
 	health -= 1
 	if dead:
@@ -25,7 +25,7 @@ func take_damage():
 		dead = true
 		die()
 
-func die():
+func die() -> void:
 	var explosion_instance = explosion_particle_fx.instantiate() as GPUParticles2D
 	explosion_instance.global_position = global_position
 	explosion_instance.one_shot = true
@@ -42,7 +42,7 @@ func _on_body_entered(body: Node2D) -> void:
 	body.take_damage()
 	die()
 
-func spawn_powerup():
+func spawn_powerup() -> void:
 	var powerup_instance = powerup_scene.instantiate() as Area2D
 	powerup_instance.global_position = global_position
 	emit_signal("powerup_spawned", powerup_instance)
@@ -54,7 +54,7 @@ func should_drop_powerup() -> bool:
 	else: 
 		return false
 
-func show_damaged_fx():
+func show_damaged_fx() -> void:
 	$Sprite2D.set_self_modulate(Color(1, 0, 0, .6))
 	await get_tree().create_timer(.05).timeout
 	$Sprite2D.set_self_modulate(Color(1, 1, 1, 1))
