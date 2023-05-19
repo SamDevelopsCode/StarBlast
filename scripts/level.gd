@@ -37,10 +37,10 @@ func _on_enemy_spawner_path_enemy_spawned(path_enemy_instance) -> void:
 	add_child(path_enemy_instance)
 	path_enemy_instance.enemy.connect("enemy_died", _on_enemy_died)
 
-func _on_enemy_died():
+func _on_enemy_died() -> void:
 	GameData.score += randi_range(10, 25)
 	hud.set_score_label(GameData.score)
 	enemy_hit_sound.play()
 
-func _on_powerup_spawned(powerup_instance):
+func _on_powerup_spawned(powerup_instance)  -> void:
 	call_deferred("add_child", powerup_instance)

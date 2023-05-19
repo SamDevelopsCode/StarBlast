@@ -18,7 +18,6 @@ var laser_scene := preload("res://scenes/laser.tscn")
 @onready var laser_10_pos = $Laser10Pos
 @onready var laser_11_pos = $Laser11Pos
 
-
 @onready var weapon_sound: AudioStreamPlayer = $WeaponSound
 @onready var engine_fx: GPUParticles2D = $EngineFX
 
@@ -34,11 +33,11 @@ var screen_size : Vector2
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed("shoot") and can_fire:
 		shoot()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * move_speed
@@ -51,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	global_position.x = clampf(global_position.x, 26, screen_size.x - 26)
 	global_position.y = clampf(global_position.y, 18, screen_size.y - 18)
 
-func shoot():
+func shoot() -> void:
 	can_fire = false
 	$FireRateTimer.start()
 	
@@ -115,22 +114,22 @@ func shoot():
 		add_laser_projectile(laser_10_pos)
 		add_laser_projectile(laser_11_pos)
 
-func take_damage():
+func take_damage() -> void:
 	emit_signal("damage_taken")
 
-func add_vibration():
+func add_vibration() -> void:
 	Input.start_joy_vibration(0,
 		fire_vibration_weak_magnitude,
 		fire_vibration_strong_magnitude,
 		fire_vibration_length)
 
-func add_laser_projectile(laser_identifier):
+func add_laser_projectile(laser_identifier) -> void:
 	var laser_instance = laser_scene.instantiate() as Area2D
 	laser_instance.global_position = laser_identifier.global_position
 	laser_instance.direction = laser_instance.global_position - global_position
 	laser_container.add_child(laser_instance)
 
-func increase_fire_type():
+func increase_fire_type() -> void:
 	fire_type += 1
 	
 	if fire_type > 7:
@@ -138,6 +137,6 @@ func increase_fire_type():
 		GameData.increase_score(randi_range(500,750))
 
 
-func _on_fire_rate_timer_timeout():
+func _on_fire_rate_timer_timeout() -> void:
 	can_fire = true
 
