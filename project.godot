@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 GameData="*res://scenes/globals/game_data.tscn"
+GameplayStates="*res://scripts/gameplay_states.gd"
 
 [display]
 

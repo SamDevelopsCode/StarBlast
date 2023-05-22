@@ -6,3 +6,7 @@ var score := 0
 
 func increase_score(score_to_add) -> void:
 	score += score_to_add
+
+func refresh_player_health():
+	player_health = 100
+

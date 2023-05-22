@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bdial7eisluqr"]
+
+[node name="Lasers" type="Node2D"]
+
+[node name="Laser1Pos" type="Marker2D" parent="."]
+position = Vector2(0, -10)
+
+[node name="Laser2Pos" type="Marker2D" parent="."]
+position = Vector2(-0.5, -10)
+
+[node name="Laser3Pos" type="Marker2D" parent="."]
+position = Vector2(0.5, -10)
+
+[node name="Laser4Pos" type="Marker2D" parent="."]
+position = Vector2(-1, -10)
+
+[node name="Laser5Pos" type="Marker2D" parent="."]
+position = Vector2(1, -10)
+
+[node name="Laser6Pos" type="Marker2D" parent="."]
+position = Vector2(-1.5, -10)
+
+[node name="Laser7Pos" type="Marker2D" parent="."]
+position = Vector2(1.5, -10)
+
+[node name="Laser8Pos" type="Marker2D" parent="."]
+position = Vector2(-2, -10)
+
+[node name="Laser9Pos" type="Marker2D" parent="."]
+position = Vector2(2, -10)

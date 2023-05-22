@@ -6,3 +6,4 @@ func set_score_label(score) -> void:
 
 func _on_button_pressed() -> void:
 	get_tree().reload_current_scene()
+	GameData.player_lives = 3

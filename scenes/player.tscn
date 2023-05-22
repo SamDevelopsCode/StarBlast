@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbe5w0jiptt3x"]
+[gd_scene load_steps=14 format=3 uid="uid://cbe5w0jiptt3x"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_movka"]
 [ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://assets/textures/Main Ship - Base - Full health.png" id="2_82vat"]
 [ext_resource type="AudioStream" uid="uid://nlyop6gwuta3" path="res://assets/audio/sfx_laser2.wav" id="3_w60rq"]
+[ext_resource type="PackedScene" uid="uid://bdial7eisluqr" path="res://scenes/lasers.tscn" id="4_u6hlg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yshd3"]
 radius = 7.07107
@@ -59,13 +60,24 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:self_modulate")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t0ah1"]
@@ -113,37 +125,8 @@ libraries = {
 "": SubResource("AnimationLibrary_t0ah1")
 }
 
-[node name="Laser1Pos" type="Marker2D" parent="."]
-position = Vector2(0, -10)
+[node name="Weapons" type="Node2D" parent="."]
 
-[node name="Laser2Pos" type="Marker2D" parent="."]
-position = Vector2(-0.5, -10)
-
-[node name="Laser3Pos" type="Marker2D" parent="."]
-position = Vector2(0.5, -10)
-
-[node name="Laser4Pos" type="Marker2D" parent="."]
-position = Vector2(-1, -10)
-
-[node name="Laser5Pos" type="Marker2D" parent="."]
-position = Vector2(1, -10)
-
-[node name="Laser6Pos" type="Marker2D" parent="."]
-position = Vector2(-1.5, -10)
-
-[node name="Laser7Pos" type="Marker2D" parent="."]
-position = Vector2(1.5, -10)
-
-[node name="Laser8Pos" type="Marker2D" parent="."]
-position = Vector2(-2, -10)
-
-[node name="Laser9Pos" type="Marker2D" parent="."]
-position = Vector2(2, -10)
-
-[node name="Laser10Pos" type="Marker2D" parent="."]
-position = Vector2(-2.5, -10)
-
-[node name="Laser11Pos" type="Marker2D" parent="."]
-position = Vector2(2.5, -10)
+[node name="Lasers" parent="Weapons" instance=ExtResource("4_u6hlg")]
 
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

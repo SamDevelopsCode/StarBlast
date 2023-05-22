@@ -26,7 +26,13 @@ func _on_player_damage_taken() -> void:
 			player.is_alive = false
 			GameData.player_lives -= 1
 			hud.set_lives_label(GameData.player_lives)
-			player.play_out_of_health_anim()
+			
+			if GameData.player_lives > 0:
+				player.play_out_of_health_anim()
+				await get_tree().create_timer(2).timeout
+				GameData.refresh_player_health()
+				hud.set_health_value(GameData.player_health)
+				player.is_alive = true
 			
 			if GameData.player_lives <= 0:
 				hud.set_lives_label(GameData.player_lives)
@@ -42,6 +48,7 @@ func _on_enemy_spawner_enemy_spawned(enemy_instance) -> void:
 	enemy_instance.connect("powerup_spawned", _on_powerup_spawned)
 	enemy_instance.connect("enemy_died", _on_enemy_died)
 	add_child(enemy_instance)
+	enemy_instance.myArray = [1, 2]
 
 func _on_enemy_spawner_path_enemy_spawned(path_enemy_instance) -> void:
 #	path_enemy_instance.connect("enemy_died", _on_enemy_died)
