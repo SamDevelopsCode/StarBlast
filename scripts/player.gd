@@ -20,6 +20,7 @@ var laser_scene := preload("res://scenes/laser.tscn")
 
 @onready var weapon_sound: AudioStreamPlayer = $WeaponSound
 @onready var engine_fx: GPUParticles2D = $EngineFX
+@onready var player_animations = $AnimationPlayer
 
 @export var move_speed := 100
 @export var fire_type := 1
@@ -29,6 +30,7 @@ var laser_scene := preload("res://scenes/laser.tscn")
 
 var screen_size : Vector2
 @export var can_fire := true
+var is_alive := true
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -140,3 +142,5 @@ func increase_fire_type() -> void:
 func _on_fire_rate_timer_timeout() -> void:
 	can_fire = true
 
+func play_out_of_health_anim() -> void:
+	player_animations.play("out_of_health")

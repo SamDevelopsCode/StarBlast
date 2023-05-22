@@ -32,7 +32,13 @@ offset_bottom = 56.0
 text = "Score: "
 label_settings = SubResource("LabelSettings_1nte2")
 
-[node name="LivesTexture" type="TextureRect" parent="."]
+[node name="Lives" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = -0.00195458
+
+[node name="LivesTexture" type="TextureRect" parent="Lives"]
 layout_mode = 0
 offset_left = -2.0
 offset_top = 51.0
@@ -41,7 +47,7 @@ offset_bottom = 99.0
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_q3kxd")
 
-[node name="X" type="Label" parent="."]
+[node name="X" type="Label" parent="Lives"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 67.0
@@ -52,7 +58,7 @@ label_settings = SubResource("LabelSettings_gruo8")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="LivesLeft" type="Label" parent="."]
+[node name="LivesLeft" type="Label" parent="Lives"]
 layout_mode = 0
 offset_left = 108.0
 offset_top = 58.0
@@ -64,11 +70,11 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="PlayerHealthBar" type="ProgressBar" parent="."]
-self_modulate = Color(0.254902, 0.427451, 0.560784, 1)
+self_modulate = Color(0, 1, 1, 1)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -929.0
-offset_right = 32.0
+offset_top = -27.0
+offset_right = 1280.0
 grow_vertical = 0
