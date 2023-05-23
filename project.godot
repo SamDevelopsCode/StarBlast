@@ -17,16 +17,14 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
-GameData="*res://scenes/globals/game_data.tscn"
-GameplayStates="*res://scripts/gameplay_states.gd"
+GameData="*res://scripts/globals/game_data.gd"
+GameplayStates="*res://scripts/globals/gameplay_states.gd"
 
 [display]
 
 window/size/viewport_width=1280
-window/size/viewport_height=1080
-window/size/initial_position_type=2
-window/size/initial_screen=2
-window/stretch/mode="canvas_items"
+window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [input]
 

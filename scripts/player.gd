@@ -36,6 +36,7 @@ var is_alive := true
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+	global_position = Vector2(screen_size.x/2, screen_size.y - 50)
 
 
 func _process(_delta: float) -> void:

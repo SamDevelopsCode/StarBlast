@@ -3,7 +3,7 @@ extends Control
 @onready var score: Label = $Score 
 @onready var lives_left: Label = $Lives/LivesLeft
 @onready var fps_label: Label = $FPS
-@onready var player_health_bar = $PlayerHealthBar
+@onready var player_health_bar = $VBox/PlayerHealthBar
 
 func _process(_delta) -> void:
 	fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
