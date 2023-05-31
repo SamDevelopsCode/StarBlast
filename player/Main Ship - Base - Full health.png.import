@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwgduad6n7rvi"
-path="res://.godot/imported/enemy_ship.png-888748996752d876f0048b55371afd3c.ctex"
+uid="uid://bphwxf2glq4lt"
+path="res://.godot/imported/Main Ship - Base - Full health.png-25b0930f2bd2c4da69d9358fe2524fb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/enemy_ship.png"
-dest_files=["res://.godot/imported/enemy_ship.png-888748996752d876f0048b55371afd3c.ctex"]
+source_file="res://player/Main Ship - Base - Full health.png"
+dest_files=["res://.godot/imported/Main Ship - Base - Full health.png-25b0930f2bd2c4da69d9358fe2524fb5.ctex"]
 
 [params]
 

@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="StarBlast"
-run/main_scene="res://scenes/level.tscn"
+run/main_scene="res://levels/level.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
 [autoload]
 
-GameData="*res://scripts/globals/game_data.gd"
-GameplayStates="*res://scripts/globals/gameplay_states.gd"
+GameData="*res://autoloads/game_data.gd"
 
 [display]
 

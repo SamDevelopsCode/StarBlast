@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://yh0h1qf5dvea"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://scripts/laser.gd" id="1_r18he"]
-[ext_resource type="Texture2D" uid="uid://d3gnm0jlej7fg" path="res://assets/textures/laser.png" id="2_k82nm"]
+[ext_resource type="Script" path="res://weapons/laser/laser.gd" id="1_r18he"]
+[ext_resource type="Texture2D" uid="uid://d3gnm0jlej7fg" path="res://weapons/laser/laser.png" id="2_k82nm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_quesk"]
 radius = 2.0
@@ -11,7 +11,6 @@ height = 7.0
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_r18he")
-speed = 2000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708

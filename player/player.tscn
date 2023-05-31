@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbe5w0jiptt3x"]
+[gd_scene load_steps=14 format=3]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_movka"]
-[ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://assets/textures/Main Ship - Base - Full health.png" id="2_82vat"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_movka"]
+[ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/Main Ship - Base - Full health.png" id="2_82vat"]
 [ext_resource type="AudioStream" uid="uid://nlyop6gwuta3" path="res://assets/audio/sfx_laser2.wav" id="3_w60rq"]
-[ext_resource type="PackedScene" uid="uid://bdial7eisluqr" path="res://scenes/lasers.tscn" id="4_u6hlg"]
+[ext_resource type="PackedScene" uid="uid://bdial7eisluqr" path="res://weapons/laser/lasers.tscn" id="4_u6hlg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yshd3"]
 radius = 7.07107
@@ -117,7 +117,7 @@ fixed_fps = 60
 trail_lifetime = 0.1
 
 [node name="FireRateTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.3
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

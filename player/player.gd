@@ -80,7 +80,6 @@ func shoot() -> void:
 			add_laser_projectile(laser_3_pos)
 			add_laser_projectile(laser_4_pos)
 			add_laser_projectile(laser_5_pos)
-
 		4:
 			add_laser_projectile(laser_1_pos)
 			add_laser_projectile(laser_2_pos)
@@ -91,7 +90,6 @@ func shoot() -> void:
 			add_laser_projectile(laser_7_pos)
 			add_laser_projectile(laser_8_pos)
 			add_laser_projectile(laser_9_pos)
-#
 
 
 func take_damage() -> void:
@@ -112,8 +110,7 @@ func add_laser_projectile(laser_identifier) -> void:
 	laser_container.add_child(laser_instance)
 
 func increase_fire_type() -> void:
-	fire_type += 1
-	
+	fire_type += 1	
 	if fire_type > 4:
 		fire_type = 4
 
