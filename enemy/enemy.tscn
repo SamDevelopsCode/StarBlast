@@ -16,7 +16,7 @@ collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_tlo2b")
 move_speed = 300
-health = 1
+health = 25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159

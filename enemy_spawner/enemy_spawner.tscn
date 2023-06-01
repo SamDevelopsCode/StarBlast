@@ -1,33 +1,77 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd1dmyugfhmyd"]
+[gd_scene load_steps=5 format=3 uid="uid://dd1dmyugfhmyd"]
 
 [ext_resource type="Script" path="res://enemy_spawner/enemy_spawner.gd" id="1_uwg1f"]
+[ext_resource type="PackedScene" uid="uid://cnvf0dbr2d7mx" path="res://enemy/enemy.tscn" id="2_nh0f2"]
+[ext_resource type="Script" path="res://enemy_spawner/spawn_info.gd" id="3_4ysun"]
+
+[sub_resource type="Resource" id="Resource_oist3"]
+script = ExtResource("3_4ysun")
+time_start = 0
+time_end = 10
+enemy = ExtResource("2_nh0f2")
+enemy_number = 1
+enemy_spawn_delay = 1
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_uwg1f")
+spawns = Array[ExtResource("3_4ysun")]([SubResource("Resource_oist3")])
 
 [node name="SpawnPositions" type="Node2D" parent="."]
 
 [node name="SpawnPos_01" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(89, -200)
+position = Vector2(150, -200)
 
 [node name="SpawnPos_02" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(370, -200)
+position = Vector2(350, -200)
 
 [node name="SpawnPos_03" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(640, -200)
+position = Vector2(550, -200)
 
 [node name="SpawnPos_04" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(919, -200)
+position = Vector2(750, -200)
 
 [node name="SpawnPos_05" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(1183, -200)
+position = Vector2(950, -200)
+
+[node name="SpawnPos_06" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(1150, -200)
+
+[node name="SpawnPos_07" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(100, -350)
+
+[node name="SpawnPos_08" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(200, -350)
+
+[node name="SpawnPos_09" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(300, -350)
+
+[node name="SpawnPos_10" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(400, -350)
+
+[node name="SpawnPos_11" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(500, -350)
+
+[node name="SpawnPos_12" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(600, -350)
+
+[node name="SpawnPos_13" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(700, -350)
+
+[node name="SpawnPos_14" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(800, -350)
+
+[node name="SpawnPos_15" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(900, -350)
+
+[node name="SpawnPos_16" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(1000, -350)
+
+[node name="SpawnPos_17" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(1100, -350)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
 autostart = true
 
 [node name="EnemyPathTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
-
-[connection signal="timeout" from="EnemyPathTimer" to="." method="_on_enemy_path_timer_timeout"]

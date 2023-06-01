@@ -11,12 +11,15 @@ signal powerup_spawned(powerup_instance)
 var myArray := [1, 1]
 var dead := false
 
+func _ready() -> void:
+	move_speed = randi_range(200, 500)
+
 func _physics_process(delta: float) -> void:
 	global_position.y += move_speed * delta
 
-func take_damage() -> void:
+func take_damage(damage) -> void:
 	show_damaged_fx()
-	health -= 1
+	health -= damage
 	if dead:
 		return
 	

@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var speed := 1000
+@export var damage := 2
 
 var direction = Vector2.UP
 
@@ -14,5 +15,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
-		area.take_damage()
+		area.take_damage(damage)
 		queue_free()
