@@ -1,14 +1,16 @@
 extends Node2D
 
+var game_over_screen = preload("res://gui/game_over_screen.tscn")
+
 @onready var hud: Control = $UI/HUD
 @onready var ui: CanvasLayer = $UI
 @onready var enemy_hit_sound: AudioStreamPlayer = $EnemyHitSound
 @onready var player_death_sound: AudioStreamPlayer = $PlayerDeathSound
 @onready var player: Player = $Player 
-
-var game_over_screen = preload("res://scenes/game_over_screen.tscn")
+@onready var enemy_spawner = $EnemySpawner
 
 func _ready() -> void:
+	enemy_spawner.connect("enemy_spawned", _on_enemy_spawner_enemy_spawned)
 	hud.set_score_label(GameData.score)
 	hud.set_lives_label(GameData.player_lives)
 	hud.set_health_value(100)
@@ -49,9 +51,10 @@ func _on_enemy_spawner_enemy_spawned(enemy_instance) -> void:
 	enemy_instance.connect("enemy_died", _on_enemy_died)
 	add_child(enemy_instance)
 
-func _on_enemy_spawner_path_enemy_spawned(path_enemy_instance) -> void:
-#	path_enemy_instance.connect("enemy_died", _on_enemy_died)
-	add_child(path_enemy_instance)
+func _on_enemy_spawner_path_enemy_spawned(_path_enemy_instance) -> void:
+	pass
+	#path_enemy_instance.connect("enemy_died", _on_enemy_died)
+	#add_child(path_enemy_instance)
 
 func _on_enemy_died() -> void:
 	GameData.score += randi_range(10, 25)

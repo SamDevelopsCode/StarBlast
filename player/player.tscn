@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=14 format=3 uid="uid://i3iwal2n5my"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_movka"]
-[ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/Main Ship - Base - Full health.png" id="2_82vat"]
+[ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/art/Main Ship - Base - Full health.png" id="2_82vat"]
 [ext_resource type="AudioStream" uid="uid://nlyop6gwuta3" path="res://assets/audio/sfx_laser2.wav" id="3_w60rq"]
 [ext_resource type="PackedScene" uid="uid://bdial7eisluqr" path="res://weapons/laser/lasers.tscn" id="4_u6hlg"]
 

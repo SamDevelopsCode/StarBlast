@@ -3,12 +3,14 @@ extends Node2D
 signal enemy_spawned(enemy_instance)
 signal path_enemy_spawned(path_enemy_instance)
 
+var enemy_scene := preload("res://enemy/enemy.tscn")
+var path_enemy_scene := preload("res://enemy/path_enemy.tscn")
+
 @onready var timer: Timer = $Timer
 @onready var enemy_path_timer: Timer = $EnemyPathTimer
 @onready var spawn_positions: Node2D = $SpawnPositions
 
-var enemy_scene := preload("res://scenes/enemy.tscn")
-var path_enemy_scene := preload("res://scenes/path_enemy.tscn")
+#@export var spawns: Array[Resource] = []
 
 func _ready() -> void:
 	timer.connect("timeout", spawn_enemy)

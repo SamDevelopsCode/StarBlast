@@ -5,12 +5,11 @@ signal powerup_spawned(powerup_instance)
 
 @export var move_speed := 100
 @export var health := 100
+@export var powerup_scene = preload("res://powerups/powerup.tscn")
+@export var explosion_particle_fx = preload("res://enemy/explosion.tscn")
 
 var myArray := [1, 1]
 var dead := false
-
-var powerup_scene = preload("res://scenes/powerup.tscn")
-var explosion_particle_fx = preload("res://scenes/explosion.tscn")
 
 func _physics_process(delta: float) -> void:
 	global_position.y += move_speed * delta

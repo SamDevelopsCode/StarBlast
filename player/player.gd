@@ -9,8 +9,11 @@ signal damage_taken
 @export var fire_vibration_strong_magnitude := .5
 @export var fire_vibration_length := .5
 
+var laser_scene := preload("res://weapons/laser/laser.tscn")
 
-var laser_scene := preload("res://scenes/laser.tscn")
+var screen_size : Vector2
+var can_fire := true
+var is_alive := true
 
 @onready var laser_container: Node = $LaserContainer
 @onready var laser_1_pos = $Weapons/Lasers/Laser1Pos
@@ -22,16 +25,9 @@ var laser_scene := preload("res://scenes/laser.tscn")
 @onready var laser_7_pos = $Weapons/Lasers/Laser7Pos
 @onready var laser_8_pos = $Weapons/Lasers/Laser8Pos
 @onready var laser_9_pos = $Weapons/Lasers/Laser9Pos
-
-
 @onready var weapon_sound: AudioStreamPlayer = $WeaponSound
 @onready var engine_fx: GPUParticles2D = $EngineFX
 @onready var player_animations = $AnimationPlayer
-
-
-var screen_size : Vector2
-@export var can_fire := true
-var is_alive := true
 
 
 func _ready() -> void:

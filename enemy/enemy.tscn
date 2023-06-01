@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://cnvf0dbr2d7mx"]
 
-[ext_resource type="Texture2D" uid="uid://cwgduad6n7rvi" path="res://enemy/enemy_ship.png" id="1_s67hg"]
+[ext_resource type="Texture2D" uid="uid://cwgduad6n7rvi" path="res://enemy/art/enemy_ship.png" id="1_s67hg"]
 [ext_resource type="Script" path="res://enemy/enemy.gd" id="1_tlo2b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mqyko"]

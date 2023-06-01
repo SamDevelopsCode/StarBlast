@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://7em5tau0iip"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_f04ut"]
 [ext_resource type="PackedScene" path="res://gui/hud.tscn" id="2_b2t5w"]
 [ext_resource type="Shader" path="res://level_1.gdshader" id="3_c4w4i"]
-[ext_resource type="Texture2D" uid="uid://cg4uchl1qycak" path="res://levels/background.png" id="4_4irhj"]
-[ext_resource type="PackedScene" uid="uid://b81k1ttl1hf74" path="res://player/player.tscn" id="5_lrvxt"]
-[ext_resource type="PackedScene" path="res://enemy_spawner/enemy_spawner.tscn" id="6_ck48g"]
+[ext_resource type="Texture2D" uid="uid://cg4uchl1qycak" path="res://levels/art/background.png" id="4_nxr5c"]
+[ext_resource type="PackedScene" uid="uid://i3iwal2n5my" path="res://player/player.tscn" id="5_lrvxt"]
+[ext_resource type="PackedScene" uid="uid://dd1dmyugfhmyd" path="res://enemy_spawner/enemy_spawner.tscn" id="6_ck48g"]
 [ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://assets/audio/enemy_hit.wav" id="7_forhy"]
 [ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://assets/audio/player_death.wav" id="8_f2b3f"]
 
@@ -35,7 +35,7 @@ offset_left = -3040.0
 offset_top = -3812.0
 offset_right = 4168.0
 offset_bottom = 4081.0
-texture = ExtResource("4_4irhj")
+texture = ExtResource("4_nxr5c")
 stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("5_lrvxt")]
@@ -65,7 +65,4 @@ pitch_scale = 1.96
 stream = ExtResource("8_f2b3f")
 volume_db = -6.674
 
-[connection signal="damage_taken" from="Player" to="." method="_on_player_damage_taken"]
-[connection signal="enemy_spawned" from="EnemySpawner" to="." method="_on_enemy_spawner_enemy_spawned"]
-[connection signal="path_enemy_spawned" from="EnemySpawner" to="." method="_on_enemy_spawner_path_enemy_spawned"]
 [connection signal="area_entered" from="DeathZone" to="." method="_on_enemy_death_zone_area_entered"]

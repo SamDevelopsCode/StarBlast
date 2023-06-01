@@ -20,3 +20,4 @@ func get_random_direction() -> void:
 
 func _process(delta) -> void:
 	translate(direction.normalized() * move_speed * delta) #randomize direction, speed and clean up
+ 
