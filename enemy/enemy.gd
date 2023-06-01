@@ -57,6 +57,6 @@ func should_drop_powerup() -> bool:
 		return false
 
 func show_damaged_fx() -> void:
-	$Sprite2D.set_self_modulate(Color(1, 0, 0, .6))
+	$Sprite2D.set_self_modulate(Color(1, 1, 1, 0))
 	await get_tree().create_timer(.05).timeout
 	$Sprite2D.set_self_modulate(Color(1, 1, 1, 1))

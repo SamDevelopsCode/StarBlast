@@ -1,15 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnvf0dbr2d7mx"]
+[gd_scene load_steps=4 format=3 uid="uid://cnvf0dbr2d7mx"]
 
-[ext_resource type="Texture2D" uid="uid://cwgduad6n7rvi" path="res://enemy/art/enemy_ship.png" id="1_s67hg"]
 [ext_resource type="Script" path="res://enemy/enemy.gd" id="1_tlo2b"]
+[ext_resource type="Texture2D" uid="uid://bvfq575k0wodl" path="res://assets_third_party/PNGs/Nautolan Ship - Scout - Base.png" id="2_4irde"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mqyko"]
-radius = 16.0
-height = 76.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h4kj3"]
-radius = 4.96012
-height = 22.6247
+[sub_resource type="CircleShape2D" id="CircleShape2D_hi10i"]
+radius = 36.0139
 
 [node name="Enemy" type="Area2D" groups=["enemy"]]
 collision_layer = 2
@@ -20,20 +15,11 @@ health = 25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_s67hg")
+scale = Vector2(3, 3)
+texture = ExtResource("2_4irde")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_mqyko")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(23, -7)
-rotation = 0.691873
-shape = SubResource("CapsuleShape2D_h4kj3")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(-22, -7)
-rotation = 2.34069
-shape = SubResource("CapsuleShape2D_h4kj3")
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_hi10i")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

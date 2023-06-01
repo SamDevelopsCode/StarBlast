@@ -1,20 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://7em5tau0iip"]
+[gd_scene load_steps=13 format=3 uid="uid://7em5tau0iip"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_f04ut"]
 [ext_resource type="PackedScene" path="res://gui/hud.tscn" id="2_b2t5w"]
-[ext_resource type="Shader" path="res://level_1.gdshader" id="3_c4w4i"]
-[ext_resource type="Texture2D" uid="uid://cg4uchl1qycak" path="res://levels/art/background.png" id="4_nxr5c"]
+[ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_vtwtw"]
+[ext_resource type="Texture2D" uid="uid://hhj2nhxk2beo" path="res://Space Background(1).png" id="4_rc5x3"]
 [ext_resource type="PackedScene" uid="uid://i3iwal2n5my" path="res://player/player.tscn" id="5_lrvxt"]
 [ext_resource type="PackedScene" uid="uid://dd1dmyugfhmyd" path="res://enemy_spawner/enemy_spawner.tscn" id="6_ck48g"]
 [ext_resource type="PackedScene" uid="uid://cnvf0dbr2d7mx" path="res://enemy/enemy.tscn" id="7_62ppm"]
 [ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://assets/audio/enemy_hit.wav" id="7_forhy"]
 [ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://assets/audio/player_death.wav" id="8_f2b3f"]
 [ext_resource type="Script" path="res://enemy_spawner/spawn_info.gd" id="8_ts8q6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekptl"]
-shader = ExtResource("3_c4w4i")
-shader_parameter/direction = Vector2(0, -15)
-shader_parameter/speed_scale = 0.01
 
 [sub_resource type="Resource" id="Resource_5ewix"]
 resource_local_to_scene = true
@@ -40,14 +35,16 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Background" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_ekptl")
-offset_left = -3040.0
-offset_top = -3812.0
-offset_right = 4168.0
-offset_bottom = 4081.0
-texture = ExtResource("4_nxr5c")
-stretch_mode = 1
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(640, 350)
+transform = Transform2D(1, 0, 0, 1, 640, 350)
+script = ExtResource("3_vtwtw")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 720)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("4_rc5x3")
 
 [node name="Player" parent="." instance=ExtResource("5_lrvxt")]
 position = Vector2(606, 1015)
