@@ -7,7 +7,7 @@
 radius = 295.0
 height = 912.0
 
-[node name="DredgeDreadnought" type="Area2D" groups=["enemy"]]
+[node name="DredgeBoss" type="Area2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_qbltn")

@@ -1,4 +1,6 @@
-extends Enemy
+extends BaseEnemy
+
+
 
 func _ready() -> void:
 	pass # Replace with function body.

@@ -35,12 +35,12 @@ func on_timer_timeout():
 	
 func spawn_enemy(new_enemy) -> void:
 	var enemy_spawn = new_enemy.instantiate()
-	if enemy_spawn.name ==  "DredgeDreadnought":
-		var enemy_spawn_position = spawn_position_array[11]
+	if enemy_spawn.name !=  "DredgeBoss":
+		var enemy_spawn_position = spawn_position_array.pick_random()
 		enemy_spawn.global_position = enemy_spawn_position.global_position
 		emit_signal("enemy_spawned", enemy_spawn)
 	else:
-		var enemy_spawn_position = spawn_position_array.pick_random()
+		var enemy_spawn_position = spawn_position_array[11]
 		enemy_spawn.global_position = enemy_spawn_position.global_position
 		emit_signal("enemy_spawned", enemy_spawn)
 

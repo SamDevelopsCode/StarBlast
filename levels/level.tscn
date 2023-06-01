@@ -91,7 +91,7 @@ enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_hyiob"]
 script = ExtResource("8_ts8q6")
-time_start = 75
+time_start = 1
 time_end = 76
 enemy = ExtResource("11_wunnq")
 enemy_number = 1

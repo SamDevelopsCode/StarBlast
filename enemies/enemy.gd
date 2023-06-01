@@ -1,29 +1,10 @@
-class_name Enemy
-extends Area2D
+extends BaseEnemy
 
-signal enemy_died
 signal powerup_spawned(powerup_instance)
 
-@export var move_speed := 100
-@export var health := 100
 @export var powerup_scene = preload("res://powerups/powerup.tscn")
-@export var explosion_particle_fx = preload("res://enemies/explosion.tscn")
 
 var myArray := [1, 2, 3]
-var dead := false
-
-func _physics_process(delta: float) -> void:
-	global_position.y += move_speed * delta
-
-func take_damage(damage) -> void:
-	show_damaged_fx()
-	health -= damage
-	if dead:
-		return
-	
-	if health <= 0:
-		dead = true
-		die()
 
 func die() -> void:
 	var explosion_instance = explosion_particle_fx.instantiate() as GPUParticles2D
@@ -38,10 +19,6 @@ func die() -> void:
 	
 	queue_free()
 
-func _on_body_entered(body: Node2D) -> void:
-	body.take_damage()
-	die()
-
 func spawn_powerup() -> void:
 	var powerup_instance = powerup_scene.instantiate() as Area2D
 	powerup_instance.global_position = global_position
@@ -53,8 +30,3 @@ func should_drop_powerup() -> bool:
 		return true
 	else: 
 		return false
-
-func show_damaged_fx() -> void:
-	$Sprite2D.set_self_modulate(Color(1, 0.03921568766236, 0.29411765933037, 0.65098041296005))
-	await get_tree().create_timer(.05).timeout
-	$Sprite2D.set_self_modulate(Color(1, 1, 1, 1))
