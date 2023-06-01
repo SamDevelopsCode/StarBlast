@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bhhu6wnyigphi"
-path="res://.godot/imported/Kenney Blocks.ttf-0dfaffe2fefda88ad4794f6b60b99f7b.fontdata"
+uid="uid://b6ol51f5b1c2j"
+path="res://.godot/imported/SPACEBOY.TTF-69b7e8b443e7ed28751c4a1ec1985a3e.fontdata"
 
 [deps]
 
-source_file="res://assets/font/Kenney Blocks.ttf"
-dest_files=["res://.godot/imported/Kenney Blocks.ttf-0dfaffe2fefda88ad4794f6b60b99f7b.fontdata"]
+source_file="res://assets_third_party/font/SPACEBOY.TTF"
+dest_files=["res://.godot/imported/SPACEBOY.TTF-69b7e8b443e7ed28751c4a1ec1985a3e.fontdata"]
 
 [params]
 

@@ -9,7 +9,7 @@ signal damage_taken
 @export var fire_vibration_strong_magnitude := .5
 @export var fire_vibration_length := .5
 
-var laser_scene := preload("res://weapons/laser/laser.tscn")
+var laser_scene = preload("res://weapons/laser/laser.tscn")
 
 var screen_size : Vector2
 var can_fire := true

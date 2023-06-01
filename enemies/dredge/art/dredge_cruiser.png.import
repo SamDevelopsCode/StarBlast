@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmbhwqh0phe2c"
-path="res://.godot/imported/Nautolan Ship - Frigate - Base.png-7e24ed8e85c707cb564c54ff71085194.ctex"
+uid="uid://b1ukx73u4xymd"
+path="res://.godot/imported/dredge_cruiser.png-4787297e0f0cd5ce8ecc1dbaa2170cce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Nautolan Ship - Frigate - Base.png"
-dest_files=["res://.godot/imported/Nautolan Ship - Frigate - Base.png-7e24ed8e85c707cb564c54ff71085194.ctex"]
+source_file="res://enemies/dredge/art/dredge_cruiser.png"
+dest_files=["res://.godot/imported/dredge_cruiser.png-4787297e0f0cd5ce8ecc1dbaa2170cce.ctex"]
 
 [params]
 

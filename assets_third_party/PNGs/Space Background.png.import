@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsgpmm76rx2ni"
-path="res://.godot/imported/Nautolan Ship - Bomber - Base.png-d2320a0a31dfad2de492394bc2716b58.ctex"
+uid="uid://b1ofuk6jmm4kx"
+path="res://.godot/imported/Space Background.png-a6ef3168b55ec34f573f0040a179e808.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Nautolan Ship - Bomber - Base.png"
-dest_files=["res://.godot/imported/Nautolan Ship - Bomber - Base.png-d2320a0a31dfad2de492394bc2716b58.ctex"]
+source_file="res://assets_third_party/PNGs/Space Background.png"
+dest_files=["res://.godot/imported/Space Background.png-a6ef3168b55ec34f573f0040a179e808.ctex"]
 
 [params]
 

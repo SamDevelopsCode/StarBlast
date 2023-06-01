@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvfq575k0wodl"
-path="res://.godot/imported/Nautolan Ship - Scout - Base.png-27ba66edd47a4b3dd05e08e0aa32305f.ctex"
+uid="uid://bsgpmm76rx2ni"
+path="res://.godot/imported/dredge_bomber.png-c427a9ade1e66d08488d75dc52d76715.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Nautolan Ship - Scout - Base.png"
-dest_files=["res://.godot/imported/Nautolan Ship - Scout - Base.png-27ba66edd47a4b3dd05e08e0aa32305f.ctex"]
+source_file="res://enemies/dredge/art/dredge_bomber.png"
+dest_files=["res://.godot/imported/dredge_bomber.png-c427a9ade1e66d08488d75dc52d76715.ctex"]
 
 [params]
 

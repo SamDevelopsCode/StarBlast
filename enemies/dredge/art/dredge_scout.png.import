@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1ny4a8p5cup8"
-path="res://.godot/imported/Nautolan Ship - Dreadnought - Base.png-f852c3f42196069d919825e53bddf40c.ctex"
+uid="uid://bvfq575k0wodl"
+path="res://.godot/imported/dredge_scout.png-8d9151259cab07a6d957b89a81562ba7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Nautolan Ship - Dreadnought - Base.png"
-dest_files=["res://.godot/imported/Nautolan Ship - Dreadnought - Base.png-f852c3f42196069d919825e53bddf40c.ctex"]
+source_file="res://enemies/dredge/art/dredge_scout.png"
+dest_files=["res://.godot/imported/dredge_scout.png-8d9151259cab07a6d957b89a81562ba7.ctex"]
 
 [params]
 

@@ -1,23 +1,100 @@
-[gd_scene load_steps=13 format=3 uid="uid://7em5tau0iip"]
+[gd_scene load_steps=28 format=3 uid="uid://bit07gti0q6tk"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_f04ut"]
-[ext_resource type="PackedScene" path="res://gui/hud.tscn" id="2_b2t5w"]
+[ext_resource type="PackedScene" uid="uid://bf7fn1fd14bja" path="res://gui/hud.tscn" id="2_b2t5w"]
+[ext_resource type="Texture2D" uid="uid://b1ofuk6jmm4kx" path="res://assets_third_party/PNGs/Space Background.png" id="3_o77gt"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_vtwtw"]
-[ext_resource type="Texture2D" uid="uid://hhj2nhxk2beo" path="res://Space Background(1).png" id="4_rc5x3"]
-[ext_resource type="PackedScene" uid="uid://i3iwal2n5my" path="res://player/player.tscn" id="5_lrvxt"]
-[ext_resource type="PackedScene" uid="uid://dd1dmyugfhmyd" path="res://enemy_spawner/enemy_spawner.tscn" id="6_ck48g"]
-[ext_resource type="PackedScene" uid="uid://cnvf0dbr2d7mx" path="res://enemy/enemy.tscn" id="7_62ppm"]
-[ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://assets/audio/enemy_hit.wav" id="7_forhy"]
-[ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://assets/audio/player_death.wav" id="8_f2b3f"]
+[ext_resource type="PackedScene" uid="uid://2ur48n76tlub" path="res://player/player.tscn" id="5_lrvxt"]
+[ext_resource type="PackedScene" uid="uid://cs6niqmx4i272" path="res://enemy_spawner/enemy_spawner.tscn" id="6_ck48g"]
+[ext_resource type="PackedScene" uid="uid://bpybcb3vesiyb" path="res://enemies/dredge/dredge_scout.tscn" id="7_1k073"]
+[ext_resource type="PackedScene" uid="uid://68xy7huef1p" path="res://enemies/dredge/dredge_warrior.tscn" id="8_2f7tt"]
 [ext_resource type="Script" path="res://enemy_spawner/spawn_info.gd" id="8_ts8q6"]
+[ext_resource type="PackedScene" uid="uid://cbejayu8rr6ic" path="res://enemies/dredge/dredge_bomber.tscn" id="9_e3fm4"]
+[ext_resource type="PackedScene" uid="uid://c7khsruaahnl" path="res://enemies/dredge/dredge_slicer.tscn" id="9_f874p"]
+[ext_resource type="PackedScene" uid="uid://b3xcwobx6exhd" path="res://enemies/dredge/dredge_cruiser.tscn" id="10_7r4hs"]
+[ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://assets_third_party/audio/enemy_hit.wav" id="10_qspk3"]
+[ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://assets_third_party/audio/player_death.wav" id="11_ddyq5"]
+[ext_resource type="PackedScene" uid="uid://o0b0xe6kqyut" path="res://enemies/dredge/dredge_dreadnought.tscn" id="11_wunnq"]
+[ext_resource type="AudioStream" uid="uid://qdsxwuekbhkf" path="res://assets_third_party/music_tracks/Crash Landing.mp3" id="16_6rsav"]
 
-[sub_resource type="Resource" id="Resource_5ewix"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_pdiym"]
 script = ExtResource("8_ts8q6")
 time_start = 0
-time_end = 10
-enemy = ExtResource("7_62ppm")
+time_end = 15
+enemy = ExtResource("7_1k073")
+enemy_number = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_0e2r8"]
+script = ExtResource("8_ts8q6")
+time_start = 14
+time_end = 30
+enemy = ExtResource("9_f874p")
 enemy_number = 2
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_424as"]
+script = ExtResource("8_ts8q6")
+time_start = 28
+time_end = 50
+enemy = ExtResource("8_2f7tt")
+enemy_number = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_d4pkq"]
+script = ExtResource("8_ts8q6")
+time_start = 30
+time_end = 68
+enemy = ExtResource("9_f874p")
+enemy_number = 1
+enemy_spawn_delay = 2
+
+[sub_resource type="Resource" id="Resource_ivlgx"]
+script = ExtResource("8_ts8q6")
+time_start = 25
+time_end = 59
+enemy = ExtResource("9_e3fm4")
+enemy_number = 1
+enemy_spawn_delay = 2
+
+[sub_resource type="Resource" id="Resource_tl1nd"]
+script = ExtResource("8_ts8q6")
+time_start = 25
+time_end = 70
+enemy = ExtResource("10_7r4hs")
+enemy_number = 1
+enemy_spawn_delay = 2
+
+[sub_resource type="Resource" id="Resource_7xeoo"]
+script = ExtResource("8_ts8q6")
+time_start = 50
+time_end = 70
+enemy = ExtResource("9_f874p")
+enemy_number = 2
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_bhjp5"]
+script = ExtResource("8_ts8q6")
+time_start = 49
+time_end = 71
+enemy = ExtResource("8_2f7tt")
+enemy_number = 3
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_a3lyp"]
+script = ExtResource("8_ts8q6")
+time_start = 50
+time_end = 72
+enemy = ExtResource("7_1k073")
+enemy_number = 0
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_hyiob"]
+script = ExtResource("8_ts8q6")
+time_start = 75
+time_end = 76
+enemy = ExtResource("11_wunnq")
+enemy_number = 1
 enemy_spawn_delay = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j8yl"]
@@ -36,15 +113,14 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2(640, 350)
-transform = Transform2D(1, 0, 0, 1, 640, 350)
 script = ExtResource("3_vtwtw")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(0, 720)
+motion_mirroring = Vector2(0, 2000)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("4_rc5x3")
+position = Vector2(640, 1000)
+texture = ExtResource("3_o77gt")
 
 [node name="Player" parent="." instance=ExtResource("5_lrvxt")]
 position = Vector2(606, 1015)
@@ -53,10 +129,10 @@ fire_vibration_strong_magnitude = 0.0
 fire_vibration_length = 0.1
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_ck48g")]
-spawns = Array[ExtResource("8_ts8q6")]([SubResource("Resource_5ewix")])
+spawns = Array[ExtResource("8_ts8q6")]([SubResource("Resource_pdiym"), SubResource("Resource_0e2r8"), SubResource("Resource_424as"), SubResource("Resource_d4pkq"), SubResource("Resource_ivlgx"), SubResource("Resource_tl1nd"), SubResource("Resource_7xeoo"), SubResource("Resource_bhjp5"), SubResource("Resource_a3lyp"), SubResource("Resource_hyiob")])
 
 [node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(613, 1496)
+position = Vector2(592, 2472)
 scale = Vector2(5, 5)
 collision_layer = 8
 collision_mask = 2
@@ -66,12 +142,17 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_4j8yl")
 
 [node name="EnemyHitSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_forhy")
+stream = ExtResource("10_qspk3")
 volume_db = -6.118
 pitch_scale = 1.96
 
 [node name="PlayerDeathSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_f2b3f")
+stream = ExtResource("11_ddyq5")
 volume_db = -6.674
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_6rsav")
+volume_db = -7.256
+autoplay = true
 
 [connection signal="area_entered" from="DeathZone" to="." method="_on_enemy_death_zone_area_entered"]

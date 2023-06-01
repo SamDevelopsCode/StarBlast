@@ -1,22 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnvf0dbr2d7mx"]
+[gd_scene load_steps=4 format=3 uid="uid://bpybcb3vesiyb"]
 
-[ext_resource type="Script" path="res://enemy/enemy.gd" id="1_tlo2b"]
-[ext_resource type="Texture2D" uid="uid://bvfq575k0wodl" path="res://assets_third_party/PNGs/Nautolan Ship - Scout - Base.png" id="2_4irde"]
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_rnwqm"]
+[ext_resource type="Texture2D" uid="uid://bvfq575k0wodl" path="res://enemies/dredge/art/dredge_scout.png" id="2_qhp86"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hi10i"]
 radius = 36.0139
 
-[node name="Enemy" type="Area2D" groups=["enemy"]]
+[node name="DredgeScout" type="Area2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 13
-script = ExtResource("1_tlo2b")
-move_speed = 300
-health = 25
+script = ExtResource("1_rnwqm")
+move_speed = 350
+health = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
 scale = Vector2(3, 3)
-texture = ExtResource("2_4irde")
+texture = ExtResource("2_qhp86")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

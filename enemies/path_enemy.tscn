@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://enemy/path_enemy.gd" id="1_vamdd"]
-[ext_resource type="PackedScene" path="res://enemy/enemy.tscn" id="2_mmrs6"]
+[ext_resource type="Script" path="res://enemies/path_enemy.gd" id="1_vamdd"]
+[ext_resource type="PackedScene" uid="uid://cfmlea2wsxum3" path="res://enemies/dredge/dredge_scout.tscn" id="2_mmrs6"]
 
 [sub_resource type="Curve2D" id="Curve2D_1mapn"]
 _data = {

@@ -11,6 +11,7 @@ var game_over_screen = preload("res://gui/game_over_screen.tscn")
 
 func _ready() -> void:
 	enemy_spawner.connect("enemy_spawned", _on_enemy_spawner_enemy_spawned)
+	player.connect("damage_taken", _on_player_damage_taken)
 	hud.set_score_label(GameData.score)
 	hud.set_lives_label(GameData.player_lives)
 	hud.set_health_value(100)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd1dmyugfhmyd"]
+[gd_scene load_steps=5 format=3 uid="uid://cs6niqmx4i272"]
 
 [ext_resource type="Script" path="res://enemy_spawner/enemy_spawner.gd" id="1_uwg1f"]
-[ext_resource type="PackedScene" uid="uid://cnvf0dbr2d7mx" path="res://enemy/enemy.tscn" id="2_nh0f2"]
+[ext_resource type="PackedScene" uid="uid://bpybcb3vesiyb" path="res://enemies/dredge/dredge_scout.tscn" id="2_nh0f2"]
 [ext_resource type="Script" path="res://enemy_spawner/spawn_info.gd" id="3_4ysun"]
 
 [sub_resource type="Resource" id="Resource_oist3"]
@@ -51,7 +51,7 @@ position = Vector2(400, -350)
 [node name="SpawnPos_11" type="Marker2D" parent="SpawnPositions"]
 position = Vector2(500, -350)
 
-[node name="SpawnPos_12" type="Marker2D" parent="SpawnPositions"]
+[node name="SpawnPos_Boss" type="Marker2D" parent="SpawnPositions"]
 position = Vector2(600, -350)
 
 [node name="SpawnPos_13" type="Marker2D" parent="SpawnPositions"]

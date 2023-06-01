@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://enemy/explosion.gd" id="1_6v7p0"]
+[ext_resource type="Script" path="res://enemies/explosion.gd" id="1_6v7p0"]
 
 [sub_resource type="Gradient" id="Gradient_j8lc8"]
 interpolation_mode = 2

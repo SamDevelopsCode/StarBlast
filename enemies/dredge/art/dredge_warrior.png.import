@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1ukx73u4xymd"
-path="res://.godot/imported/Nautolan Ship - Battlecruiser - Base.png-51cf49465bb18acdcfd6234e76684b53.ctex"
+uid="uid://cmbhwqh0phe2c"
+path="res://.godot/imported/dredge_warrior.png-629d784a345ac7adb6cb147690b4bf32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Nautolan Ship - Battlecruiser - Base.png"
-dest_files=["res://.godot/imported/Nautolan Ship - Battlecruiser - Base.png-51cf49465bb18acdcfd6234e76684b53.ctex"]
+source_file="res://enemies/dredge/art/dredge_warrior.png"
+dest_files=["res://.godot/imported/dredge_warrior.png-629d784a345ac7adb6cb147690b4bf32.ctex"]
 
 [params]
 

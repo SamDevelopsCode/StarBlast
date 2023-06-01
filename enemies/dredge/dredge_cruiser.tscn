@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3xcwobx6exhd"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_e25x6"]
+[ext_resource type="Texture2D" uid="uid://b1ukx73u4xymd" path="res://enemies/dredge/art/dredge_cruiser.png" id="2_8h6wd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2so0d"]
+radius = 23.8908
+height = 124.335
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cyfas"]
+radius = 22.9703
+height = 104.403
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0f83u"]
+radius = 24.4655
+height = 100.84
+
+[node name="DredgeCruiser" type="Area2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_e25x6")
+move_speed = 200
+health = 150
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(3, 3)
+texture = ExtResource("2_8h6wd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 103)
+rotation = 1.55081
+shape = SubResource("CapsuleShape2D_2so0d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-46, 37)
+rotation = 2.20701
+shape = SubResource("CapsuleShape2D_cyfas")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(48, 34)
+rotation = 0.871752
+shape = SubResource("CapsuleShape2D_0f83u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
