@@ -52,7 +52,7 @@ position = Vector2(400, -350)
 position = Vector2(500, -350)
 
 [node name="SpawnPos_Boss" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(600, -350)
+position = Vector2(600, -534)
 
 [node name="SpawnPos_13" type="Marker2D" parent="SpawnPositions"]
 position = Vector2(700, -350)

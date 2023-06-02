@@ -9,8 +9,7 @@ signal enemy_died
 
 var dead := false
 
-func _physics_process(delta: float) -> void:
-	global_position.y += move_speed * delta
+
 
 func take_damage(damage) -> void:
 	show_damaged_fx()
@@ -19,8 +18,7 @@ func take_damage(damage) -> void:
 		return
 	if health <= 0:
 		dead = true
-		die()
-		
+		die()		
 
 func die() -> void:
 	var explosion_instance = explosion_particle_fx.instantiate() as GPUParticles2D
@@ -35,6 +33,6 @@ func _on_body_entered(body: Node2D) -> void:
 	die()
 
 func show_damaged_fx() -> void:
-	$Sprite2D.set_self_modulate(Color(1, 0.03921568766236, 0.29411765933037, 0.65098041296005))
+	$Sprite2D.set_self_modulate(Color(1, 0.03921568766236, 0.29411765933037, 0.9))
 	await get_tree().create_timer(.05).timeout
 	$Sprite2D.set_self_modulate(Color(1, 1, 1, 1))

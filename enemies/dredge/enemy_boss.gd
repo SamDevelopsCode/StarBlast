@@ -1,10 +1,33 @@
 extends BaseEnemy
 
+@export var enemy_bullet_scene = preload("res://enemy_bullet.tscn")
 
+@onready var anim_player = $AnimationPlayer
+@onready var fire_rate_timer = $FireRateTimer
+@onready var gun_turret: Node2D = $GunTurret
+@onready var bullet_direction: Marker2D = $GunTurret/BulletDirection
+
+
+
+var boss_should_shoot := false
 
 func _ready() -> void:
-	pass # Replace with function body.
+	anim_player.play("fly_on_screen")
 
+func _physics_process(_delta: float) -> void:
+	if boss_should_shoot:
+		shoot()
 
-func _process(delta: float) -> void:
-	pass
+func shoot():
+	var enemy_bullet = enemy_bullet_scene.instantiate() as Node2D
+	enemy_bullet.direction = bullet_direction.global_position - gun_turret.global_position
+	enemy_bullet.global_position = gun_turret.global_position
+	get_parent().add_child(enemy_bullet)
+	
+
+func set_boss_should_shoot(should_shoot: bool):
+	boss_should_shoot = should_shoot
+	
+func play_side_to_side_anim():
+	anim_player.play("side_to_side")
+	

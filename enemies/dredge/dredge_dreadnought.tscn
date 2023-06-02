@@ -1,11 +1,124 @@
-[gd_scene load_steps=4 format=3 uid="uid://o0b0xe6kqyut"]
+[gd_scene load_steps=10 format=3 uid="uid://o0b0xe6kqyut"]
 
 [ext_resource type="Script" path="res://enemies/dredge/enemy_boss.gd" id="1_qbltn"]
 [ext_resource type="Texture2D" uid="uid://c1ny4a8p5cup8" path="res://enemies/dredge/art/dredge_dreadnought.png" id="2_5d8dl"]
+[ext_resource type="Texture2D" uid="uid://c8dhjwm48nee5" path="res://icon.svg" id="3_1m4x3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onf13"]
 radius = 295.0
 height = 912.0
+
+[sub_resource type="Animation" id="Animation_2kns1"]
+resource_name = "fly_on_screen"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(600, -500), Vector2(600, 600)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"set_boss_should_shoot"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_side_to_side_anim"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_pvjed"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GunTurret:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xsvxh"]
+resource_name = "side_to_side"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(600, 600), Vector2(400, 676), Vector2(896, 740), Vector2(600, 600)]
+}
+
+[sub_resource type="Animation" id="Animation_lvmhm"]
+resource_name = "rotate_gun"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GunTurret:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f6xu7"]
+_data = {
+"RESET": SubResource("Animation_pvjed"),
+"fly_on_screen": SubResource("Animation_2kns1"),
+"rotate_gun": SubResource("Animation_lvmhm"),
+"side_to_side": SubResource("Animation_xsvxh")
+}
 
 [node name="DredgeBoss" type="Area2D" groups=["enemy"]]
 collision_layer = 2
@@ -18,7 +131,30 @@ scale = Vector2(10, 10)
 texture = ExtResource("2_5d8dl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -5)
 shape = SubResource("CapsuleShape2D_onf13")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "rotate_gun"
+libraries = {
+"": SubResource("AnimationLibrary_f6xu7")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+autoplay = "rotate_gun"
+libraries = {
+"": SubResource("AnimationLibrary_f6xu7")
+}
+
+[node name="GunTurret" type="Node2D" parent="."]
+
+[node name="BulletDirection" type="Marker2D" parent="GunTurret"]
+position = Vector2(0, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="GunTurret/BulletDirection"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_1m4x3")
+
+[node name="FireRateTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -6,6 +6,9 @@ signal powerup_spawned(powerup_instance)
 
 var myArray := [1, 2, 3]
 
+func _physics_process(delta: float) -> void:
+	global_position.y += move_speed * delta
+
 func die() -> void:
 	var explosion_instance = explosion_particle_fx.instantiate() as GPUParticles2D
 	explosion_instance.global_position = global_position
