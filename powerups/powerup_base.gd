@@ -1,3 +1,4 @@
+class_name PowerupBase
 extends Area2D
 
 @export var move_speed := 200
@@ -12,7 +13,6 @@ func _ready() -> void:
 
 func _on_body_entered(body) -> void:
 	if body is Player:
-		body.increase_fire_type()
 		queue_free()
 
 func get_random_direction() -> void:
@@ -20,4 +20,4 @@ func get_random_direction() -> void:
 
 func _process(delta) -> void:
 	translate(direction.normalized() * move_speed * delta) #randomize direction, speed and clean up
- 
+

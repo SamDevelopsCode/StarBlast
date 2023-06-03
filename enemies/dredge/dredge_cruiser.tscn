@@ -4,16 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://b1ukx73u4xymd" path="res://enemies/dredge/art/dredge_cruiser.png" id="2_8h6wd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2so0d"]
-radius = 23.8908
-height = 124.335
+radius = 60.9849
+height = 218.076
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cyfas"]
-radius = 22.9703
-height = 104.403
+[sub_resource type="CircleShape2D" id="CircleShape2D_wb0nd"]
+radius = 17.4929
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0f83u"]
-radius = 24.4655
-height = 100.84
+[sub_resource type="CircleShape2D" id="CircleShape2D_xjg77"]
+radius = 18.1108
 
 [node name="DredgeCruiser" type="Area2D" groups=["enemy"]]
 collision_layer = 2
@@ -28,18 +26,18 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_8h6wd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 103)
-rotation = 1.55081
+position = Vector2(0, 25)
+rotation = -0.0112671
 shape = SubResource("CapsuleShape2D_2so0d")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-46, 37)
+position = Vector2(-78, 18)
 rotation = 2.20701
-shape = SubResource("CapsuleShape2D_cyfas")
+shape = SubResource("CircleShape2D_wb0nd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(48, 34)
-rotation = 0.871752
-shape = SubResource("CapsuleShape2D_0f83u")
+position = Vector2(79, 18)
+rotation = 1.56068
+shape = SubResource("CircleShape2D_xjg77")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

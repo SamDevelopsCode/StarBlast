@@ -47,7 +47,7 @@ func _on_player_damage_taken() -> void:
 				game_over_screen_instance.set_score_label(GameData.score)
 				ui.add_child(game_over_screen_instance)
 
-func _on_enemy_spawner_enemy_spawned(enemy_instance) -> void:
+func _on_enemy_spawner_enemy_spawned(enemy_instance) -> void:	
 	if enemy_instance.name != "DredgeBoss":
 		enemy_instance.connect("powerup_spawned", _on_powerup_spawned)
 		enemy_instance.connect("enemy_died", _on_enemy_died)

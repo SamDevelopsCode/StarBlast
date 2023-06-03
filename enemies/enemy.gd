@@ -2,9 +2,12 @@ extends BaseEnemy
 
 signal powerup_spawned(powerup_instance)
 
-@export var powerup_scene = preload("res://powerups/powerup.tscn")
+@export var powerup_laser = preload("res://powerups/powerup_laser.tscn")
+@export var powerup_speed = preload("res://powerups/powerup_speed.tscn")
 
-var myArray := [1, 2, 3]
+@export var powerups = [powerup_laser, powerup_speed]
+
+var myArray := [1, 1]
 
 func _physics_process(delta: float) -> void:
 	global_position.y += move_speed * delta
@@ -23,7 +26,7 @@ func die() -> void:
 	queue_free()
 
 func spawn_powerup() -> void:
-	var powerup_instance = powerup_scene.instantiate() as Area2D
+	var powerup_instance = powerups.pick_random().instantiate() as Area2D
 	powerup_instance.global_position = global_position
 	emit_signal("powerup_spawned", powerup_instance)
 

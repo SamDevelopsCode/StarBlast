@@ -1,9 +1,9 @@
-extends CharacterBody2D
 class_name Player
+extends CharacterBody2D
 
 signal damage_taken
 
-@export var move_speed := 100
+@export var move_speed := 400
 @export var fire_type := 1
 @export var fire_vibration_weak_magnitude := .5
 @export var fire_vibration_strong_magnitude := .5
@@ -14,6 +14,7 @@ var laser_scene = preload("res://weapons/laser/laser.tscn")
 var screen_size : Vector2
 var can_fire := true
 var is_alive := true
+
 
 @onready var laser_container: Node = $LaserContainer
 @onready var laser_1_pos = $Weapons/Lasers/Laser1Pos
@@ -58,6 +59,17 @@ func move_player():
 
 
 func shoot() -> void:
+	match GameData.weapon_type:
+		GameData.WeaponType.LASER:
+			fire_lasers()
+		GameData.WeaponType.BEAM:
+			fire_beam()
+
+
+
+
+
+func fire_lasers():
 	can_fire = false
 	$FireRateTimer.start()
 	weapon_sound.play()
@@ -87,17 +99,8 @@ func shoot() -> void:
 			add_laser_projectile(laser_8_pos)
 			add_laser_projectile(laser_9_pos)
 
-
-func take_damage() -> void:
-	emit_signal("damage_taken")
-
-
-func add_vibration() -> void:
-	Input.start_joy_vibration(0,
-		fire_vibration_weak_magnitude,
-		fire_vibration_strong_magnitude,
-		fire_vibration_length)
-
+func fire_beam():
+	pass
 
 func add_laser_projectile(laser_identifier) -> void:
 	var laser_instance = laser_scene.instantiate() as Area2D
@@ -106,14 +109,29 @@ func add_laser_projectile(laser_identifier) -> void:
 	laser_container.add_child(laser_instance)
 
 func increase_fire_type() -> void:
-	fire_type += 1	
+	fire_type += 1
 	if fire_type > 4:
 		fire_type = 4
+		GameData.increase_score(750)
+				
 
+func increase_speed():
+	move_speed += 100
+	if move_speed >= 800:
+		move_speed = 800
+		GameData.increase_score(750)
 
 func _on_fire_rate_timer_timeout() -> void:
 	can_fire = true
 
-
 func play_out_of_health_anim() -> void:
 	player_animations.play("out_of_health")
+
+func add_vibration() -> void:
+	Input.start_joy_vibration(0,
+		fire_vibration_weak_magnitude,
+		fire_vibration_strong_magnitude,
+		fire_vibration_length)
+		
+func take_damage() -> void:
+	emit_signal("damage_taken")

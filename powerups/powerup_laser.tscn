@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbelo3trnm45k"]
+
+[ext_resource type="Script" path="res://powerups/powerup_laser.gd" id="1_ywfew"]
+[ext_resource type="Texture2D" uid="uid://c8dhjwm48nee5" path="res://icon.svg" id="2_laqqg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hmej"]
+size = Vector2(30, 30)
+
+[node name="PowerupLaser" type="Area2D"]
+script = ExtResource("1_ywfew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8hmej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(100, 100, 0, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_laqqg")
+
+[node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
