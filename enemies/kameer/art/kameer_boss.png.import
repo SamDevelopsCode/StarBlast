@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1vi7dp6mgn5d"
-path="res://.godot/imported/Nairan - Scout - Base.png-1b764cff2f4379201f622ac0e5a203f0.ctex"
+uid="uid://dvy74qsc11iee"
+path="res://.godot/imported/kameer_boss.png-168c0ad74602b46178c21118a6b0dd3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Nairan - Scout - Base.png"
-dest_files=["res://.godot/imported/Nairan - Scout - Base.png-1b764cff2f4379201f622ac0e5a203f0.ctex"]
+source_file="res://enemies/kameer/art/kameer_boss.png"
+dest_files=["res://.godot/imported/kameer_boss.png-168c0ad74602b46178c21118a6b0dd3a.ctex"]
 
 [params]
 

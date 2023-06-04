@@ -1,20 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs6niqmx4i272"]
+[gd_scene load_steps=2 format=3 uid="uid://cs6niqmx4i272"]
 
 [ext_resource type="Script" path="res://enemy_spawner/enemy_spawner.gd" id="1_uwg1f"]
-[ext_resource type="PackedScene" uid="uid://bpybcb3vesiyb" path="res://enemies/dredge/dredge_scout.tscn" id="2_nh0f2"]
-[ext_resource type="Script" path="res://enemy_spawner/spawn_info.gd" id="3_4ysun"]
-
-[sub_resource type="Resource" id="Resource_oist3"]
-script = ExtResource("3_4ysun")
-time_start = 0
-time_end = 10
-enemy = ExtResource("2_nh0f2")
-enemy_number = 1
-enemy_spawn_delay = 1
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_uwg1f")
-spawns = Array[ExtResource("3_4ysun")]([SubResource("Resource_oist3")])
 
 [node name="SpawnPositions" type="Node2D" parent="."]
 

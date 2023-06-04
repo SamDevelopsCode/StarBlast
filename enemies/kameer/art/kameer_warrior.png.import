@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qhg8tw7dchio"
-path="res://.godot/imported/Nairan - Battlecruiser - Base.png-c1aee28521d81321b3ff8032d6367834.ctex"
+uid="uid://bdwj2xhx32gt1"
+path="res://.godot/imported/kameer_warrior.png-ec7e12e6d6d7107d80a59dc7728fa8a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Nairan - Battlecruiser - Base.png"
-dest_files=["res://.godot/imported/Nairan - Battlecruiser - Base.png-c1aee28521d81321b3ff8032d6367834.ctex"]
+source_file="res://enemies/kameer/art/kameer_warrior.png"
+dest_files=["res://.godot/imported/kameer_warrior.png-ec7e12e6d6d7107d80a59dc7728fa8a3.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@ extends Area2D
 @export var speed := 1000
 @export var damage := 1
 
-var direction = Vector2.UP
+var direction
 
 @onready var visible_notifier := $VisibleNotifier2D
 

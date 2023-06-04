@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://rtkr86nre33u"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_johge"]
+[ext_resource type="Texture2D" uid="uid://bdwj2xhx32gt1" path="res://enemies/kameer/art/kameer_warrior.png" id="2_w7m6d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtdkg"]
+radius = 36.921
+height = 90.1762
+
+[node name="KameerWarrior" type="Area2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_johge")
+powerup_laser = null
+powerup_speed = null
+powerup_fire_rate = null
+move_speed = 350
+health = 10
+explosion_particle_fx = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(3, 3)
+texture = ExtResource("2_w7m6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+rotation = 1.61448
+shape = SubResource("CapsuleShape2D_xtdkg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

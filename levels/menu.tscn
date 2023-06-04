@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8d3cmtvcjtur"]
+
+[ext_resource type="Script" path="res://levels/main_menu.gd" id="1_m7lju"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7lju")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -33.0001
+offset_right = 118.0
+offset_bottom = 33.0
+grow_vertical = 2
+scale = Vector2(3.39273, 3.78571)
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="StartButton2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Choose Stage
+"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit Game"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

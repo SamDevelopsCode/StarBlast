@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhyfgbmuwu1hx"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_naevg"]
+[ext_resource type="PackedScene" uid="uid://bf7fn1fd14bja" path="res://gui/hud.tscn" id="2_h2bpn"]
+[ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_tdtkp"]
+[ext_resource type="Texture2D" uid="uid://b1ofuk6jmm4kx" path="res://assets_third_party/PNGs/Space Background.png" id="4_h3qq3"]
+[ext_resource type="PackedScene" uid="uid://2ur48n76tlub" path="res://player/player.tscn" id="5_o1jgq"]
+[ext_resource type="PackedScene" uid="uid://cs6niqmx4i272" path="res://enemy_spawner/enemy_spawner.tscn" id="6_1sgbg"]
+[ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://assets_third_party/audio/enemy_hit.wav" id="14_rwb66"]
+[ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://assets_third_party/audio/player_death.wav" id="15_6bito"]
+[ext_resource type="AudioStream" uid="uid://qdsxwuekbhkf" path="res://assets_third_party/music_tracks/Crash Landing.mp3" id="16_7tgvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4j8yl"]
+size = Vector2(1518.8, 120.4)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_naevg")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("2_h2bpn")]
+
+[node name="FPS" type="Label" parent="UI/HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("3_tdtkp")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 2000)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(640, 1000)
+texture = ExtResource("4_h3qq3")
+
+[node name="Player" parent="." instance=ExtResource("5_o1jgq")]
+position = Vector2(640, 1731)
+fire_vibration_weak_magnitude = 1.0
+fire_vibration_strong_magnitude = 0.0
+fire_vibration_length = 0.1
+
+[node name="EnemySpawner" parent="." instance=ExtResource("6_1sgbg")]
+spawns = Array[Resource("res://enemy_spawner/spawn_info.gd")]([])
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(592, 2472)
+scale = Vector2(5, 5)
+collision_layer = 8
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("RectangleShape2D_4j8yl")
+
+[node name="EnemyHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_rwb66")
+volume_db = -6.118
+pitch_scale = 1.96
+
+[node name="PlayerDeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_6bito")
+volume_db = -6.674
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_7tgvd")
+autoplay = true
+
+[connection signal="area_entered" from="DeathZone" to="." method="_on_enemy_death_zone_area_entered"]

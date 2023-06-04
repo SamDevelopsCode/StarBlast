@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cmbhwqh0phe2c" path="res://enemies/dredge/art/dredge_warrior.png" id="2_42lht"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hohiy"]
-radius = 31.9976
-height = 127.995
+radius = 51.9746
+height = 120.004
 
 [node name="DredgeWarrior" type="Area2D" groups=["enemy"]]
 collision_layer = 2
@@ -20,7 +20,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_42lht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 22)
+position = Vector2(1, 11)
 rotation = 1.57309
 shape = SubResource("CapsuleShape2D_hohiy")
 

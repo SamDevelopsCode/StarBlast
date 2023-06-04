@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce2uxfvqa8xck"
-path="res://.godot/imported/Nairan - Support Ship - Base.png-1f1f01ad3b10812f2c8a09344b48aadb.ctex"
+uid="uid://dje41726mu8hd"
+path="res://.godot/imported/kameer_bomber.png-8c76c0979855e6c7563e33b921a95624.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Nairan - Support Ship - Base.png"
-dest_files=["res://.godot/imported/Nairan - Support Ship - Base.png-1f1f01ad3b10812f2c8a09344b48aadb.ctex"]
+source_file="res://enemies/kameer/art/kameer_bomber.png"
+dest_files=["res://.godot/imported/kameer_bomber.png-8c76c0979855e6c7563e33b921a95624.ctex"]
 
 [params]
 

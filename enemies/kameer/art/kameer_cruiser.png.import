@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dje41726mu8hd"
-path="res://.godot/imported/Nairan - Bomber - Base.png-412ffbdc56c21ae3934df9f79d48c351.ctex"
+uid="uid://qhg8tw7dchio"
+path="res://.godot/imported/kameer_cruiser.png-1933cbb828f331e28b85ffc546bd409c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Nairan - Bomber - Base.png"
-dest_files=["res://.godot/imported/Nairan - Bomber - Base.png-412ffbdc56c21ae3934df9f79d48c351.ctex"]
+source_file="res://enemies/kameer/art/kameer_cruiser.png"
+dest_files=["res://.godot/imported/kameer_cruiser.png-1933cbb828f331e28b85ffc546bd409c.ctex"]
 
 [params]
 

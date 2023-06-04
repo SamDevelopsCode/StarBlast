@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdial7eisluqr"]
 
 [node name="Lasers" type="Node2D"]
+position = Vector2(0, -20)
 
 [node name="Laser1Pos" type="Marker2D" parent="."]
 position = Vector2(0, -10)

@@ -29,6 +29,7 @@ var is_alive := true
 @onready var weapon_sound: AudioStreamPlayer = $WeaponSound
 @onready var engine_fx: GPUParticles2D = $EngineFX
 @onready var player_animations = $AnimationPlayer
+@onready var fire_rate_timer: Timer = $FireRateTimer
 
 
 func _ready() -> void:
@@ -66,12 +67,9 @@ func shoot() -> void:
 			fire_beam()
 
 
-
-
-
 func fire_lasers():
 	can_fire = false
-	$FireRateTimer.start()
+	fire_rate_timer.start()
 	weapon_sound.play()
 	add_vibration()
 	
@@ -113,7 +111,12 @@ func increase_fire_type() -> void:
 	if fire_type > 4:
 		fire_type = 4
 		GameData.increase_score(750)
-				
+
+func increase_fire_rate():
+	fire_rate_timer.wait_time -= .05
+	if fire_rate_timer.wait_time <= .1:
+		fire_rate_timer.wait_time = .05
+		GameData.increase_score(750)
 
 func increase_speed():
 	move_speed += 100
