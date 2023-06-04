@@ -67,6 +67,8 @@ func _on_boss_died(boss_name):
 		get_tree().change_scene_to_file("res://levels/level_2.tscn")
 	elif boss_name == "KameerBoss":
 		get_tree().change_scene_to_file("res://levels/level_3.tscn")
+	elif boss_name == "FlacianBoss":
+		print("Either end game or go to level 4")
 
 func _on_powerup_spawned(powerup_instance)  -> void:
 	call_deferred("add_child", powerup_instance)

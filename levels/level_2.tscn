@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7b00aspvt1d0"]
+[gd_scene load_steps=26 format=3 uid="uid://b8bp2fm70gtgi"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_naevg"]
 [ext_resource type="PackedScene" uid="uid://bf7fn1fd14bja" path="res://gui/hud.tscn" id="2_h2bpn"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bqduoi8nd4hve" path="res://enemies/kameer/kameer_bomber.tscn" id="14_8cfi6"]
 [ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://assets_third_party/audio/enemy_hit.wav" id="14_rwb66"]
 [ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://assets_third_party/audio/player_death.wav" id="15_6bito"]
-[ext_resource type="AudioStream" uid="uid://qdsxwuekbhkf" path="res://assets_third_party/music_tracks/Crash Landing.mp3" id="16_7tgvd"]
+[ext_resource type="AudioStream" uid="uid://dgw1pcxfp5wjc" path="res://music/level_2_music.mp3" id="17_exsmi"]
 
 [sub_resource type="Resource" id="Resource_rxcc7"]
 script = ExtResource("8_pi6la")
@@ -128,6 +128,7 @@ stream = ExtResource("15_6bito")
 volume_db = -6.674
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_7tgvd")
+stream = ExtResource("17_exsmi")
+autoplay = true
 
 [connection signal="area_entered" from="DeathZone" to="." method="_on_enemy_death_zone_area_entered"]

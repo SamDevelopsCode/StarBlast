@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc62ajp873fm0"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_dop06"]
+[ext_resource type="Texture2D" uid="uid://cyqr0uh0ofuob" path="res://enemies/flacian/art/flacian_bomber.png" id="2_g01y3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gs4fo"]
+radius = 54.0413
+height = 108.083
+
+[node name="FlacianBomber" type="Area2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_dop06")
+move_speed = 350
+health = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(3, 3)
+texture = ExtResource("2_g01y3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -11)
+rotation = 1.56701
+shape = SubResource("CapsuleShape2D_gs4fo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

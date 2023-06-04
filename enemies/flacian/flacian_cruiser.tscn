@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://mv17y1a0sanb"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_j4su3"]
+[ext_resource type="Texture2D" uid="uid://cxrpicrnb86sk" path="res://enemies/flacian/art/flacian_cruiser.png" id="2_l2xsf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gs4fo"]
+radius = 75.9742
+height = 280.028
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lghf0"]
+size = Vector2(35, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4154f"]
+size = Vector2(31, 129)
+
+[node name="FlacianCruiser" type="Area2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_j4su3")
+move_speed = 350
+health = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(3, 3)
+texture = ExtResource("2_l2xsf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 17)
+rotation = 3.12554
+shape = SubResource("CapsuleShape2D_gs4fo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-90.5, -34.5)
+shape = SubResource("RectangleShape2D_lghf0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(91, -33.5)
+shape = SubResource("RectangleShape2D_4154f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
