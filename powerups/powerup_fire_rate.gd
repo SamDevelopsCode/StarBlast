@@ -1,4 +1,4 @@
-extends Area2D
+extends PowerupBase
 
 func _on_body_entered(body) -> void:
 	if body is Player:

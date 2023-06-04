@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://bqduoi8nd4hve"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_3yd6p"]
 [ext_resource type="Texture2D" uid="uid://dje41726mu8hd" path="res://enemies/kameer/art/kameer_bomber.png" id="2_qbenf"]
@@ -10,12 +10,8 @@ radius = 45.0111
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_3yd6p")
-powerup_laser = null
-powerup_speed = null
-powerup_fire_rate = null
 move_speed = 350
 health = 10
-explosion_particle_fx = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159

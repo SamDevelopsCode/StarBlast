@@ -5,7 +5,6 @@ signal powerup_spawned(powerup_instance)
 var powerup_laser = preload("res://powerups/powerup_laser.tscn")
 var powerup_speed = preload("res://powerups/powerup_speed.tscn")
 var powerup_fire_rate = preload("res://powerups/powerup_fire_rate.tscn")
-
 var powerups = [powerup_laser, powerup_speed, powerup_fire_rate]
 
 var myArray := [1, 1]

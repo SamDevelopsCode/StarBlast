@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7v2u8cewsg3p"
-path="res://.godot/imported/Kla'ed - Scout - Base.png-63cf73a90ca642605b3e5cb9dfc65dda.ctex"
+uid="uid://dmjb6muiwfs1f"
+path="res://.godot/imported/level_3_bg.png-53b77e68f178f3608acc048de4857fcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Kla'ed - Scout - Base.png"
-dest_files=["res://.godot/imported/Kla'ed - Scout - Base.png-63cf73a90ca642605b3e5cb9dfc65dda.ctex"]
+source_file="res://levels/level_3_bg.png"
+dest_files=["res://.godot/imported/level_3_bg.png-53b77e68f178f3608acc048de4857fcc.ctex"]
 
 [params]
 

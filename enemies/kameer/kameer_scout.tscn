@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://csmbfcuc2shiy"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_8bmhc"]
 [ext_resource type="Texture2D" uid="uid://c1vi7dp6mgn5d" path="res://enemies/kameer/art/kameer_scout.png" id="2_52ww2"]
@@ -10,12 +10,8 @@ radius = 34.0147
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_8bmhc")
-powerup_laser = null
-powerup_speed = null
-powerup_fire_rate = null
 move_speed = 350
 health = 10
-explosion_particle_fx = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159

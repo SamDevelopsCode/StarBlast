@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhj2nhxk2beo"
-path="res://.godot/imported/Space Background(1).png-9f952bf85b51df5e8cb9026e7b0b361d.ctex"
+uid="uid://dmh2e1mjirhlf"
+path="res://.godot/imported/flacian_warrior.png-3a3766d437d34c0285e7e98a27139f27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Space Background(1).png"
-dest_files=["res://.godot/imported/Space Background(1).png-9f952bf85b51df5e8cb9026e7b0b361d.ctex"]
+source_file="res://enemies/flacian/art/flacian_warrior.png"
+dest_files=["res://.godot/imported/flacian_warrior.png-3a3766d437d34c0285e7e98a27139f27.ctex"]
 
 [params]
 

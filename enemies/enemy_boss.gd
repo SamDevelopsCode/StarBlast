@@ -1,5 +1,7 @@
 extends BaseEnemy
 
+signal boss_died(boss_name)
+
 @export var enemy_bullet_scene = preload("res://enemy_bullet.tscn")
 
 @onready var anim_player_movement = $MovementAnimationPlayer
@@ -16,12 +18,19 @@ func _physics_process(_delta: float) -> void:
 	if boss_should_shoot:
 		shoot()
 
-func shoot():
+func shoot() -> void:
 	var enemy_bullet = enemy_bullet_scene.instantiate() as Node2D
 	enemy_bullet.direction = bullet_direction.global_position - gun_turret.global_position
 	enemy_bullet.global_position = gun_turret.global_position
 	get_parent().add_child(enemy_bullet)
 	
+func die() -> void:
+	var explosion_instance = explosion_particle_fx.instantiate() as GPUParticles2D
+	explosion_instance.global_position = global_position
+	explosion_instance.one_shot = true
+	get_parent().add_child(explosion_instance)	
+	emit_signal("boss_died", name)
+	queue_free()
 
 func set_boss_should_shoot(should_shoot: bool):
 	boss_should_shoot = should_shoot

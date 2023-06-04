@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rpw4yc4q0ntw"
-path="res://.godot/imported/Kla'ed - Frigate - Base.png-11853632ead71568ab8261e72d58956b.ctex"
+uid="uid://d2u4qd3f04ryo"
+path="res://.godot/imported/stage_2.png-ef8762d656f31bfc739842eb26f62c3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Kla'ed - Frigate - Base.png"
-dest_files=["res://.godot/imported/Kla'ed - Frigate - Base.png-11853632ead71568ab8261e72d58956b.ctex"]
+source_file="res://levels/stage_2.png"
+dest_files=["res://.godot/imported/stage_2.png-ef8762d656f31bfc739842eb26f62c3d.ctex"]
 
 [params]
 

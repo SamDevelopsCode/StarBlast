@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0srm5cs6kre4"
-path="res://.godot/imported/Kla'ed - Support ship - Base.png-9df902cf03cf2884ff04aba932ffa6dc.ctex"
+uid="uid://rpw4yc4q0ntw"
+path="res://.godot/imported/flacian_frigate.png-75ed939488b5bb92559af10b7b30f7a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Kla'ed - Support ship - Base.png"
-dest_files=["res://.godot/imported/Kla'ed - Support ship - Base.png-9df902cf03cf2884ff04aba932ffa6dc.ctex"]
+source_file="res://enemies/flacian/art/flacian_frigate.png"
+dest_files=["res://.godot/imported/flacian_frigate.png-75ed939488b5bb92559af10b7b30f7a2.ctex"]
 
 [params]
 

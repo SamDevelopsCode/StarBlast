@@ -1,6 +1,7 @@
 extends Node2D
 
 signal enemy_spawned(enemy_instance)
+signal boss_spawned(boss_instance)
 signal path_enemy_spawned(path_enemy_instance)
 
 @onready var timer: Timer = $Timer
@@ -35,18 +36,13 @@ func on_timer_timeout():
 	
 func spawn_enemy(new_enemy) -> void:
 	var enemy_spawn = new_enemy.instantiate()
-	if enemy_spawn.name !=  "DredgeBoss":
-		var enemy_spawn_position = spawn_position_array.pick_random()
-		enemy_spawn.global_position = enemy_spawn_position.global_position
-		emit_signal("enemy_spawned", enemy_spawn)
-	else:
+	if enemy_spawn.name.contains("Boss"):
 		var enemy_spawn_position = spawn_position_array[11]
 		enemy_spawn.global_position = enemy_spawn_position.global_position
 		emit_signal("enemy_spawned", enemy_spawn)
+		emit_signal("boss_spawned", enemy_spawn)	
+	else:
+		var enemy_spawn_position = spawn_position_array.pick_random()
+		enemy_spawn.global_position = enemy_spawn_position.global_position
+		emit_signal("enemy_spawned", enemy_spawn)
 
-#func _on_enemy_path_timer_timeout() -> void:
-#	spawn_path_enemy()
-#
-#func spawn_path_enemy() -> void:
-#	var path_enemy_instance = path_enemy_scene.instantiate() as Path2D
-#	emit_signal("path_enemy_spawned", path_enemy_instance)

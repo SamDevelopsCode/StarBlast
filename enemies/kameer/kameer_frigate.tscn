@@ -11,12 +11,8 @@ height = 132.0
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_ko7he")
-powerup_laser = null
-powerup_speed = null
-powerup_fire_rate = null
 move_speed = 350
 health = 10
-explosion_particle_fx = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159

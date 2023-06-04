@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyqr0uh0ofuob"
-path="res://.godot/imported/Kla'ed - Bomber - Base.png-c889907b9fb4e25315d91301f1d99d55.ctex"
+uid="uid://ihyxg4cxvx1q"
+path="res://.godot/imported/stage_1.png-ebf6ab5f82b665152d9310c4673f7b17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Kla'ed - Bomber - Base.png"
-dest_files=["res://.godot/imported/Kla'ed - Bomber - Base.png-c889907b9fb4e25315d91301f1d99d55.ctex"]
+source_file="res://levels/stage_1.png"
+dest_files=["res://.godot/imported/stage_1.png-ebf6ab5f82b665152d9310c4673f7b17.ctex"]
 
 [params]
 

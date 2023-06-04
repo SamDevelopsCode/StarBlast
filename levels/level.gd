@@ -48,23 +48,25 @@ func _on_player_damage_taken() -> void:
 				ui.add_child(game_over_screen_instance)
 
 func _on_enemy_spawner_enemy_spawned(enemy_instance) -> void:	
-	if enemy_instance.name != "DredgeBoss":
+	if enemy_instance.name.contains("Boss"):
+		enemy_instance.connect("enemy_died", _on_enemy_died)
+		enemy_instance.connect("boss_died", _on_boss_died)
+		add_child(enemy_instance)
+	else: 
 		enemy_instance.connect("powerup_spawned", _on_powerup_spawned)
 		enemy_instance.connect("enemy_died", _on_enemy_died)
 		add_child(enemy_instance)
-	else: 
-		enemy_instance.connect("enemy_died", _on_enemy_died)
-		add_child(enemy_instance)
-
-func _on_enemy_spawner_path_enemy_spawned(_path_enemy_instance) -> void:
-	pass
-	#path_enemy_instance.connect("enemy_died", _on_enemy_died)
-	#add_child(path_enemy_instance)
 
 func _on_enemy_died() -> void:
 	GameData.score += randi_range(10, 25)
 	hud.set_score_label(GameData.score)
 	enemy_hit_sound.play()
+
+func _on_boss_died(boss_name):
+	if boss_name == "DredgeBoss":
+		get_tree().change_scene_to_file("res://levels/level_2.tscn")
+	elif boss_name == "KameerBoss":
+		get_tree().change_scene_to_file("res://levels/level_3.tscn")
 
 func _on_powerup_spawned(powerup_instance)  -> void:
 	call_deferred("add_child", powerup_instance)

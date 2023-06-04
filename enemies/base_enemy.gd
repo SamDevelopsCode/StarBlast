@@ -9,8 +9,6 @@ signal enemy_died
 
 var dead := false
 
-
-
 func take_damage(damage) -> void:
 	show_damaged_fx()
 	health -= damage

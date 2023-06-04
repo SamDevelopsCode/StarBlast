@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxrpicrnb86sk"
-path="res://.godot/imported/Kla'ed - Battlecruiser - Base.png-2170bb1539e91b591243eeb3a2f538d5.ctex"
+uid="uid://b7v2u8cewsg3p"
+path="res://.godot/imported/flacian_scout.png-5805510bf48232f5ee7302557b3f422a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/PNGs/Kla'ed - Battlecruiser - Base.png"
-dest_files=["res://.godot/imported/Kla'ed - Battlecruiser - Base.png-2170bb1539e91b591243eeb3a2f538d5.ctex"]
+source_file="res://enemies/flacian/art/flacian_scout.png"
+dest_files=["res://.godot/imported/flacian_scout.png-5805510bf48232f5ee7302557b3f422a.ctex"]
 
 [params]
 

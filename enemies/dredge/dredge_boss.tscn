@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://o0b0xe6kqyut"]
+[gd_scene load_steps=10 format=3 uid="uid://d34rvpcemdtdh"]
 
-[ext_resource type="Script" path="res://enemies/dredge/enemy_boss.gd" id="1_qbltn"]
-[ext_resource type="Texture2D" uid="uid://c1ny4a8p5cup8" path="res://enemies/dredge/art/dredge_dreadnought.png" id="2_5d8dl"]
-[ext_resource type="Texture2D" uid="uid://c8dhjwm48nee5" path="res://icon.svg" id="3_1m4x3"]
+[ext_resource type="Script" path="res://enemies/enemy_boss.gd" id="1_pxohj"]
+[ext_resource type="Texture2D" uid="uid://c1ny4a8p5cup8" path="res://enemies/dredge/art/dredge_dreadnought.png" id="2_vflc2"]
+[ext_resource type="Texture2D" uid="uid://c8dhjwm48nee5" path="res://icon.svg" id="3_7ymqt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onf13"]
 radius = 295.0
@@ -124,12 +124,12 @@ _data = {
 [node name="DredgeBoss" type="Area2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 13
-script = ExtResource("1_qbltn")
+script = ExtResource("1_pxohj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
 scale = Vector2(10, 10)
-texture = ExtResource("2_5d8dl")
+texture = ExtResource("2_vflc2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_onf13")
@@ -154,7 +154,7 @@ position = Vector2(0, 100)
 [node name="Sprite2D" type="Sprite2D" parent="GunTurret/BulletDirection"]
 visible = false
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_1m4x3")
+texture = ExtResource("3_7ymqt")
 
 [node name="FireRateTimer" type="Timer" parent="."]
 
