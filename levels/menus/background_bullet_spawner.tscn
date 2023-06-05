@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://bau3vwxajqwug"]
 
 [ext_resource type="Script" path="res://levels/menus/background_bullet_spawner.gd" id="1_td5j6"]
 
@@ -6,7 +6,7 @@
 script = ExtResource("1_td5j6")
 
 [node name="SpawnLaserTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.05
 autostart = true
 
 [connection signal="timeout" from="SpawnLaserTimer" to="." method="_on_spawn_laser_timer_timeout"]

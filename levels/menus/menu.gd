@@ -7,6 +7,8 @@ var level_1_scene = preload("res://levels/level_1.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var menu: Control = $"."
 
+var audio_bus_name := "Master"
+
 func _ready() -> void:
 	var fade_label_in = get_tree().create_tween()
 	fade_label_in.tween_property(title_label, "modulate", Color(1, 1, 1, 1), 2)
@@ -22,3 +24,10 @@ func _on_exit_button_pressed() -> void:
 
 func play_idle_anim():
 	animation_player.play("ship_idle")
+
+func _on_settings_button_pressed() -> void:
+	$SettingsPanel.visible = !$SettingsPanel.visible
+
+
+
+

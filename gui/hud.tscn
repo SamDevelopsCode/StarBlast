@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf7fn1fd14bja"]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://gui/hud.gd" id="1_ct85p"]
-[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://assets_third_party/font/SPACEBOY.TTF" id="1_oy3r3"]
+[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="1_oy3r3"]
 [ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/art/Main Ship - Base - Full health.png" id="3_q3kxd"]
 [ext_resource type="Texture2D" uid="uid://ddmqdjxeqyta2" path="res://powerups/art/fire_rate.png" id="4_s5lo8"]
 [ext_resource type="Texture2D" uid="uid://vm1a4wu22ggv" path="res://powerups/art/fire_type.png" id="5_gmxj4"]

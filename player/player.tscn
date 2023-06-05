@@ -5,9 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://nlyop6gwuta3" path="res://assets_third_party/audio/sfx_laser2.wav" id="3_w60rq"]
 [ext_resource type="PackedScene" uid="uid://bdial7eisluqr" path="res://weapons/laser/lasers.tscn" id="4_u6hlg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yshd3"]
-radius = 19.0263
-
 [sub_resource type="Gradient" id="Gradient_l2rai"]
 offsets = PackedFloat32Array(0, 0.519164, 1)
 colors = PackedColorArray(1, 1, 0, 0, 1, 0.545098, 0, 1, 1, 0, 0, 0)
@@ -25,17 +22,21 @@ curve = SubResource("Curve_wy8c6")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oux0u"]
 particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
-spread = 16.58
+spread = 15.73
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = 50.0
-initial_velocity_max = 200.0
+initial_velocity_min = 300.0
+initial_velocity_max = 500.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-scale_min = 4.0
-scale_max = 4.0
+scale_min = 5.0
+scale_max = 6.0
 scale_curve = SubResource("CurveTexture_mlh63")
 color_ramp = SubResource("GradientTexture1D_km8g0")
 turbulence_noise_strength = 3.34
+attractor_interaction_enabled = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yshd3"]
+radius = 19.0263
 
 [sub_resource type="Animation" id="Animation_ojn0b"]
 length = 0.001
@@ -91,6 +92,14 @@ collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_movka")
 
+[node name="EngineFX" type="GPUParticles2D" parent="."]
+position = Vector2(0, 19)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_oux0u")
+lifetime = 0.2
+fixed_fps = 60
+trail_lifetime = 0.1
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("2_82vat")
@@ -105,14 +114,6 @@ shape = SubResource("CircleShape2D_yshd3")
 stream = ExtResource("3_w60rq")
 volume_db = -20.0
 pitch_scale = 2.25
-
-[node name="EngineFX" type="GPUParticles2D" parent="."]
-position = Vector2(0, 9)
-amount = 100
-process_material = SubResource("ParticleProcessMaterial_oux0u")
-lifetime = 0.2
-fixed_fps = 60
-trail_lifetime = 0.1
 
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 0.3

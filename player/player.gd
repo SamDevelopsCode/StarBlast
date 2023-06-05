@@ -35,19 +35,17 @@ var is_alive := true
 func _ready() -> void:
 	fire_type = GameData.fire_type
 	fire_rate_timer.wait_time = GameData.fire_rate_timer_wait_time
+	move_speed = GameData.speed
 	
 	screen_size = get_viewport_rect().size
-	global_position = Vector2(screen_size.x/2, screen_size.y - 50)
-
+	global_position = Vector2(screen_size.x/2, screen_size.y - 300)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("shoot") and can_fire:
 		shoot()
 
-
 func _physics_process(_delta: float) -> void:
 	move_player()
-
 
 func move_player():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -61,10 +59,8 @@ func move_player():
 	global_position.x = clampf(global_position.x, 26, screen_size.x - 26)
 	global_position.y = clampf(global_position.y, 18, screen_size.y - 18) 
 
-
 func shoot() -> void:
 	fire_lasers()
-
 
 func fire_lasers():
 	can_fire = false

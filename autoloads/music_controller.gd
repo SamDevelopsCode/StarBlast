@@ -37,21 +37,3 @@ func fade_music_in(music_name: String):
 			music.play()
 			var fade_in = get_tree().create_tween()
 			fade_in.tween_property(music, "volume_db", -10, 2)
-			
-			
-			
-			
-			
-
-#func fade_into_new_music(new_music):
-#	music.stream = new_music
-#	music.play()
-	
-	#fade out the currently playing music
-	#switch currently playing music
-	#fade in the currently playing music
-
-
-
-
-

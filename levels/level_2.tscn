@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://bldk2jtvaafdi"]
+[gd_scene load_steps=30 format=3 uid="uid://ci2ygy8mj7k6l"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_naevg"]
-[ext_resource type="PackedScene" uid="uid://bf7fn1fd14bja" path="res://gui/hud.tscn" id="2_h2bpn"]
+[ext_resource type="PackedScene" path="res://gui/hud.tscn" id="2_h2bpn"]
+[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="2_t7y7v"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_tdtkp"]
 [ext_resource type="Texture2D" uid="uid://c85dye611j5j" path="res://levels/art/level_2_bg.png" id="4_8l7tt"]
 [ext_resource type="PackedScene" uid="uid://2ur48n76tlub" path="res://player/player.tscn" id="5_o1jgq"]
@@ -16,6 +17,47 @@
 [ext_resource type="PackedScene" uid="uid://bqduoi8nd4hve" path="res://enemies/kameer/kameer_bomber.tscn" id="14_8cfi6"]
 [ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://assets_third_party/audio/enemy_hit.wav" id="14_rwb66"]
 [ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://assets_third_party/audio/player_death.wav" id="15_6bito"]
+
+[sub_resource type="Animation" id="Animation_ul6ur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/LocationLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t6hvb"]
+resource_name = "fade_in_location_label"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/LocationLabel:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 7),
+"transitions": PackedFloat32Array(1, 2.07052, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dmlsy"]
+_data = {
+"RESET": SubResource("Animation_ul6ur"),
+"fade_in_location_label": SubResource("Animation_t6hvb")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_io1mu"]
+font = ExtResource("2_t7y7v")
+font_size = 48
 
 [sub_resource type="Resource" id="Resource_rxcc7"]
 script = ExtResource("8_pi6la")
@@ -80,6 +122,27 @@ size = Vector2(1518.8, 120.4)
 script = ExtResource("1_naevg")
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+root_node = NodePath("../..")
+autoplay = "fade_in_location_label"
+libraries = {
+"": SubResource("AnimationLibrary_dmlsy")
+}
+
+[node name="LocationLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -440.0
+offset_top = 439.0
+offset_right = 446.0
+offset_bottom = 545.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "Territory: Kameer
+Location:   47 Ursae Majoris"
+label_settings = SubResource("LabelSettings_io1mu")
 
 [node name="HUD" parent="UI" instance=ExtResource("2_h2bpn")]
 

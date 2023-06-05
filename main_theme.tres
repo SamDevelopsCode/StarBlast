@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bnekms4qcl0r4"]
+[gd_resource type="Theme" load_steps=2 format=3]
 
-[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://assets_third_party/font/SPACEBOY.TTF" id="1_d3qke"]
+[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="1_d3qke"]
 
 [resource]
 default_font = ExtResource("1_d3qke")

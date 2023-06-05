@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://gui/game_over_screen.gd" id="1_1vv28"]
-[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://assets_third_party/font/SPACEBOY.TTF" id="1_b3a2a"]
+[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="1_b3a2a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i507o"]
 font = ExtResource("1_b3a2a")
