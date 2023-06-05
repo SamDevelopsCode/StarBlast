@@ -114,7 +114,7 @@ func increase_fire_type() -> void:
 
 func increase_fire_rate():
 	fire_rate_timer.wait_time -= .05
-	if fire_rate_timer.wait_time <= .1:
+	if fire_rate_timer.wait_time <= .15:
 		fire_rate_timer.wait_time = .05
 		GameData.increase_score(750)
 

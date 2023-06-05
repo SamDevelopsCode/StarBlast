@@ -120,6 +120,5 @@ volume_db = -6.674
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_up6es")
-autoplay = true
 
 [connection signal="area_entered" from="DeathZone" to="." method="_on_enemy_death_zone_area_entered"]
