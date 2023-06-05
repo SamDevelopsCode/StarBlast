@@ -12,14 +12,14 @@ radius = 19.0263
 offsets = PackedFloat32Array(0, 0.519164, 1)
 colors = PackedColorArray(1, 1, 0, 0, 1, 0.545098, 0, 1, 1, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_qadm7"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_km8g0"]
 gradient = SubResource("Gradient_l2rai")
 
 [sub_resource type="Curve" id="Curve_wy8c6"]
 _data = [Vector2(0, 1), 0.0, -1.44444, 0, 0, Vector2(1, 0), 0.944445, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_n3as6"]
+[sub_resource type="CurveTexture" id="CurveTexture_mlh63"]
 curve = SubResource("Curve_wy8c6")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oux0u"]
@@ -33,8 +33,8 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 4.0
 scale_max = 4.0
-scale_curve = SubResource("CurveTexture_n3as6")
-color_ramp = SubResource("GradientTexture1D_qadm7")
+scale_curve = SubResource("CurveTexture_mlh63")
+color_ramp = SubResource("GradientTexture1D_km8g0")
 turbulence_noise_strength = 3.34
 
 [sub_resource type="Animation" id="Animation_ojn0b"]

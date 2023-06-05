@@ -64,11 +64,11 @@ func _on_enemy_died() -> void:
 
 func _on_boss_died(boss_name):
 	if boss_name == "DredgeBoss":
-		get_tree().change_scene_to_file("res://levels/level_2.tscn")
+		SceneTransitionManager.fade_to_level_2()
 	elif boss_name == "KameerBoss":
-		get_tree().change_scene_to_file("res://levels/level_3.tscn")
+		SceneTransitionManager.fade_to_level_3()
 	elif boss_name == "FlacianBoss":
-		print("Either end game or go to level 4")
+		print("EndGameScreen")
 
 func _on_powerup_spawned(powerup_instance)  -> void:
 	call_deferred("add_child", powerup_instance)

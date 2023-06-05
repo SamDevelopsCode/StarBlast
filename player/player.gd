@@ -3,8 +3,8 @@ extends CharacterBody2D
 
 signal damage_taken
 
-@export var move_speed := 400
-@export var fire_type := 1
+var move_speed := 400
+var fire_type
 @export var fire_vibration_weak_magnitude := .5
 @export var fire_vibration_strong_magnitude := .5
 @export var fire_vibration_length := .5
@@ -33,6 +33,9 @@ var is_alive := true
 
 
 func _ready() -> void:
+	fire_type = GameData.fire_type
+	fire_rate_timer.wait_time = GameData.fire_rate_timer_wait_time
+	
 	screen_size = get_viewport_rect().size
 	global_position = Vector2(screen_size.x/2, screen_size.y - 50)
 
@@ -60,11 +63,7 @@ func move_player():
 
 
 func shoot() -> void:
-	match GameData.weapon_type:
-		GameData.WeaponType.LASER:
-			fire_lasers()
-		GameData.WeaponType.BEAM:
-			fire_beam()
+	fire_lasers()
 
 
 func fire_lasers():
@@ -106,19 +105,22 @@ func add_laser_projectile(laser_identifier) -> void:
 	laser_instance.direction = laser_instance.global_position - global_position
 	laser_container.add_child(laser_instance)
 
-func increase_fire_type() -> void:
+func increase_fire_type() -> void:	
+	GameData.increase_fire_type()
 	fire_type += 1
 	if fire_type > 4:
 		fire_type = 4
 		GameData.increase_score(750)
 
 func increase_fire_rate():
+	GameData.increase_fire_rate()
 	fire_rate_timer.wait_time -= .05
-	if fire_rate_timer.wait_time <= .15:
-		fire_rate_timer.wait_time = .05
+	if fire_rate_timer.wait_time <= .1:
+		fire_rate_timer.wait_time = .06
 		GameData.increase_score(750)
 
 func increase_speed():
+	GameData.increase_speed()
 	move_speed += 100
 	if move_speed >= 800:
 		move_speed = 800
