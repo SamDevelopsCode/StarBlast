@@ -1,9 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://b8bp2fm70gtgi"]
+[gd_scene load_steps=25 format=3 uid="uid://bldk2jtvaafdi"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_naevg"]
 [ext_resource type="PackedScene" uid="uid://bf7fn1fd14bja" path="res://gui/hud.tscn" id="2_h2bpn"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_tdtkp"]
-[ext_resource type="Texture2D" uid="uid://c85dye611j5j" path="res://levels/level_2_bg.png" id="4_s5ecn"]
+[ext_resource type="Texture2D" uid="uid://c85dye611j5j" path="res://levels/art/level_2_bg.png" id="4_8l7tt"]
 [ext_resource type="PackedScene" uid="uid://2ur48n76tlub" path="res://player/player.tscn" id="5_o1jgq"]
 [ext_resource type="PackedScene" uid="uid://cs6niqmx4i272" path="res://enemy_spawner/enemy_spawner.tscn" id="6_1sgbg"]
 [ext_resource type="PackedScene" uid="uid://csmbfcuc2shiy" path="res://enemies/kameer/kameer_scout.tscn" id="7_3unpf"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://bqduoi8nd4hve" path="res://enemies/kameer/kameer_bomber.tscn" id="14_8cfi6"]
 [ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://assets_third_party/audio/enemy_hit.wav" id="14_rwb66"]
 [ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://assets_third_party/audio/player_death.wav" id="15_6bito"]
-[ext_resource type="AudioStream" uid="uid://dgw1pcxfp5wjc" path="res://music/level_2_music.mp3" id="17_exsmi"]
 
 [sub_resource type="Resource" id="Resource_rxcc7"]
 script = ExtResource("8_pi6la")
@@ -97,7 +96,7 @@ motion_mirroring = Vector2(0, 2000)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(640, 1000)
-texture = ExtResource("4_s5ecn")
+texture = ExtResource("4_8l7tt")
 
 [node name="Player" parent="." instance=ExtResource("5_o1jgq")]
 position = Vector2(629, 1114)
@@ -126,9 +125,5 @@ pitch_scale = 1.96
 [node name="PlayerDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_6bito")
 volume_db = -6.674
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_exsmi")
-autoplay = true
 
 [connection signal="area_entered" from="DeathZone" to="." method="_on_enemy_death_zone_area_entered"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyirwfnuk6wrk"]
+
+[ext_resource type="Script" path="res://menu_laser.gd" id="1_q26h8"]
+
+[node name="menu_laser" type="Area2D"]
+script = ExtResource("1_q26h8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
