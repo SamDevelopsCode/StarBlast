@@ -2,6 +2,9 @@ extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	fade_to_menu()
+
 func fade_to_level_1():
 	animation_player.play("fade_to_level_1")
 	MusicController.fade_music_in("level_1_music")
@@ -26,4 +29,4 @@ func change_level(level: int):
 		3:
 			get_tree().change_scene_to_file("res://levels/level_3.tscn")
 		5: 
-			get_tree().change_scene_to_file("res://levels/menu.tscn")
+			get_tree().change_scene_to_file("res://levels/menus/menu.tscn")

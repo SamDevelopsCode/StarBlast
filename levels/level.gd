@@ -59,7 +59,7 @@ func _on_enemy_spawner_enemy_spawned(enemy_instance) -> void:
 
 func _on_enemy_died() -> void:
 	GameData.score += randi_range(10, 25)
-	hud.set_score_label(GameData.score)
+	hud.set_score_label(GameData.score) 
 	enemy_hit_sound.play()
 
 func _on_boss_died(boss_name):

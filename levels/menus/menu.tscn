@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bqyujsfdmp61v"]
+[gd_scene load_steps=21 format=3 uid="uid://bqyujsfdmp61v"]
 
 [ext_resource type="Script" path="res://levels/menus/menu.gd" id="1_c41f7"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="2_1pxps"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bau3vwxajqwug" path="res://levels/menus/background_bullet_spawner.tscn" id="2_o4xn3"]
 [ext_resource type="Theme" path="res://main_theme.tres" id="3_7oxgc"]
 [ext_resource type="Texture2D" uid="uid://c85dye611j5j" path="res://levels/art/level_2_bg.png" id="3_rsy2d"]
+[ext_resource type="Script" path="res://levels/menus/start_game_button.gd" id="6_42xvk"]
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="7_da3lc"]
 [ext_resource type="Texture2D" uid="uid://cvtal0blpaokp" path="res://levels/art/settings.png" id="8_nbj6p"]
 
@@ -156,6 +157,7 @@ scale = Vector2(2.5, 2.79)
 layout_mode = 2
 theme = ExtResource("3_7oxgc")
 text = "New Game"
+script = ExtResource("6_42xvk")
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -211,6 +213,7 @@ scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("8_nbj6p")
 
 [node name="SettingsPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -236,6 +239,8 @@ text = "Volume:"
 
 [node name="VolumeSlider" type="HSlider" parent="SettingsPanel/VBoxContainer"]
 layout_mode = 2
+min_value = -30.0
+max_value = 0.0
 
 [node name="FullScreenToggle" type="CheckButton" parent="SettingsPanel/VBoxContainer"]
 layout_mode = 2
@@ -244,3 +249,5 @@ text = "Fullscreen"
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="value_changed" from="SettingsPanel/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="toggled" from="SettingsPanel/VBoxContainer/FullScreenToggle" to="." method="_on_full_screen_toggle_toggled"]

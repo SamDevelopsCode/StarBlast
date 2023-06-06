@@ -19,5 +19,5 @@ func get_random_direction() -> void:
 	direction = Vector2(randi_range(-5, 5), 5)
 
 func _process(delta) -> void:
-	translate(direction.normalized() * move_speed * delta) #randomize direction, speed and clean up
+	translate(direction.normalized() * move_speed * delta)
 

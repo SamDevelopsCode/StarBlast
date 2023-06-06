@@ -128,7 +128,7 @@ shape = SubResource("RectangleShape2D_4j8yl")
 
 [node name="EnemyHitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_gldlo")
-volume_db = -6.118
+volume_db = -10.0
 pitch_scale = 1.96
 
 [node name="PlayerDeathSound" type="AudioStreamPlayer" parent="."]

@@ -7,7 +7,7 @@ var level_1_scene = preload("res://levels/level_1.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var menu: Control = $"."
 
-var audio_bus_name := "Master"
+var master_bus = AudioServer.get_bus_index("Master")
 
 func _ready() -> void:
 	var fade_label_in = get_tree().create_tween()
@@ -29,5 +29,17 @@ func _on_settings_button_pressed() -> void:
 	$SettingsPanel.visible = !$SettingsPanel.visible
 
 
+func _on_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(master_bus, value)
+	
+	if value == -30:
+		AudioServer.set_bus_mute(master_bus, true)
+	else:
+		AudioServer.set_bus_mute(master_bus, false)
 
 
+func _on_full_screen_toggle_toggled(button_pressed: bool) -> void:
+	if button_pressed == true:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
