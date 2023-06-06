@@ -228,10 +228,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ureoj")
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel"]
 layout_mode = 2
 offset_left = 9.0
-offset_top = 70.0
+offset_top = 25.0
 offset_right = 239.0
-offset_bottom = 139.0
+offset_bottom = 266.0
 scale = Vector2(2, 2)
+
+[node name="SettingsLabel" type="Label" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="SettingsPanel/VBoxContainer"]
 layout_mode = 2
@@ -246,8 +251,20 @@ max_value = 0.0
 layout_mode = 2
 text = "Fullscreen"
 
+[node name="VsyncToggle" type="CheckButton" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "V-Sync"
+
+[node name="Label2" type="Label" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Art:
+Music:"
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="value_changed" from="SettingsPanel/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="toggled" from="SettingsPanel/VBoxContainer/FullScreenToggle" to="." method="_on_full_screen_toggle_toggled"]
+[connection signal="toggled" from="SettingsPanel/VBoxContainer/VsyncToggle" to="." method="_on_vsync_toggle_toggled"]

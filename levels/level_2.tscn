@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://ci2ygy8mj7k6l"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_naevg"]
-[ext_resource type="PackedScene" path="res://gui/hud.tscn" id="2_h2bpn"]
+[ext_resource type="PackedScene" uid="uid://bopq1cei63f4f" path="res://gui/hud.tscn" id="2_h2bpn"]
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="2_t7y7v"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_tdtkp"]
 [ext_resource type="Texture2D" uid="uid://c85dye611j5j" path="res://levels/art/level_2_bg.png" id="4_8l7tt"]
@@ -145,11 +145,6 @@ Location:   47 Ursae Majoris"
 label_settings = SubResource("LabelSettings_io1mu")
 
 [node name="HUD" parent="UI" instance=ExtResource("2_h2bpn")]
-
-[node name="FPS" type="Label" parent="UI/HUD"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("3_tdtkp")

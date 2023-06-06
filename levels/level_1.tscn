@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_q4jak"]
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="2_7pjuv"]
-[ext_resource type="PackedScene" path="res://gui/hud.tscn" id="2_h0j3i"]
+[ext_resource type="PackedScene" uid="uid://bopq1cei63f4f" path="res://gui/hud.tscn" id="2_h0j3i"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_hb8p3"]
 [ext_resource type="Texture2D" uid="uid://cn11ld3b2h4ns" path="res://levels/art/level_1_bg.png" id="4_tlsxy"]
 [ext_resource type="PackedScene" uid="uid://2ur48n76tlub" path="res://player/player.tscn" id="5_ew0g2"]
@@ -91,11 +91,6 @@ Location:   51 Pegasi b"
 label_settings = SubResource("LabelSettings_j2rn2")
 
 [node name="HUD" parent="UI" instance=ExtResource("2_h0j3i")]
-
-[node name="FPS" type="Label" parent="UI/HUD"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("3_hb8p3")

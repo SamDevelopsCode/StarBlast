@@ -24,3 +24,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	translate(Vector2.DOWN * delta * speed)
+	
+	if global_position.y > 2100:
+		queue_free()

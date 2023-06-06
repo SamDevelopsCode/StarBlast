@@ -2,7 +2,6 @@ extends Control
 
 @onready var score: Label = $Score
 @onready var lives_left: Label = $Lives/LivesLeft
-@onready var fps_label: Label = $FPS
 @onready var player_health_bar = $VBox/PlayerHealthBar
 @onready var fire_rate_label: Label = $"FireRate/FireRate"
 @onready var fire_type_label: Label = $FireType/FireType
@@ -19,8 +18,7 @@ func _ready() -> void:
 	set_speed_label(GameData.speed_label)
 	
 	
-func _process(_delta) -> void:
-	fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
+
 
 func set_score_label(new_score) -> void:
 	score.text = "Score: " + str(new_score)

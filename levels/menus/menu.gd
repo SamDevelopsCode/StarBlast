@@ -1,5 +1,7 @@
 extends Control
 
+signal fps_toggled(toggled)
+
 var level_1_scene = preload("res://levels/level_1.tscn")
 
 @onready var v_box_container: VBoxContainer = $VBoxContainer
@@ -12,7 +14,7 @@ var master_bus = AudioServer.get_bus_index("Master")
 func _ready() -> void:
 	var fade_label_in = get_tree().create_tween()
 	fade_label_in.tween_property(title_label, "modulate", Color(1, 1, 1, 1), 2)
-	MusicController.fade_music_in("menu")	
+	MusicController.fade_music_in("menu")		
 
 func _on_start_button_pressed() -> void:
 	SceneTransitionManager.fade_to_level_1()
@@ -28,7 +30,6 @@ func play_idle_anim():
 func _on_settings_button_pressed() -> void:
 	$SettingsPanel.visible = !$SettingsPanel.visible
 
-
 func _on_volume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(master_bus, value)
 	
@@ -37,9 +38,22 @@ func _on_volume_slider_value_changed(value: float) -> void:
 	else:
 		AudioServer.set_bus_mute(master_bus, false)
 
-
 func _on_full_screen_toggle_toggled(button_pressed: bool) -> void:
 	if button_pressed == true:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func _on_vsync_toggle_toggled(button_pressed: bool) -> void:
+	if button_pressed == true:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+func _on_fps_toggle_toggled(button_pressed: bool) -> void:
+	if button_pressed == true:
+		emit_signal("fps_toggled", true)
+	else:
+		emit_signal("fps_toggled", false)
+
+
