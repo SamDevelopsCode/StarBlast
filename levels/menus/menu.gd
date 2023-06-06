@@ -42,7 +42,7 @@ func _on_full_screen_toggle_toggled(button_pressed: bool) -> void:
 	if button_pressed == true:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)		
 
 func _on_vsync_toggle_toggled(button_pressed: bool) -> void:
 	if button_pressed == true:

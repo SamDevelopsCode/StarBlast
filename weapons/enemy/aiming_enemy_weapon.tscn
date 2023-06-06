@@ -8,16 +8,13 @@ script = ExtResource("1_g1thb")
 [node name="Weapons" type="Node2D" parent="."]
 
 [node name="AimDirectionMarker" type="Marker2D" parent="Weapons"]
-position = Vector2(0, 12)
-gizmo_extents = 20.0
+position = Vector2(73, 0)
 
 [node name="AimDirectionMarker2" type="Marker2D" parent="Weapons"]
-position = Vector2(11, 12)
-gizmo_extents = 20.0
+position = Vector2(73, -3)
 
 [node name="AimDirectionMarker3" type="Marker2D" parent="Weapons"]
-position = Vector2(-12, 12)
-gizmo_extents = 20.0
+position = Vector2(73, 3)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

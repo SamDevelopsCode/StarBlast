@@ -96,7 +96,7 @@ func add_laser_projectile(laser_identifier) -> void:
 	var laser_instance = laser_scene.instantiate() as Area2D
 	laser_instance.global_position = laser_identifier.global_position
 	laser_instance.direction = laser_instance.global_position - global_position
-	laser_container.add_child(laser_instance)
+	get_tree().get_root().add_child(laser_instance)
 
 func increase_fire_type() -> void:	
 	GameData.increase_fire_type()

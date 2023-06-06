@@ -15,7 +15,7 @@ func shoot():
 	var bullet = bullet_scene.instantiate() as Node2D
 	bullet.direction = aim_direction.global_position - global_position
 	bullet.global_position = global_position
-	get_parent().get_parent().add_child(bullet)		
+	get_tree().get_root().add_child(bullet)	
 
 func _on_timer_timeout() -> void:
 	shoot()

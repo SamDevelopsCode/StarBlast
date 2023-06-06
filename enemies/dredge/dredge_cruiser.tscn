@@ -42,6 +42,5 @@ rotation = 1.56068
 shape = SubResource("CircleShape2D_xjg77")
 
 [node name="AimingEnemyWeapon" parent="." instance=ExtResource("3_8jhhp")]
-position = Vector2(0, 90)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
