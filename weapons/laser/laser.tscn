@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_quesk"]
 radius = 2.0
-height = 7.0
+height = 9.0
 
 [node name="Laser" type="Area2D"]
 collision_layer = 4
@@ -15,7 +15,7 @@ speed = 2000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_k82nm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

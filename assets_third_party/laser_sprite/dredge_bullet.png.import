@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4q1wj7e26r7q"
-path="res://.godot/imported/07.png-756812ccd6a560a8f92b32c90a73527e.ctex"
+path="res://.godot/imported/dredge_bullet.png-696ae091cf470c291905e57aa81d1366.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_third_party/laser_sprite/07.png"
-dest_files=["res://.godot/imported/07.png-756812ccd6a560a8f92b32c90a73527e.ctex"]
+source_file="res://assets_third_party/laser_sprite/dredge_bullet.png"
+dest_files=["res://.godot/imported/dredge_bullet.png-696ae091cf470c291905e57aa81d1366.ctex"]
 
 [params]
 

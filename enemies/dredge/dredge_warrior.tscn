@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://68xy7huef1p"]
+[gd_scene load_steps=5 format=3 uid="uid://68xy7huef1p"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_geqls"]
 [ext_resource type="Texture2D" uid="uid://cmbhwqh0phe2c" path="res://enemies/dredge/art/dredge_warrior.png" id="2_42lht"]
+[ext_resource type="PackedScene" uid="uid://bdb4frhofxu8v" path="res://weapons/enemy/single_enemy_weapon.tscn" id="3_67iac"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hohiy"]
 radius = 51.9746
@@ -23,5 +24,11 @@ texture = ExtResource("2_42lht")
 position = Vector2(1, 11)
 rotation = 1.57309
 shape = SubResource("CapsuleShape2D_hohiy")
+
+[node name="SingleEnemyWeapon" parent="." instance=ExtResource("3_67iac")]
+position = Vector2(-37, 56)
+
+[node name="SingleEnemyWeapon2" parent="." instance=ExtResource("3_67iac")]
+position = Vector2(36, 56)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

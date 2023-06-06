@@ -4,7 +4,7 @@ extends Area2D
 
 @onready var visible_notifier: VisibleOnScreenNotifier2D = $VisibleNotifier2D
 
-var direction = Vector2.UP
+var direction = Vector2.DOWN
 
 func _ready() -> void:
 	visible_notifier.connect("screen_exited", queue_free)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbejayu8rr6ic"]
+[gd_scene load_steps=5 format=3 uid="uid://6wda7d6rw872"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_nwkge"]
 [ext_resource type="Texture2D" uid="uid://bsgpmm76rx2ni" path="res://enemies/dredge/art/dredge_bomber.png" id="2_7gtth"]
+[ext_resource type="PackedScene" uid="uid://bdb4frhofxu8v" path="res://weapons/enemy/single_enemy_weapon.tscn" id="3_ascd0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hi10i"]
 radius = 39.2046
@@ -21,5 +22,8 @@ texture = ExtResource("2_7gtth")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_hi10i")
+
+[node name="SingleEnemyWeapon" parent="." instance=ExtResource("3_ascd0")]
+position = Vector2(0, 42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

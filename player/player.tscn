@@ -87,7 +87,7 @@ _data = {
 "out_of_health": SubResource("Animation_15xhh")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_movka")

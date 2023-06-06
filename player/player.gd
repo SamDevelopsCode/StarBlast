@@ -92,9 +92,6 @@ func fire_lasers():
 			add_laser_projectile(laser_8_pos)
 			add_laser_projectile(laser_9_pos)
 
-func fire_beam():
-	pass
-
 func add_laser_projectile(laser_identifier) -> void:
 	var laser_instance = laser_scene.instantiate() as Area2D
 	laser_instance.global_position = laser_identifier.global_position

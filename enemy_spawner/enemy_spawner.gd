@@ -32,8 +32,7 @@ func on_timer_timeout():
 				while counter < i.enemy_number:
 					spawn_enemy(new_enemy)
 					counter += 1
-	
-	
+		
 func spawn_enemy(new_enemy) -> void:
 	var enemy_spawn = new_enemy.instantiate()
 	if enemy_spawn.name.contains("Boss"):

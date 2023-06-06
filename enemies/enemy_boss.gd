@@ -2,7 +2,7 @@ extends BaseEnemy
 
 signal boss_died(boss_name)
 
-@export var enemy_bullet_scene = preload("res://enemies/enemy_bullet.tscn")
+@export var enemy_bullet_scene = preload("res://weapons/enemy/dredge_enemy_bullet.tscn")
 
 @onready var anim_player_movement = $MovementAnimationPlayer
 @onready var fire_rate_timer = $FireRateTimer

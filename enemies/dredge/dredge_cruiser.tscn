@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3xcwobx6exhd"]
+[gd_scene load_steps=7 format=3 uid="uid://b3xcwobx6exhd"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_e25x6"]
 [ext_resource type="Texture2D" uid="uid://b1ukx73u4xymd" path="res://enemies/dredge/art/dredge_cruiser.png" id="2_8h6wd"]
+[ext_resource type="PackedScene" uid="uid://biyc6bnrl1n5" path="res://weapons/enemy/aiming_enemy_weapon.tscn" id="3_8jhhp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2so0d"]
 radius = 60.9849
@@ -39,5 +40,8 @@ shape = SubResource("CircleShape2D_wb0nd")
 position = Vector2(79, 18)
 rotation = 1.56068
 shape = SubResource("CircleShape2D_xjg77")
+
+[node name="AimingEnemyWeapon" parent="." instance=ExtResource("3_8jhhp")]
+position = Vector2(0, 90)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
