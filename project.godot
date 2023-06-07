@@ -26,6 +26,7 @@ SceneTransitionManager="*res://autoloads/scene_transition_manager.tscn"
 
 window/size/viewport_width=1280
 window/size/viewport_height=2000
+window/size/initial_position_type=2
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"

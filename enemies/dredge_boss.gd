@@ -21,8 +21,9 @@ var player
 var dead := false
 
 func _ready() -> void:
-	anim_player_movement.play("fly_on_screen")
 	player = get_tree().get_first_node_in_group("player")
+	await get_tree().create_timer(.5).timeout
+	anim_player_movement.play("fly_on_screen")
 	
 	set_boss_difficulty()
 	print(health)
@@ -100,7 +101,7 @@ func set_boss_difficulty():
 	if (GameData.fire_rate <= 2 ) and (GameData.fire_type <= 2):
 		health = 200
 	elif (GameData.fire_rate >= 3 ) and (GameData.fire_type >= 3):
-		health = 1000
+		health = 1200
 	else:
 		health = 500	
 
@@ -108,5 +109,20 @@ func set_boss_difficulty():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	sprite.visible = false
 	
-func set_if_player_can_shoot(can_shoot: bool):
-	player.can_fire = can_shoot
+func _on_movement_animation_player_animation_started(anim_name: StringName) -> void:
+	if anim_name == "fly_on_screen":
+		player.set_input_is_valid(false)
+	if anim_name == "side_to_side":
+		set_boss_should_shoot(true)
+		play_random_gun_anim()
+	
+
+func _on_movement_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "fly_on_screen":
+		player.set_input_is_valid(true)
+		set_boss_should_shoot(true)
+		play_side_to_side_anim()
+	if anim_name == "side_to_side":
+		play_random_anim()
+	
+		

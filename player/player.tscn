@@ -164,7 +164,6 @@ fixed_fps = 60
 trail_lifetime = 0.1
 
 [node name="AnimatedEngineFx" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(1, 45)
 rotation = 3.12458
 scale = Vector2(2, 2)
@@ -189,7 +188,7 @@ pitch_scale = 2.25
 
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 0.3
-one_shot = true
+autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

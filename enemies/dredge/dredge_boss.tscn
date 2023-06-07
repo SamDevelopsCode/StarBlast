@@ -142,7 +142,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_2kns1"]
 resource_name = "fly_on_screen"
 length = 3.0
-step = 0.01
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -154,40 +154,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(600, -500), Vector2(600, 600)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.99, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [false],
-"method": &"set_if_player_can_shoot"
-}, {
-"args": [true],
-"method": &"set_if_player_can_shoot"
-}, {
-"args": [true],
-"method": &"set_boss_should_shoot"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_side_to_side_anim"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_cyuo2"]
@@ -238,26 +204,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(600, 600), Vector2(400, 676), Vector2(896, 740), Vector2(600, 600)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [true],
-"method": &"set_boss_should_shoot"
-}, {
-"args": [],
-"method": &"play_random_gun_anim"
-}, {
-"args": [],
-"method": &"play_random_anim"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_2ispx"]
@@ -395,4 +341,6 @@ autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="MovementAnimationPlayer" to="." method="_on_movement_animation_player_animation_finished"]
+[connection signal="animation_started" from="MovementAnimationPlayer" to="." method="_on_movement_animation_player_animation_started"]
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

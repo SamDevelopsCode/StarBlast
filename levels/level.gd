@@ -80,3 +80,15 @@ func tween_player_end_level():
 
 func start_level_transition():
 	SceneTransitionManager.fade_to_level_2()
+
+func _on_level_events_animation_player_animation_started(anim_name: StringName) -> void:
+	if anim_name == "player_enters_level":
+		player.set_input_is_valid(false)
+		
+func _on_level_events_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "player_enters_level":
+		player.set_input_is_valid(true)
+	if anim_name == "boss_defeated":
+		player.set_input_is_valid(false)
+
+

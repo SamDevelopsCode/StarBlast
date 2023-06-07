@@ -16,9 +16,9 @@ var powerup_speed = preload("res://powerups/powerup_speed.tscn")
 var powerup_fire_rate = preload("res://powerups/powerup_fire_rate.tscn")
 
 var screen_size : Vector2
-var can_fire := true
+var can_fire
 var is_alive := true
-var input_is_valid := true
+var input_is_valid
 
 @onready var laser_container: Node = $LaserContainer
 @onready var laser_1_pos = $Weapons/Lasers/Laser1Pos
@@ -40,8 +40,7 @@ var input_is_valid := true
 func _ready() -> void:
 	fire_type = GameData.fire_type
 	fire_rate_timer.wait_time = GameData.fire_rate_timer_wait_time
-	move_speed = GameData.speed
-	
+	move_speed = GameData.speed	
 	screen_size = get_viewport_rect().size
 	animated_engine_fx.visible = false
 
@@ -66,11 +65,11 @@ func move_player():
 	global_position.y = clampf(global_position.y, 18, screen_size.y - 18) 
 
 func shoot() -> void:
-	fire_lasers()
+	if input_is_valid:
+		fire_lasers()
 
 func fire_lasers():
 	can_fire = false
-	fire_rate_timer.start()
 	weapon_sound.play()
 	add_vibration()
 	
@@ -157,9 +156,6 @@ func enable_end_of_level_engine_fx():
 func disable_end_of_level_engine_fx():
 	animated_engine_fx.visible = false
 	animated_engine_fx.stop()
-	
-func set_if_player_can_shoot(can_shoot: bool):
-	can_fire = can_shoot
 	
 func set_input_is_valid(is_valid: bool):
 	input_is_valid = is_valid
