@@ -1,7 +1,113 @@
-[gd_scene load_steps=6 format=3 uid="uid://mv17y1a0sanb"]
+[gd_scene load_steps=21 format=3 uid="uid://mv17y1a0sanb"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_j4su3"]
-[ext_resource type="Texture2D" uid="uid://cxrpicrnb86sk" path="res://enemies/flacian/art/flacian_cruiser.png" id="2_l2xsf"]
+[ext_resource type="Texture2D" uid="uid://bwhfqn5y4k2st" path="res://enemies/flacian/art/flacian_cruiser.png" id="2_l2xsf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut6gg"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7tf0"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8evw"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hb2k"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plnsu"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bhwi"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68soq"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cw6n"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tgkb"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waft8"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reykq"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c804e"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alxxl"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(1536, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6tpo"]
+atlas = ExtResource("2_l2xsf")
+region = Rect2(1664, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3fnx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut6gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7tf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8evw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hb2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plnsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bhwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68soq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cw6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tgkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waft8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reykq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c804e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alxxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6tpo")
+}],
+"loop": false,
+"name": &"death",
+"speed": 17.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gs4fo"]
 radius = 75.9742
@@ -20,10 +126,11 @@ script = ExtResource("1_j4su3")
 move_speed = 350
 health = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
 scale = Vector2(3, 3)
-texture = ExtResource("2_l2xsf")
+sprite_frames = SubResource("SpriteFrames_y3fnx")
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 17)
@@ -39,3 +146,4 @@ position = Vector2(91, -33.5)
 shape = SubResource("RectangleShape2D_4154f")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

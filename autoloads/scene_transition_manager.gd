@@ -3,7 +3,8 @@ extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	fade_to_menu()
+#	fade_to_menu()
+	pass
 
 func fade_to_level_1():
 	animation_player.play("fade_to_level_1")

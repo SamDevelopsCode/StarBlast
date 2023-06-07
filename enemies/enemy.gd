@@ -35,8 +35,7 @@ func die() -> void:
 	sprite.play("death")
 	emit_signal("enemy_died")	
 	if should_drop_powerup():
-		spawn_powerup()	
-	
+		spawn_powerup()		
 	
 func _on_body_entered(body: Node2D) -> void:
 	body.take_damage()
@@ -44,9 +43,9 @@ func _on_body_entered(body: Node2D) -> void:
 	die()
 	
 func show_damaged_fx() -> void:
-		sprite.set_self_modulate(Color(1, 0.03921568766236, 0.29411765933037, 0.9))
-		await get_tree().create_timer(.05).timeout
-		sprite.set_self_modulate(Color(1, 1, 1, 1))	
+	sprite.set_self_modulate(Color(1, 0.03921568766236, 0.29411765933037, 0.9))
+	await get_tree().create_timer(.05).timeout
+	sprite.set_self_modulate(Color(1, 1, 1, 1))	
 
 func spawn_powerup() -> void:
 	randomize()
