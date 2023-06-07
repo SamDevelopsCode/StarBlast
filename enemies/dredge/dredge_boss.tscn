@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c2i237w0x7gph"]
+[gd_scene load_steps=27 format=3 uid="uid://c2i237w0x7gph"]
 
 [ext_resource type="Script" path="res://enemies/dredge_boss.gd" id="1_ocvyl"]
 [ext_resource type="Texture2D" uid="uid://c12xv2llfsfl2" path="res://enemies/dredge/art/dredge_boss_death.png" id="2_pl47w"]
@@ -97,8 +97,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onf13"]
-radius = 295.0
+radius = 202.0
 height = 912.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ebu6c"]
+radius = 44.0
+height = 414.0
 
 [sub_resource type="Animation" id="Animation_pvjed"]
 length = 0.001
@@ -312,6 +316,14 @@ animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_onf13")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-247, -74)
+shape = SubResource("CapsuleShape2D_ebu6c")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(245, -74)
+shape = SubResource("CapsuleShape2D_ebu6c")
 
 [node name="MovementAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "rotate_gun_cone"
