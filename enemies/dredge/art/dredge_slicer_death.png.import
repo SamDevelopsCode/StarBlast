@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f3t2i40xw0m6"
-path="res://.godot/imported/dredge_slicer.png-eeb9930f1dc64c3d40d6efbd56b5abbb.ctex"
+uid="uid://d2n167yjv18py"
+path="res://.godot/imported/dredge_slicer_death.png-ee171120d07757f0e90816699216d97e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/dredge/art/dredge_slicer.png"
-dest_files=["res://.godot/imported/dredge_slicer.png-eeb9930f1dc64c3d40d6efbd56b5abbb.ctex"]
+source_file="res://enemies/dredge/art/dredge_slicer_death.png"
+dest_files=["res://.godot/imported/dredge_slicer_death.png-ee171120d07757f0e90816699216d97e.ctex"]
 
 [params]
 

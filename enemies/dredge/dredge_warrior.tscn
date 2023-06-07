@@ -1,8 +1,79 @@
-[gd_scene load_steps=5 format=3 uid="uid://68xy7huef1p"]
+[gd_scene load_steps=15 format=3 uid="uid://68xy7huef1p"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_geqls"]
-[ext_resource type="Texture2D" uid="uid://cmbhwqh0phe2c" path="res://enemies/dredge/art/dredge_warrior.png" id="2_42lht"]
-[ext_resource type="PackedScene" uid="uid://bdb4frhofxu8v" path="res://weapons/enemy/single_enemy_weapon.tscn" id="3_67iac"]
+[ext_resource type="Texture2D" uid="uid://d0s7abe0kxj0n" path="res://enemies/dredge/art/dredge_warrior_death.png" id="2_iaxr8"]
+[ext_resource type="PackedScene" uid="uid://dagtp7sdjnn50" path="res://weapons/enemy/single_enemy_weapon.tscn" id="3_67iac"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk51c"]
+atlas = ExtResource("2_iaxr8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqaqt"]
+atlas = ExtResource("2_iaxr8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dephc"]
+atlas = ExtResource("2_iaxr8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsqyx"]
+atlas = ExtResource("2_iaxr8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs717"]
+atlas = ExtResource("2_iaxr8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8pen"]
+atlas = ExtResource("2_iaxr8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfv7u"]
+atlas = ExtResource("2_iaxr8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y30r"]
+atlas = ExtResource("2_iaxr8")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pga2m"]
+atlas = ExtResource("2_iaxr8")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1u4q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk51c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqaqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dephc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsqyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs717")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8pen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfv7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y30r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pga2m")
+}],
+"loop": false,
+"name": &"death",
+"speed": 16.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hohiy"]
 radius = 51.9746
@@ -15,10 +86,11 @@ script = ExtResource("1_geqls")
 move_speed = 250
 health = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
 scale = Vector2(3, 3)
-texture = ExtResource("2_42lht")
+sprite_frames = SubResource("SpriteFrames_y1u4q")
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 11)
@@ -35,3 +107,4 @@ position = Vector2(0, 74)
 position = Vector2(28, 68)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

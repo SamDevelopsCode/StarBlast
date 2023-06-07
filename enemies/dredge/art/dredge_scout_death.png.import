@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmbhwqh0phe2c"
-path="res://.godot/imported/dredge_warrior.png-629d784a345ac7adb6cb147690b4bf32.ctex"
+uid="uid://e3qab88hnyfa"
+path="res://.godot/imported/dredge_scout_death.png-e47532330c1c8e5af40d16333909a9bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/dredge/art/dredge_warrior.png"
-dest_files=["res://.godot/imported/dredge_warrior.png-629d784a345ac7adb6cb147690b4bf32.ctex"]
+source_file="res://enemies/dredge/art/dredge_scout_death.png"
+dest_files=["res://.godot/imported/dredge_scout_death.png-e47532330c1c8e5af40d16333909a9bd.ctex"]
 
 [params]
 

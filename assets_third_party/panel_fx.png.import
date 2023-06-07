@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvfq575k0wodl"
-path="res://.godot/imported/dredge_scout.png-8d9151259cab07a6d957b89a81562ba7.ctex"
+uid="uid://cuaxqfyctcmyo"
+path="res://.godot/imported/panel_fx.png-b7c487d8f682ce90fa611a321a3bebae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/dredge/art/dredge_scout.png"
-dest_files=["res://.godot/imported/dredge_scout.png-8d9151259cab07a6d957b89a81562ba7.ctex"]
+source_file="res://assets_third_party/panel_fx.png"
+dest_files=["res://.godot/imported/panel_fx.png-b7c487d8f682ce90fa611a321a3bebae.ctex"]
 
 [params]
 

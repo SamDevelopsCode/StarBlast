@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://2ur48n76tlub"]
+[gd_scene load_steps=21 format=3 uid="uid://2ur48n76tlub"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_movka"]
 [ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/art/Main Ship - Base - Full health.png" id="2_82vat"]
 [ext_resource type="AudioStream" uid="uid://nlyop6gwuta3" path="res://assets_third_party/audio/sfx_laser2.wav" id="3_w60rq"]
 [ext_resource type="PackedScene" uid="uid://bdial7eisluqr" path="res://weapons/laser/lasers.tscn" id="4_u6hlg"]
+[ext_resource type="Texture2D" uid="uid://cbvd0akbplwuy" path="res://assets_third_party/Fire Effect and Bullet 16x16.png" id="5_ax2dk"]
 
 [sub_resource type="Gradient" id="Gradient_l2rai"]
 offsets = PackedFloat32Array(0, 0.519164, 1)
@@ -35,6 +36,35 @@ color_ramp = SubResource("GradientTexture1D_km8g0")
 turbulence_noise_strength = 3.34
 attractor_interaction_enabled = false
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i5aw"]
+atlas = ExtResource("5_ax2dk")
+region = Rect2(160, 156, 16, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dmf8"]
+atlas = ExtResource("5_ax2dk")
+region = Rect2(176, 156, 16, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gnwd"]
+atlas = ExtResource("5_ax2dk")
+region = Rect2(192, 156, 16, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4dyl0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i5aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dmf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gnwd")
+}],
+"loop": true,
+"name": &"fire_engine",
+"speed": 12.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_yshd3"]
 radius = 19.0263
 
@@ -51,6 +81,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedEngineFx:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedEngineFx:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_15xhh"]
@@ -102,11 +156,21 @@ script = ExtResource("1_movka")
 
 [node name="EngineFX" type="GPUParticles2D" parent="."]
 position = Vector2(0, 19)
+emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_oux0u")
 lifetime = 0.2
 fixed_fps = 60
 trail_lifetime = 0.1
+
+[node name="AnimatedEngineFx" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1, 45)
+rotation = 3.12458
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4dyl0")
+animation = &"fire_engine"
+frame_progress = 0.419379
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

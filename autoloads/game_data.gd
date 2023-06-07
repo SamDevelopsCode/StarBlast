@@ -8,8 +8,8 @@ signal player_health_changed(player_health)
 signal player_health_refreshed(player_health)
 signal player_lives_changed(player_lives)
 
-var player_max_health := 50
-var player_health := 50
+var player_max_health := 75	
+var player_health := 75
 var player_lives := 3
 
 var fire_rate = 1

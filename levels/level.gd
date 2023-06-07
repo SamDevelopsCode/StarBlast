@@ -8,8 +8,10 @@ var game_over_screen = preload("res://gui/game_over_screen.tscn")
 @onready var player_death_sound: AudioStreamPlayer = $PlayerDeathSound
 @onready var player: Player = $Player 
 @onready var enemy_spawner = $EnemySpawner
+@onready var level_events_anim: AnimationPlayer = $LevelEventsAnimationPlayer
 
 func _ready() -> void:
+	level_events_anim.play("player_enters_level")
 	enemy_spawner.connect("enemy_spawned", _on_enemy_spawner_enemy_spawned)
 	player.connect("damage_taken", _on_player_damage_taken)
 	hud.set_score_label(GameData.score)
@@ -60,8 +62,9 @@ func _on_enemy_died() -> void:
 	enemy_hit_sound.play()
 
 func _on_boss_died(boss_name):
-	if boss_name == "DredgeBoss":
-		SceneTransitionManager.fade_to_level_2()
+	if boss_name == "DredgeBoss":	
+		tween_player_end_level()
+		level_events_anim.play("boss_defeated")
 	elif boss_name == "KameerBoss":
 		SceneTransitionManager.fade_to_level_3()
 	elif boss_name == "FlacianBoss":
@@ -69,3 +72,11 @@ func _on_boss_died(boss_name):
 
 func _on_powerup_spawned(powerup_instance)  -> void:
 	call_deferred("add_child", powerup_instance)
+
+func tween_player_end_level():
+	var player_tween = get_tree().create_tween()
+	player_tween.tween_property(player, "global_position", Vector2(650, 1400), 3.0)
+	player.enable_end_of_level_engine_fx()
+
+func start_level_transition():
+	SceneTransitionManager.fade_to_level_2()

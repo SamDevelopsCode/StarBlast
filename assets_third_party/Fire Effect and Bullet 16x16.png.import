@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsgpmm76rx2ni"
-path="res://.godot/imported/dredge_bomber.png-c427a9ade1e66d08488d75dc52d76715.ctex"
+uid="uid://cbvd0akbplwuy"
+path="res://.godot/imported/Fire Effect and Bullet 16x16.png-03dddc01e63d0ea12603a96ba8e28f07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/dredge/art/dredge_bomber.png"
-dest_files=["res://.godot/imported/dredge_bomber.png-c427a9ade1e66d08488d75dc52d76715.ctex"]
+source_file="res://assets_third_party/Fire Effect and Bullet 16x16.png"
+dest_files=["res://.godot/imported/Fire Effect and Bullet 16x16.png-03dddc01e63d0ea12603a96ba8e28f07.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ci2ygy8mj7k6l"]
+[gd_scene load_steps=20 format=3 uid="uid://ci2ygy8mj7k6l"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_naevg"]
 [ext_resource type="PackedScene" uid="uid://bopq1cei63f4f" path="res://gui/hud.tscn" id="2_h2bpn"]
@@ -54,6 +54,211 @@ font_size = 48
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j8yl"]
 size = Vector2(1518.8, 120.4)
 
+[sub_resource type="Animation" id="Animation_b4hwo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BottomBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2000)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(650, 1400)]
+}
+
+[sub_resource type="Animation" id="Animation_tdmdh"]
+resource_name = "boss_defeated"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopBar:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1.5, 1),
+"update": 0,
+"values": [Vector2(0, -400), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BottomBar:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1.5, 1),
+"update": 0,
+"values": [Vector2(0, 2000), Vector2(0, 1600)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 5),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(650, 1400), Vector2(652, -151)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_level_transition"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"disable_end_of_level_engine_fx"
+}, {
+"args": [],
+"method": &"enable_end_of_level_engine_fx"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_if_player_can_shoot"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Player")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_input_is_valid"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xpmgl"]
+resource_name = "player_enters_level"
+length = 3.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector2(650, 2305), Vector2(650, 1450)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 2.2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"enable_end_of_level_engine_fx"
+}, {
+"args": [false],
+"method": &"set_input_is_valid"
+}, {
+"args": [],
+"method": &"disable_end_of_level_engine_fx"
+}, {
+"args": [true],
+"method": &"set_input_is_valid"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_if_player_can_shoot"
+}, {
+"args": [true],
+"method": &"set_if_player_can_shoot"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hnhqj"]
+_data = {
+"RESET": SubResource("Animation_b4hwo"),
+"boss_defeated": SubResource("Animation_tdmdh"),
+"player_enters_level": SubResource("Animation_xpmgl")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snu0e"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_naevg")
 
@@ -93,7 +298,7 @@ position = Vector2(640, 1000)
 texture = ExtResource("4_8l7tt")
 
 [node name="Player" parent="." instance=ExtResource("5_o1jgq")]
-position = Vector2(629, 1114)
+position = Vector2(650, 1400)
 fire_vibration_weak_magnitude = 1.0
 fire_vibration_strong_magnitude = 0.0
 fire_vibration_length = 0.1
@@ -118,5 +323,21 @@ pitch_scale = 1.96
 [node name="PlayerDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_6bito")
 volume_db = -6.674
+
+[node name="LevelEventsAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hnhqj")
+}
+
+[node name="TopBar" type="Panel" parent="."]
+offset_top = -400.0
+offset_right = 1280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_snu0e")
+
+[node name="BottomBar" type="Panel" parent="."]
+offset_top = 2000.0
+offset_right = 1280.0
+offset_bottom = 2400.15
+theme_override_styles/panel = SubResource("StyleBoxFlat_snu0e")
 
 [connection signal="area_entered" from="DeathZone" to="." method="_on_enemy_death_zone_area_entered"]

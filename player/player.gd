@@ -18,7 +18,7 @@ var powerup_fire_rate = preload("res://powerups/powerup_fire_rate.tscn")
 var screen_size : Vector2
 var can_fire := true
 var is_alive := true
-
+var input_is_valid := true
 
 @onready var laser_container: Node = $LaserContainer
 @onready var laser_1_pos = $Weapons/Lasers/Laser1Pos
@@ -34,6 +34,7 @@ var is_alive := true
 @onready var engine_fx: GPUParticles2D = $EngineFX
 @onready var player_animations = $AnimationPlayer
 @onready var fire_rate_timer: Timer = $FireRateTimer
+@onready var animated_engine_fx: AnimatedSprite2D = $AnimatedEngineFx
 
 
 func _ready() -> void:
@@ -42,14 +43,15 @@ func _ready() -> void:
 	move_speed = GameData.speed
 	
 	screen_size = get_viewport_rect().size
-	global_position = Vector2(screen_size.x/2, screen_size.y - 300)
+	animated_engine_fx.visible = false
 
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("shoot") and can_fire:
 		shoot()
 
 func _physics_process(_delta: float) -> void:
-	move_player()
+	if input_is_valid:
+		move_player()
 
 func move_player():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -148,7 +150,16 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	show_damaged_fx()
 	area.queue_free()
 
-#func spawn_powerup() -> void:
-#	var powerup_instance = powerups.pick_random().instantiate() as Area2D
-#	powerup_instance.global_position = global_position
-#	emit_signal("powerup_spawned", powerup_instance)
+func enable_end_of_level_engine_fx():
+	animated_engine_fx.visible = true
+	animated_engine_fx.play("fire_engine")
+	
+func disable_end_of_level_engine_fx():
+	animated_engine_fx.visible = false
+	animated_engine_fx.stop()
+	
+func set_if_player_can_shoot(can_shoot: bool):
+	can_fire = can_shoot
+	
+func set_input_is_valid(is_valid: bool):
+	input_is_valid = is_valid

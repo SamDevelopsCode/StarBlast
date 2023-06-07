@@ -20,8 +20,8 @@ font_size = 41
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5sra"]
 bg_color = Color(0.0196078, 0.0156863, 0.0705882, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8d85v"]
-bg_color = Color(0.294118, 0.619608, 0.34902, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wroq"]
+bg_color = Color(0, 0.705882, 0, 1)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -212,6 +212,7 @@ self_modulate = Color(0, 1, 1, 1)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/background = SubResource("StyleBoxFlat_b5sra")
-theme_override_styles/fill = SubResource("StyleBoxFlat_8d85v")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3wroq")
+max_value = 75.0
 fill_mode = 3
 show_percentage = false

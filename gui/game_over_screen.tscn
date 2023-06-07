@@ -1,13 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd4kpuykckwjw"]
+[gd_scene load_steps=9 format=3 uid="uid://bd4kpuykckwjw"]
 
 [ext_resource type="Script" path="res://gui/game_over_screen.gd" id="1_1vv28"]
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="1_b3a2a"]
 [ext_resource type="Theme" path="res://main_theme.tres" id="3_ko7hg"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yutwe"]
+bg_color = Color(0.772549, 0.0509804, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_i507o"]
 font = ExtResource("1_b3a2a")
 font_size = 28
-font_color = Color(0.623529, 0, 0.109804, 1)
 outline_size = 1
 shadow_size = 11
 
@@ -48,6 +50,7 @@ offset_right = 225.0
 offset_bottom = 202.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yutwe")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1

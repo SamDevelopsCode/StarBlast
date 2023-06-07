@@ -16,10 +16,16 @@ var boss_should_shoot := false
 var move_anim_chance := [1, 2, 3]
 var gun_anim_chance := [1, 2]
 
+var player
+
 var dead := false
 
 func _ready() -> void:
 	anim_player_movement.play("fly_on_screen")
+	player = get_tree().get_first_node_in_group("player")
+	
+	set_boss_difficulty()
+	print(health)
 
 func shoot() -> void:
 	var enemy_bullet = enemy_bullet_scene.instantiate() as Node2D
@@ -42,12 +48,13 @@ func _on_body_entered(body: Node2D) -> void:
 	body.show_damaged_fx()
 
 func die() -> void:
+	set_collision_layer_value(2, false)
 	sprite.play("death")
 	boss_should_shoot = false
 	anim_player_movement.pause()
 	anim_player_gun.stop()	
-	# stop collisions
 	#play sound fx for boss
+	await get_tree().create_timer(1).timeout	
 	emit_signal("boss_died", name)
 	await get_tree().create_timer(1.5).timeout
 	
@@ -85,8 +92,21 @@ func play_random_gun_anim():
 		2:
 			anim_player_gun.play("rotate_gun_circular")
 
-
-
 func _on_fire_rate_timer_timeout() -> void:
 	if boss_should_shoot:
 		shoot()
+
+func set_boss_difficulty():
+	if (GameData.fire_rate <= 2 ) and (GameData.fire_type <= 2):
+		health = 200
+	elif (GameData.fire_rate >= 3 ) and (GameData.fire_type >= 3):
+		health = 1000
+	else:
+		health = 500	
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	sprite.visible = false
+	
+func set_if_player_can_shoot(can_shoot: bool):
+	player.can_fire = can_shoot
