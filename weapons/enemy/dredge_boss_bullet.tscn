@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://clh6ny8hs3dxa"]
+
+[ext_resource type="Script" path="res://weapons/enemy/enemy_bullet.gd" id="1_qbi05"]
+[ext_resource type="Texture2D" uid="uid://duasc0o1q3d0l" path="res://assets_third_party/laser_sprite/Purple Effect and Bullet 16x16.png" id="2_qvdjm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bftkm"]
+radius = 46.0977
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t17er"]
+atlas = ExtResource("2_qvdjm")
+region = Rect2(160, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvl5a"]
+atlas = ExtResource("2_qvdjm")
+region = Rect2(176, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a32y4"]
+atlas = ExtResource("2_qvdjm")
+region = Rect2(192, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yt0os"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t17er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvl5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a32y4")
+}],
+"loop": true,
+"name": &"orb",
+"speed": 15.0
+}]
+
+[node name="DredgeBossBullet" type="Area2D" groups=["enemy_bullet"]]
+rotation = 1.5708
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("1_qbi05")
+
+[node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1.04677, -0.104999)
+scale = Vector2(4.48835, 4.84351)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bftkm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_yt0os")
+animation = &"orb"
+autoplay = "orb"
+frame_progress = 0.617584

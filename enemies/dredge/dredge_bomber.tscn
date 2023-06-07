@@ -11,8 +11,8 @@ radius = 39.2046
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_nwkge")
-move_speed = 300
-health = 75
+move_speed = 250
+health = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
@@ -24,6 +24,6 @@ position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_hi10i")
 
 [node name="SingleEnemyWeapon" parent="." instance=ExtResource("3_ascd0")]
-position = Vector2(0, 42)
+position = Vector2(1, 42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

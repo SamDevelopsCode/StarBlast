@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4ca4weo0cjb5"
-path="res://.godot/imported/Nautolan - Ray.png-6080cb40766d61c8493c250587ec8b3c.ctex"
+uid="uid://duasc0o1q3d0l"
+path="res://.godot/imported/Purple Effect and Bullet 16x16.png-9cc6ab06343335dcd843fa239a481b28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapons/Nautolan - Ray.png"
-dest_files=["res://.godot/imported/Nautolan - Ray.png-6080cb40766d61c8493c250587ec8b3c.ctex"]
+source_file="res://assets_third_party/laser_sprite/Purple Effect and Bullet 16x16.png"
+dest_files=["res://.godot/imported/Purple Effect and Bullet 16x16.png-9cc6ab06343335dcd843fa239a481b28.ctex"]
 
 [params]
 

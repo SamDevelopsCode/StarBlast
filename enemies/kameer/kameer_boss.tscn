@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bofdm3fojobrh"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Script" path="res://enemies/enemy_boss.gd" id="1_q1ugh"]
+[ext_resource type="Script" path="res://enemies/dredge_boss.gd" id="1_q1ugh"]
 [ext_resource type="Texture2D" uid="uid://dvy74qsc11iee" path="res://enemies/kameer/art/kameer_boss.png" id="2_aget8"]
 [ext_resource type="Texture2D" uid="uid://c8dhjwm48nee5" path="res://icon.svg" id="3_iripl"]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhoxxpw7re4tq"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Script" path="res://enemies/enemy_boss.gd" id="1_un5me"]
+[ext_resource type="Script" path="res://enemies/dredge_boss.gd" id="1_un5me"]
 [ext_resource type="Texture2D" uid="uid://c7y03e8e0334p" path="res://enemies/flacian/art/flacian_boss.png" id="2_hpv1t"]
 [ext_resource type="Texture2D" uid="uid://c8dhjwm48nee5" path="res://icon.svg" id="3_xgf1n"]
 

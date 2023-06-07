@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://2ur48n76tlub"]
+[gd_scene load_steps=16 format=3 uid="uid://2ur48n76tlub"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_movka"]
 [ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/art/Main Ship - Base - Full health.png" id="2_82vat"]
@@ -87,6 +87,14 @@ _data = {
 "out_of_health": SubResource("Animation_15xhh")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8qbo"]
+radius = 8.49275
+height = 45.5974
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmnpl"]
+radius = 9.05517
+height = 32.2483
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 2
 motion_mode = 1
@@ -128,4 +136,19 @@ libraries = {
 
 [node name="Lasers" parent="Weapons" instance=ExtResource("4_u6hlg")]
 
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-11, 1)
+rotation = 0.790763
+shape = SubResource("CapsuleShape2D_b8qbo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(14, 9)
+rotation = -1.35329
+shape = SubResource("CapsuleShape2D_wmnpl")
+
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

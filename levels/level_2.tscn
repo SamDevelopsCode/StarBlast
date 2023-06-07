@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ci2ygy8mj7k6l"]
+[gd_scene load_steps=15 format=3 uid="uid://ci2ygy8mj7k6l"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_naevg"]
 [ext_resource type="PackedScene" uid="uid://bopq1cei63f4f" path="res://gui/hud.tscn" id="2_h2bpn"]
@@ -7,14 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c85dye611j5j" path="res://levels/art/level_2_bg.png" id="4_8l7tt"]
 [ext_resource type="PackedScene" uid="uid://2ur48n76tlub" path="res://player/player.tscn" id="5_o1jgq"]
 [ext_resource type="PackedScene" uid="uid://cs6niqmx4i272" path="res://enemy_spawner/enemy_spawner.tscn" id="6_1sgbg"]
-[ext_resource type="PackedScene" uid="uid://csmbfcuc2shiy" path="res://enemies/kameer/kameer_scout.tscn" id="7_3unpf"]
-[ext_resource type="Script" path="res://enemy_spawner/spawn_info.gd" id="8_pi6la"]
-[ext_resource type="PackedScene" uid="uid://rtkr86nre33u" path="res://enemies/kameer/kameer_warrior.tscn" id="9_tnq80"]
-[ext_resource type="PackedScene" uid="uid://c8l5j1rb85us3" path="res://enemies/kameer/kameer_frigate.tscn" id="10_3hyuk"]
-[ext_resource type="PackedScene" uid="uid://ctrgbvayma1s2" path="res://enemies/kameer/kameer_cruiser.tscn" id="11_81hv7"]
-[ext_resource type="PackedScene" uid="uid://bofdm3fojobrh" path="res://enemies/kameer/kameer_boss.tscn" id="12_ksmye"]
-[ext_resource type="PackedScene" uid="uid://csjoa5133xtxq" path="res://enemies/kameer/kameer_slicer.tscn" id="13_7ub50"]
-[ext_resource type="PackedScene" uid="uid://bqduoi8nd4hve" path="res://enemies/kameer/kameer_bomber.tscn" id="14_8cfi6"]
 [ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://assets_third_party/audio/enemy_hit.wav" id="14_rwb66"]
 [ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://assets_third_party/audio/player_death.wav" id="15_6bito"]
 
@@ -58,62 +50,6 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_io1mu"]
 font = ExtResource("2_t7y7v")
 font_size = 48
-
-[sub_resource type="Resource" id="Resource_rxcc7"]
-script = ExtResource("8_pi6la")
-time_start = 30
-time_end = 30
-enemy = ExtResource("7_3unpf")
-enemy_number = 1
-enemy_spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_2b1se"]
-script = ExtResource("8_pi6la")
-time_start = 10
-time_end = 60
-enemy = ExtResource("9_tnq80")
-enemy_number = 1
-enemy_spawn_delay = 1
-
-[sub_resource type="Resource" id="Resource_pljfb"]
-script = ExtResource("8_pi6la")
-time_start = 30
-time_end = 45
-enemy = ExtResource("10_3hyuk")
-enemy_number = 1
-enemy_spawn_delay = 2
-
-[sub_resource type="Resource" id="Resource_xn76w"]
-script = ExtResource("8_pi6la")
-time_start = 30
-time_end = 60
-enemy = ExtResource("11_81hv7")
-enemy_number = 1
-enemy_spawn_delay = 2
-
-[sub_resource type="Resource" id="Resource_u4bl1"]
-script = ExtResource("8_pi6la")
-time_start = 1
-time_end = 2
-enemy = ExtResource("12_ksmye")
-enemy_number = 2
-enemy_spawn_delay = 1
-
-[sub_resource type="Resource" id="Resource_rdf0t"]
-script = ExtResource("8_pi6la")
-time_start = 0
-time_end = 60
-enemy = ExtResource("13_7ub50")
-enemy_number = 2
-enemy_spawn_delay = 2
-
-[sub_resource type="Resource" id="Resource_d7bl2"]
-script = ExtResource("8_pi6la")
-time_start = 14
-time_end = 56
-enemy = ExtResource("14_8cfi6")
-enemy_number = 1
-enemy_spawn_delay = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j8yl"]
 size = Vector2(1518.8, 120.4)
@@ -163,7 +99,6 @@ fire_vibration_strong_magnitude = 0.0
 fire_vibration_length = 0.1
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_1sgbg")]
-spawns = Array[ExtResource("8_pi6la")]([SubResource("Resource_rxcc7"), SubResource("Resource_2b1se"), SubResource("Resource_pljfb"), SubResource("Resource_xn76w"), SubResource("Resource_u4bl1"), SubResource("Resource_rdf0t"), SubResource("Resource_d7bl2")])
 
 [node name="DeathZone" type="Area2D" parent="."]
 position = Vector2(592, 2472)

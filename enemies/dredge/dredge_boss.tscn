@@ -1,8 +1,100 @@
-[gd_scene load_steps=10 format=3 uid="uid://d34rvpcemdtdh"]
+[gd_scene load_steps=26 format=3 uid="uid://c2i237w0x7gph"]
 
-[ext_resource type="Script" path="res://enemies/enemy_boss.gd" id="1_pxohj"]
-[ext_resource type="Texture2D" uid="uid://c1ny4a8p5cup8" path="res://enemies/dredge/art/dredge_dreadnought.png" id="2_vflc2"]
+[ext_resource type="Script" path="res://enemies/dredge_boss.gd" id="1_ocvyl"]
+[ext_resource type="Texture2D" uid="uid://c12xv2llfsfl2" path="res://enemies/dredge/art/dredge_boss_death.png" id="2_pl47w"]
 [ext_resource type="Texture2D" uid="uid://c8dhjwm48nee5" path="res://icon.svg" id="3_7ymqt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3tg1"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upkyt"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v20hx"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7wrd"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drxqr"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b477"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_513wh"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvtvf"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy64n"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xwax"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bck82"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mk5s"]
+atlas = ExtResource("2_pl47w")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4hl0h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3tg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upkyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v20hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7wrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drxqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b477")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_513wh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvtvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy64n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xwax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bck82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mk5s")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onf13"]
 radius = 295.0
@@ -34,10 +126,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_2kns1"]
 resource_name = "fly_on_screen"
-length = 7.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,7 +149,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 7),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(600, -500), Vector2(600, 600)]
@@ -57,7 +161,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(7),
+"times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [true],
@@ -71,7 +175,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(7),
+"times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -79,8 +183,125 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_xsvxh"]
+resource_name = "side_to_side"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(600, 600), Vector2(400, 676), Vector2(896, 740), Vector2(600, 600)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [true],
+"method": &"set_boss_should_shoot"
+}, {
+"args": [],
+"method": &"play_random_gun_anim"
+}, {
+"args": [],
+"method": &"play_random_anim"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2ispx"]
+resource_name = "swoop_deh_scoop"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(600, 600), Vector2(450, 1420), Vector2(831, 1427), Vector2(600, 600)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [true],
+"method": &"set_boss_should_shoot"
+}, {
+"args": [],
+"method": &"play_random_gun_anim"
+}, {
+"args": [],
+"method": &"play_random_anim"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qcrt2"]
+resource_name = "twist_to_miss"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(600, 600), Vector2(540, 600), Vector2(536, 1624), Vector2(600, 600)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5708, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_boss_should_shoot"
+}, {
+"args": [],
+"method": &"play_random_anim"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_lvmhm"]
-resource_name = "rotate_gun"
+resource_name = "rotate_gun_cone"
 length = 1.3
 loop_mode = 2
 tracks/0/type = "value"
@@ -96,52 +317,57 @@ tracks/0/keys = {
 "values": [0.872665, 0.0, -0.872665]
 }
 
-[sub_resource type="Animation" id="Animation_xsvxh"]
-resource_name = "side_to_side"
-length = 6.0
+[sub_resource type="Animation" id="Animation_cyuo2"]
+resource_name = "rotate_gun_circular"
+length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
+tracks/0/path = NodePath("GunTurret:rotation")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(600, 600), Vector2(400, 676), Vector2(896, 740), Vector2(600, 600)]
+"values": [0.0, -3.14159, -6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f6xu7"]
 _data = {
 "RESET": SubResource("Animation_pvjed"),
 "fly_on_screen": SubResource("Animation_2kns1"),
-"rotate_gun": SubResource("Animation_lvmhm"),
-"side_to_side": SubResource("Animation_xsvxh")
+"rotate_gun_circular": SubResource("Animation_cyuo2"),
+"rotate_gun_cone": SubResource("Animation_lvmhm"),
+"side_to_side": SubResource("Animation_xsvxh"),
+"swoop_deh_scoop": SubResource("Animation_2ispx"),
+"twist_to_miss": SubResource("Animation_qcrt2")
 }
 
 [node name="DredgeBoss" type="Area2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 13
-script = ExtResource("1_pxohj")
+script = ExtResource("1_ocvyl")
+health = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
 scale = Vector2(10, 10)
-texture = ExtResource("2_vflc2")
+sprite_frames = SubResource("SpriteFrames_4hl0h")
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_onf13")
 
 [node name="MovementAnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "rotate_gun"
+autoplay = "rotate_gun_cone"
 libraries = {
 "": SubResource("AnimationLibrary_f6xu7")
 }
 
 [node name="GunAnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "rotate_gun"
+autoplay = "rotate_gun_cone"
 libraries = {
 "": SubResource("AnimationLibrary_f6xu7")
 }
@@ -149,13 +375,16 @@ libraries = {
 [node name="GunTurret" type="Node2D" parent="."]
 
 [node name="BulletDirection" type="Marker2D" parent="GunTurret"]
+visible = false
 position = Vector2(0, 100)
 
 [node name="Sprite2D" type="Sprite2D" parent="GunTurret/BulletDirection"]
-visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_7ymqt")
 
 [node name="FireRateTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

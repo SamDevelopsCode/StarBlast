@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bopq1cei63f4f"]
+[gd_scene load_steps=12 format=3 uid="uid://bopq1cei63f4f"]
 
 [ext_resource type="Script" path="res://gui/hud.gd" id="1_ct85p"]
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="1_oy3r3"]
@@ -16,6 +16,12 @@ font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_r8bov"]
 font_size = 41
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5sra"]
+bg_color = Color(0.0196078, 0.0156863, 0.0705882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8d85v"]
+bg_color = Color(0.294118, 0.619608, 0.34902, 1)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -194,14 +200,18 @@ vertical_alignment = 2
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -27.0
-grow_horizontal = 2
+offset_top = -1678.0
+offset_right = 36.0
 grow_vertical = 0
 
 [node name="PlayerHealthBar" type="ProgressBar" parent="VBox"]
 self_modulate = Color(0, 1, 1, 1)
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_b5sra")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8d85v")
+fill_mode = 3
+show_percentage = false

@@ -13,7 +13,7 @@ collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_geqls")
 move_speed = 250
-health = 75
+health = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
@@ -26,9 +26,12 @@ rotation = 1.57309
 shape = SubResource("CapsuleShape2D_hohiy")
 
 [node name="SingleEnemyWeapon" parent="." instance=ExtResource("3_67iac")]
-position = Vector2(-37, 56)
+position = Vector2(-27, 68)
 
 [node name="SingleEnemyWeapon2" parent="." instance=ExtResource("3_67iac")]
-position = Vector2(36, 56)
+position = Vector2(0, 74)
+
+[node name="SingleEnemyWeapon3" parent="." instance=ExtResource("3_67iac")]
+position = Vector2(28, 68)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

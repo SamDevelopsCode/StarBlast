@@ -18,8 +18,8 @@ radius = 18.1108
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_e25x6")
-move_speed = 200
-health = 150
+move_speed = 250
+health = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
@@ -42,5 +42,6 @@ rotation = 1.56068
 shape = SubResource("CircleShape2D_xjg77")
 
 [node name="AimingEnemyWeapon" parent="." instance=ExtResource("3_8jhhp")]
+position = Vector2(0, 27)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

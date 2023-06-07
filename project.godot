@@ -112,3 +112,5 @@ shoot={
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="laser"
 2d_physics/layer_4="deletion_zone"
+2d_physics/layer_5="hurt_box"
+2d_physics/layer_6="enemy_bullet"

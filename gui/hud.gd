@@ -9,25 +9,26 @@ extends Control
 
 func _ready() -> void:
 	GameData.connect("score_changed", set_score_label)	
-	GameData.connect("fire_rate_label_changed", set_fire_rate_label)	
+	GameData.connect("fire_rate_changed", set_fire_rate_label)	
 	GameData.connect("fire_type_changed", set_fire_type_label)	
-	GameData.connect("speed_label_changed", set_speed_label)		
+	GameData.connect("speed_label_changed", set_speed_label)	
+	GameData.connect("player_health_changed", set_health_label)	
+	GameData.connect("player_lives_changed", set_lives_label)	
+	GameData.connect("player_health_refreshed", set_health_label)
 	
 	set_fire_rate_label(GameData.fire_rate)
 	set_fire_type_label(GameData.fire_type)
 	set_speed_label(GameData.speed_label)
-	
-	
-
+	set_lives_label(GameData.player_lives)
 
 func set_score_label(new_score) -> void:
 	score.text = "Score: " + str(new_score)
 
+func set_health_label(health):
+	player_health_bar.value = health
+
 func set_lives_label(lives) -> void:
 	lives_left.text = str(lives)
-
-func set_health_value(health) -> void:
-	player_health_bar.value = health
 
 func set_fire_rate_label(fire_rate) -> void:
 	if fire_rate >= 6:

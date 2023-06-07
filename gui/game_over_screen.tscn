@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://bd4kpuykckwjw"]
 
 [ext_resource type="Script" path="res://gui/game_over_screen.gd" id="1_1vv28"]
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="1_b3a2a"]
+[ext_resource type="Theme" path="res://main_theme.tres" id="3_ko7hg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i507o"]
 font = ExtResource("1_b3a2a")
@@ -9,6 +10,9 @@ font_size = 28
 font_color = Color(0.623529, 0, 0.109804, 1)
 outline_size = 1
 shadow_size = 11
+
+[sub_resource type="LabelSettings" id="LabelSettings_trm81"]
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_nbi2d"]
 font = ExtResource("1_b3a2a")
@@ -45,51 +49,56 @@ offset_bottom = 202.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MissionFailed" type="Label" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -200.0
-offset_top = 25.0
-offset_right = 200.0
-offset_bottom = 58.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MissionFailed" type="Label" parent="Panel"]
+layout_mode = 2
+offset_top = 23.0
+offset_right = 450.0
+offset_bottom = 56.0
 grow_horizontal = 2
 text = "Mission Failed"
 label_settings = SubResource("LabelSettings_i507o")
 horizontal_alignment = 1
 
+[node name="ScoreLabel" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 52.0
+offset_top = 99.0
+offset_right = 228.0
+offset_bottom = 133.0
+theme = ExtResource("3_ko7hg")
+text = "Score: "
+label_settings = SubResource("LabelSettings_trm81")
+
 [node name="Score" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -107.5
-offset_top = -102.0
-offset_right = 107.5
-offset_bottom = -38.0
+layout_mode = 2
+offset_left = 194.0
+offset_top = 99.0
+offset_right = 451.0
+offset_bottom = 133.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Score: 999"
+text = "999"
 label_settings = SubResource("LabelSettings_nbi2d")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -102.0
-offset_top = 21.0
-offset_right = 109.0
-offset_bottom = 129.0
+layout_mode = 2
+offset_left = 63.0
+offset_top = 239.0
+offset_right = 392.0
+offset_bottom = 336.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_b3a2a")

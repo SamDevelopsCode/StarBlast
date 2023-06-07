@@ -9,7 +9,7 @@ signal enemy_died
 
 var dead := false
 
-func take_damage(damage) -> void:
+func take_damage(damage) -> void:	
 	show_damaged_fx()
 	health -= damage
 	if dead:
@@ -28,6 +28,7 @@ func die() -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	body.take_damage()
+	body.show_damaged_fx()
 	die()
 
 func show_damaged_fx() -> void:

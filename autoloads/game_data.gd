@@ -1,12 +1,16 @@
 extends Node
 
 signal score_changed(score)
-signal fire_rate_label_changed(fire_rate)
+signal fire_rate_changed(fire_rate)
 signal fire_type_changed(fire_type)
 signal speed_label_changed(speed_label)
+signal player_health_changed(player_health)
+signal player_health_refreshed(player_health)
+signal player_lives_changed(player_lives)
 
-@export var player_health := 100
-@export var player_lives := 3
+var player_max_health := 50
+var player_health := 50
+var player_lives := 3
 
 var fire_rate = 1
 var fire_rate_timer_wait_time = .3
@@ -26,7 +30,7 @@ func increase_fire_rate():
 	
 	if fire_rate <= 5:
 		fire_rate += 1
-		emit_signal("fire_rate_label_changed", fire_rate)	
+		emit_signal("fire_rate_changed", fire_rate)	
 	else:
 		return
 
@@ -47,6 +51,45 @@ func increase_speed():
 		emit_signal("speed_label_changed", speed_label)	
 	else:
 		return
+		
+func decrease_speed():
+	speed -= 100
+	if speed <= 400:
+		speed = 400
+		
+	if speed_label >= 2:
+		speed_label -= 1
+		emit_signal("speed_label_changed", speed_label)	
+	else:
+		speed_label = 1
+		emit_signal("speed_label_changed", speed_label)	
+		
+func decrease_player_health(damage):
+	player_health -= damage
+	emit_signal("player_health_changed", player_health)
+	
+func decrease_player_lives():
+	if player_lives <= 1:
+		player_lives = 0	
+		emit_signal("player_lives_changed", player_lives)
+	else:	
+		player_lives -= 1
+		emit_signal("player_lives_changed", player_lives)
+
+func decrease_fire_type():
+	if fire_type <= 1:
+		return
+	else:
+		fire_type -= 1
+		emit_signal("fire_type_changed", fire_type)
+		
+func decrease_fire_rate():
+	if fire_rate <= 1:
+		return
+	else:
+		fire_rate -= 1
+		emit_signal("fire_rate_changed", fire_rate)
 
 func refresh_player_health():
-	player_health = 100
+	player_health = player_max_health
+	emit_signal("player_health_refreshed", player_max_health)

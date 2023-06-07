@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-signal damage_taken
+signal damage_taken(damage)
 
 var move_speed := 400
 var fire_type
@@ -9,7 +9,11 @@ var fire_type
 @export var fire_vibration_strong_magnitude := .5
 @export var fire_vibration_length := .5
 
+
 var laser_scene = preload("res://weapons/laser/laser.tscn")
+var powerup_laser = preload("res://powerups/powerup_laser.tscn")
+var powerup_speed = preload("res://powerups/powerup_speed.tscn")
+var powerup_fire_rate = preload("res://powerups/powerup_fire_rate.tscn")
 
 var screen_size : Vector2
 var can_fire := true
@@ -133,3 +137,18 @@ func add_vibration() -> void:
 		
 func take_damage() -> void:
 	emit_signal("damage_taken")
+
+func show_damaged_fx() -> void:
+	$Sprite2D.set_self_modulate(Color(1, 0.03921568766236, 0.29411765933037, 0.9))
+	await get_tree().create_timer(.05).timeout
+	$Sprite2D.set_self_modulate(Color(1, 1, 1, 1))
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	take_damage()
+	show_damaged_fx()
+	area.queue_free()
+
+#func spawn_powerup() -> void:
+#	var powerup_instance = powerups.pick_random().instantiate() as Area2D
+#	powerup_instance.global_position = global_position
+#	emit_signal("powerup_spawned", powerup_instance)
