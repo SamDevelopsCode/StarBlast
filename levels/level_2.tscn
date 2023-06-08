@@ -426,7 +426,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_snu0e")
 position = Vector2(650, 1400)
 fire_vibration_weak_magnitude = 1.0
 fire_vibration_strong_magnitude = 0.0
-fire_vibration_length = 0.1
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_1sgbg")]
 spawns = Array[ExtResource("8_gf1e5")]([SubResource("Resource_82c6t"), SubResource("Resource_mjklg"), SubResource("Resource_vrgtj"), SubResource("Resource_3o7qs"), SubResource("Resource_e6yn8"), SubResource("Resource_0ne1d"), SubResource("Resource_7ssoe"), SubResource("Resource_untpc"), SubResource("Resource_wsjj2"), SubResource("Resource_qb04g"), SubResource("Resource_bay5h"), SubResource("Resource_2s4bt"), SubResource("Resource_j6pph"), SubResource("Resource_4a2w4"), SubResource("Resource_xiqmi"), SubResource("Resource_omech")])

@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="2_5mvsc"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_eb28t"]
 [ext_resource type="Texture2D" uid="uid://dmjb6muiwfs1f" path="res://levels/art/level_3_bg.png" id="4_pt85p"]
-[ext_resource type="PackedScene" path="res://player/player.tscn" id="5_otahq"]
+[ext_resource type="PackedScene" uid="uid://dpwx3cyloqlg4" path="res://player/player.tscn" id="5_otahq"]
 [ext_resource type="PackedScene" uid="uid://cs6niqmx4i272" path="res://enemy_spawner/enemy_spawner.tscn" id="6_8m8ie"]
 [ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://audio/enemy_hit.wav" id="15_18ne7"]
 [ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://audio/player_death.wav" id="16_qldh3"]
@@ -277,7 +277,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ah3r4")
 position = Vector2(650, 1400)
 fire_vibration_weak_magnitude = 1.0
 fire_vibration_strong_magnitude = 0.0
-fire_vibration_length = 0.1
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_8m8ie")]
 
