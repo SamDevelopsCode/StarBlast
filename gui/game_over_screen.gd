@@ -1,12 +1,11 @@
 extends Control
 
-@onready var score_label: Label = $Panel/Score
-
 var target_value := 0
 var start_value := 0
 var current_value := 0
-
 var duration := 4.0
+
+@onready var score_label: Label = $Panel/Score
 
 func _process(_delta: float) -> void:
 	score_label.text = str(current_value)

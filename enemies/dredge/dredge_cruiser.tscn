@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://b3xcwobx6exhd"]
+[gd_scene load_steps=22 format=3 uid="uid://bu80tq48b5ol0"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_e25x6"]
 [ext_resource type="Texture2D" uid="uid://fxumvgbcg3ri" path="res://enemies/dredge/art/dredge_cruiser_death.png" id="2_00glt"]
-[ext_resource type="PackedScene" uid="uid://biyc6bnrl1n5" path="res://weapons/enemy/aiming_enemy_weapon.tscn" id="3_8jhhp"]
+[ext_resource type="PackedScene" uid="uid://biyc6bnrl1n5" path="res://weapons/enemy/aiming_enemy_weapon_single.tscn" id="3_5j5gx"]
+[ext_resource type="PackedScene" uid="uid://coov6jxb5gofn" path="res://weapons/enemy/dredge_enemy_bullet.tscn" id="4_4fpgf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kpg5c"]
 atlas = ExtResource("2_00glt")
@@ -141,8 +142,8 @@ position = Vector2(79, 18)
 rotation = 1.56068
 shape = SubResource("CircleShape2D_xjg77")
 
-[node name="AimingEnemyWeapon" parent="." instance=ExtResource("3_8jhhp")]
-position = Vector2(0, 27)
+[node name="AimingEnemyWeaponSingle" parent="." instance=ExtResource("3_5j5gx")]
+bullet_scene = ExtResource("4_4fpgf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

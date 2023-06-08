@@ -38,9 +38,9 @@ func die() -> void:
 		spawn_powerup()		
 	
 func _on_body_entered(body: Node2D) -> void:
-	body.take_damage()
-	body.show_damaged_fx()
-	die()
+	take_damage(5)
+	body.take_damage(15)
+	body.show_damaged_fx()	
 	
 func show_damaged_fx() -> void:
 	sprite.set_self_modulate(Color(1, 0.03921568766236, 0.29411765933037, 0.9))

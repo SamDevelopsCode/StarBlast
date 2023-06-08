@@ -1,21 +1,21 @@
-[gd_scene load_steps=43 format=3 uid="uid://0550v28oiqht"]
+[gd_scene load_steps=43 format=3 uid="uid://laqxoa6cqeq2"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_q4jak"]
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="2_7pjuv"]
 [ext_resource type="PackedScene" uid="uid://bopq1cei63f4f" path="res://gui/hud.tscn" id="2_h0j3i"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_hb8p3"]
 [ext_resource type="Texture2D" uid="uid://cn11ld3b2h4ns" path="res://levels/art/level_1_bg.png" id="4_tlsxy"]
-[ext_resource type="PackedScene" uid="uid://2ur48n76tlub" path="res://player/player.tscn" id="5_ew0g2"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="5_ew0g2"]
 [ext_resource type="PackedScene" uid="uid://cs6niqmx4i272" path="res://enemy_spawner/enemy_spawner.tscn" id="6_3se1a"]
 [ext_resource type="PackedScene" uid="uid://bpybcb3vesiyb" path="res://enemies/dredge/dredge_scout.tscn" id="8_3f1qs"]
 [ext_resource type="Script" path="res://enemy_spawner/spawn_info.gd" id="8_54t51"]
-[ext_resource type="PackedScene" uid="uid://b3xcwobx6exhd" path="res://enemies/dredge/dredge_cruiser.tscn" id="8_rdr5r"]
+[ext_resource type="PackedScene" uid="uid://bu80tq48b5ol0" path="res://enemies/dredge/dredge_cruiser.tscn" id="8_rdr5r"]
 [ext_resource type="PackedScene" uid="uid://c7khsruaahnl" path="res://enemies/dredge/dredge_slicer.tscn" id="10_2xnil"]
 [ext_resource type="PackedScene" uid="uid://6wda7d6rw872" path="res://enemies/dredge/dredge_bomber.tscn" id="11_k8hoo"]
 [ext_resource type="PackedScene" uid="uid://68xy7huef1p" path="res://enemies/dredge/dredge_warrior.tscn" id="12_s1bpk"]
 [ext_resource type="PackedScene" uid="uid://c2i237w0x7gph" path="res://enemies/dredge/dredge_boss.tscn" id="14_7u67c"]
-[ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://assets_third_party/audio/enemy_hit.wav" id="14_gldlo"]
-[ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://assets_third_party/audio/player_death.wav" id="15_ae3hc"]
+[ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://audio/enemy_hit.wav" id="15_edr3n"]
+[ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://audio/player_death.wav" id="16_5yirf"]
 
 [sub_resource type="Animation" id="Animation_ul6ur"]
 length = 0.001
@@ -279,7 +279,7 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"start_level_transition"
+"method": &"start_level_transition_to_2"
 }]
 }
 tracks/4/type = "method"
@@ -401,12 +401,12 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_4j8yl")
 
 [node name="EnemyHitSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_gldlo")
+stream = ExtResource("15_edr3n")
 volume_db = -10.0
 pitch_scale = 1.96
 
 [node name="PlayerDeathSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_ae3hc")
+stream = ExtResource("16_5yirf")
 volume_db = -6.674
 
 [node name="LevelEventsAnimationPlayer" type="AnimationPlayer" parent="."]

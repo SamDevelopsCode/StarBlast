@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmp1kq8vh37o8"]
+
+[ext_resource type="Script" path="res://weapons/enemy/enemy_bullet.gd" id="1_hw00p"]
+[ext_resource type="Texture2D" uid="uid://dleb613w0a7an" path="res://weapons/enemy/art/flacian_enemy_bullet.png" id="2_ko0b6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fq3oq"]
+radius = 6.0
+height = 20.0
+
+[node name="DredgeEnemyBullet" type="Area2D" groups=["enemy_bullet"]]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("1_hw00p")
+speed = 500
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.0212842
+texture = ExtResource("2_ko0b6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_fq3oq")
+
+[node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.5, -2.5)
+scale = Vector2(0.85, 1.55)

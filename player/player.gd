@@ -3,12 +3,12 @@ extends CharacterBody2D
 
 signal damage_taken(damage)
 
-var move_speed := 400
-var fire_type
 @export var fire_vibration_weak_magnitude := .5
 @export var fire_vibration_strong_magnitude := .5
 @export var fire_vibration_length := .5
 
+var move_speed := 400
+var fire_type
 
 var laser_scene = preload("res://weapons/laser/laser.tscn")
 var powerup_laser = preload("res://powerups/powerup_laser.tscn")
@@ -136,8 +136,8 @@ func add_vibration() -> void:
 		fire_vibration_strong_magnitude,
 		fire_vibration_length)
 		
-func take_damage() -> void:
-	emit_signal("damage_taken")
+func take_damage(amount) -> void:
+	emit_signal("damage_taken", amount)
 
 func show_damaged_fx() -> void:
 	$Sprite2D.set_self_modulate(Color(1, 0.03921568766236, 0.29411765933037, 0.9))
@@ -145,7 +145,7 @@ func show_damaged_fx() -> void:
 	$Sprite2D.set_self_modulate(Color(1, 1, 1, 1))
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	take_damage()
+	take_damage(2)
 	show_damaged_fx()
 	area.queue_free()
 

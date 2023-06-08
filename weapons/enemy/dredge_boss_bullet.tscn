@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://clh6ny8hs3dxa"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://weapons/enemy/enemy_bullet.gd" id="1_qbi05"]
-[ext_resource type="Texture2D" uid="uid://duasc0o1q3d0l" path="res://assets_third_party/laser_sprite/Purple Effect and Bullet 16x16.png" id="2_qvdjm"]
+[ext_resource type="Texture2D" uid="uid://duasc0o1q3d0l" path="res://laser_sprite/Purple Effect and Bullet 16x16.png" id="2_qvdjm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bftkm"]
 radius = 46.0977

@@ -1,6 +1,6 @@
 extends Node2D
 
-const bullet_scene = preload("res://weapons/enemy/dredge_enemy_bullet.tscn")
+@export var bullet_scene = Resource
 
 @onready var timer: Timer = $Timer
 @onready var aim_direction: Marker2D = $AimDirectionMarker
@@ -13,6 +13,7 @@ func shoot():
 	var bullet = bullet_scene.instantiate() as Node2D
 	bullet.direction = aim_direction.global_position - global_position
 	bullet.global_position = global_position
+	bullet.look_at(aim_direction.global_position)
 	get_tree().get_root().add_child(bullet)	
 
 func _on_timer_timeout() -> void:

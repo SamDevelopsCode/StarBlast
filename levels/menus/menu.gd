@@ -3,13 +3,12 @@ extends Control
 signal fps_toggled(toggled)
 
 var level_1_scene = preload("res://levels/level_1.tscn")
+var master_bus = AudioServer.get_bus_index("Master")
 
 @onready var v_box_container: VBoxContainer = $VBoxContainer
 @onready var title_label: Label = $TitleLabel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var menu: Control = $"."
-
-var master_bus = AudioServer.get_bus_index("Master")
 
 func _ready() -> void:
 	var fade_label_in = get_tree().create_tween()

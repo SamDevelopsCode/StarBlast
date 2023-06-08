@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhufyr4e5mg22"]
+
+[ext_resource type="Script" path="res://weapons/enemy/aiming_enemy_weapon.gd" id="1_7rxol"]
+
+[node name="AimingEnemyWeaponTriple" type="Node2D"]
+script = ExtResource("1_7rxol")
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="AimDirectionMarker" type="Marker2D" parent="Weapons"]
+position = Vector2(61, 0)
+
+[node name="AimDirectionMarker2" type="Marker2D" parent="Weapons"]
+position = Vector2(61, -7)
+
+[node name="AimDirectionMarker3" type="Marker2D" parent="Weapons"]
+position = Vector2(61, 6)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

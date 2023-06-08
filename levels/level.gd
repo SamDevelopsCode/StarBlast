@@ -22,9 +22,9 @@ func _on_enemy_death_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
 		area.queue_free()
 
-func _on_player_damage_taken() -> void:
+func _on_player_damage_taken(damage) -> void:
 	if player.is_alive:
-		GameData.decrease_player_health(1)
+		GameData.decrease_player_health(damage)
 		
 		if GameData.player_health <= 0:
 			player.is_alive = false
@@ -65,9 +65,10 @@ func _on_boss_died(boss_name):
 	if boss_name == "DredgeBoss":	
 		tween_player_end_level()
 		level_events_anim.play("boss_defeated")
-	elif boss_name == "KameerBoss":
-		SceneTransitionManager.fade_to_level_3()
 	elif boss_name == "FlacianBoss":
+		tween_player_end_level()
+		level_events_anim.play("boss_defeated")
+	elif boss_name == "KameerBoss":
 		print("EndGameScreen")
 
 func _on_powerup_spawned(powerup_instance)  -> void:
@@ -78,8 +79,11 @@ func tween_player_end_level():
 	player_tween.tween_property(player, "global_position", Vector2(650, 1400), 3.0)
 	player.enable_end_of_level_engine_fx()
 
-func start_level_transition():
+func start_level_transition_to_2():
 	SceneTransitionManager.fade_to_level_2()
+	
+func start_level_transition_to_3():
+	SceneTransitionManager.fade_to_level_3()
 
 func _on_level_events_animation_player_animation_started(anim_name: StringName) -> void:
 	if anim_name == "player_enters_level":

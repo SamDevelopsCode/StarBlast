@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://ngkxuc6h0aka"]
+
+[ext_resource type="Script" path="res://weapons/enemy/enemy_bullet.gd" id="1_qbi05"]
+[ext_resource type="Texture2D" uid="uid://cbvd0akbplwuy" path="res://Fire Effect and Bullet 16x16.png" id="2_nh0cy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0ufk"]
+atlas = ExtResource("2_nh0cy")
+region = Rect2(480, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iatr"]
+atlas = ExtResource("2_nh0cy")
+region = Rect2(496, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60acn"]
+atlas = ExtResource("2_nh0cy")
+region = Rect2(512, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odd2p"]
+atlas = ExtResource("2_nh0cy")
+region = Rect2(528, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj8wd"]
+atlas = ExtResource("2_nh0cy")
+region = Rect2(544, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4i0f"]
+atlas = ExtResource("2_nh0cy")
+region = Rect2(560, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yt0os"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0ufk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0iatr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60acn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odd2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj8wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4i0f")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bftkm"]
+radius = 24.0
+
+[node name="FlacianBossBullet" type="Area2D" groups=["enemy_bullet"]]
+rotation = 1.5708
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("1_qbi05")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_yt0os")
+animation = &"bullet"
+autoplay = "bullet"
+frame_progress = 0.0989165
+
+[node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2.18109, 1.08458)
+scale = Vector2(2.27026, 2.10627)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -7.15256e-06)
+shape = SubResource("CircleShape2D_bftkm")

@@ -1,25 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvaa6j4wouseu"]
+[gd_scene load_steps=4 format=3 uid="uid://coov6jxb5gofn"]
 
 [ext_resource type="Script" path="res://weapons/enemy/enemy_bullet.gd" id="1_htt23"]
-[ext_resource type="Texture2D" uid="uid://cdngv80xb4f0d" path="res://assets_third_party/laser_sprite/02.png" id="2_gdop6"]
+[ext_resource type="Texture2D" uid="uid://cdngv80xb4f0d" path="res://weapons/enemy/art/dredge_enemy_bullet.png" id="2_iamjs"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_87n4u"]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jnrd"]
+radius = 7.0
+height = 22.0
 
 [node name="DredgeEnemyBullet" type="Area2D" groups=["enemy_bullet"]]
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("1_htt23")
+speed = 350
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_gdop6")
+texture = ExtResource("2_iamjs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_87n4u")
+shape = SubResource("CapsuleShape2D_2jnrd")
 
 [node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, -1)
-scale = Vector2(0.6, 0.9)
+position = Vector2(0, -3.5)
+scale = Vector2(0.6, 1.65)

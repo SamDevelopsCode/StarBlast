@@ -4,15 +4,14 @@ signal enemy_spawned(enemy_instance)
 signal boss_spawned(boss_instance)
 signal path_enemy_spawned(path_enemy_instance)
 
-@onready var timer: Timer = $Timer
-@onready var enemy_path_timer: Timer = $EnemyPathTimer
-@onready var spawn_positions: Node2D = $SpawnPositions
-
 @export var spawns: Array[SpawnInfo] = []
 
 var time = 0
 var spawn_position_array : Array
 
+@onready var timer: Timer = $Timer
+@onready var enemy_path_timer: Timer = $EnemyPathTimer
+@onready var spawn_positions: Node2D = $SpawnPositions
 
 func _ready() -> void:
 	timer.connect("timeout", on_timer_timeout)

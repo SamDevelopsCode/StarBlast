@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://7gidkbdx57n6"]
+
+[ext_resource type="Script" path="res://weapons/enemy/enemy_bullet.gd" id="1_qg1d4"]
+[ext_resource type="Texture2D" uid="uid://cpfe85m5y24q1" path="res://weapons/enemy/art/kameer_enemy_bullet.png" id="2_0n400"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bqlyg"]
+radius = 6.0
+height = 24.0
+
+[node name="DredgeEnemyBullet" type="Area2D" groups=["enemy_bullet"]]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("1_qg1d4")
+speed = 700
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_0n400")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_bqlyg")
+
+[node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.6, 1.6)
