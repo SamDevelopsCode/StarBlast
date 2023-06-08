@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b6ol51f5b1c2j"
-path="res://.godot/imported/SPACEBOY.TTF-2eb2989ceb7afcf2538146c84e577fbb.fontdata"
+path="res://.godot/imported/SPACEBOY.TTF-76ddcf4a7ed4ec2777c44a8363b0cd03.fontdata"
 
 [deps]
 
-source_file="res://SPACEBOY.TTF"
-dest_files=["res://.godot/imported/SPACEBOY.TTF-2eb2989ceb7afcf2538146c84e577fbb.fontdata"]
+source_file="res://random_shit/SPACEBOY.TTF"
+dest_files=["res://.godot/imported/SPACEBOY.TTF-76ddcf4a7ed4ec2777c44a8363b0cd03.fontdata"]
 
 [params]
 

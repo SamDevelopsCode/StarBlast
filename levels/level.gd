@@ -71,7 +71,8 @@ func _on_boss_died(boss_name):
 		tween_player_end_level()
 		level_events_anim.play("boss_defeated")
 	elif boss_name == "KameerBoss":
-		print("EndGameScreen")
+		tween_player_end_level()		
+		level_events_anim.play("boss_defeated")
 
 func _on_powerup_spawned(powerup_instance)  -> void:
 	call_deferred("add_child", powerup_instance)
@@ -86,6 +87,9 @@ func start_level_transition_to_2():
 	
 func start_level_transition_to_3():
 	SceneTransitionManager.fade_to_level_3()
+	
+func start_level_transition_to_win_screen():
+	SceneTransitionManager.fade_to_win_screen()
 
 func _on_level_events_animation_player_animation_started(anim_name: StringName) -> void:
 	if anim_name == "player_enters_level":

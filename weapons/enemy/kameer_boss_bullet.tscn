@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhahgu73l4136"]
+
+[ext_resource type="Script" path="res://weapons/enemy/enemy_bullet.gd" id="1_qbi05"]
+[ext_resource type="Texture2D" uid="uid://bbdvtb4towgt2" path="res://random_shit/Blue Effect Bullet Impact Explosion 32x32.png" id="2_f7wnt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jchx"]
+atlas = ExtResource("2_f7wnt")
+region = Rect2(352, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrk5a"]
+atlas = ExtResource("2_f7wnt")
+region = Rect2(384, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k11x5"]
+atlas = ExtResource("2_f7wnt")
+region = Rect2(416, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alv0s"]
+atlas = ExtResource("2_f7wnt")
+region = Rect2(448, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yt0os"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jchx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrk5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k11x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alv0s")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bftkm"]
+radius = 35.0571
+
+[node name="FlacianBossBullet" type="Area2D" groups=["enemy_bullet"]]
+rotation = 1.5708
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("1_qbi05")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_yt0os")
+animation = &"bullet"
+autoplay = "bullet"
+frame_progress = 0.011073
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3.57628e-06)
+shape = SubResource("CircleShape2D_bftkm")
+
+[node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.329299, 1.01633)
+scale = Vector2(4.29596, 4.13047)

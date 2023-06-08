@@ -1,10 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dpwx3cyloqlg4"]
+[gd_scene load_steps=21 format=3]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_movka"]
 [ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/art/Main Ship - Base - Full health.png" id="2_82vat"]
 [ext_resource type="AudioStream" uid="uid://nlyop6gwuta3" path="res://audio/sfx_laser2.wav" id="3_w60rq"]
 [ext_resource type="PackedScene" uid="uid://bdial7eisluqr" path="res://weapons/laser/lasers.tscn" id="4_u6hlg"]
-[ext_resource type="Texture2D" uid="uid://cbvd0akbplwuy" path="res://Fire Effect and Bullet 16x16.png" id="5_ax2dk"]
+[ext_resource type="Texture2D" uid="uid://cbvd0akbplwuy" path="res://random_shit/Fire Effect and Bullet 16x16.png" id="5_ax2dk"]
 
 [sub_resource type="Gradient" id="Gradient_l2rai"]
 offsets = PackedFloat32Array(0, 0.519164, 1)

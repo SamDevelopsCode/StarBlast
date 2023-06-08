@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bd4kpuykckwjw"]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://gui/game_over_screen.gd" id="1_1vv28"]
-[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="1_b3a2a"]
+[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://random_shit/SPACEBOY.TTF" id="1_b3a2a"]
 [ext_resource type="Theme" path="res://main_theme.tres" id="3_ko7hg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yutwe"]

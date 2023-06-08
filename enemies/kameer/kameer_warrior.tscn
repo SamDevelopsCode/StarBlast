@@ -1,7 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://rtkr86nre33u"]
+[gd_scene load_steps=25 format=3 uid="uid://rtkr86nre33u"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_johge"]
 [ext_resource type="Texture2D" uid="uid://clx4w7cne2qn" path="res://enemies/kameer/art/kameer_warrior.png" id="2_w7m6d"]
+[ext_resource type="PackedScene" uid="uid://dagtp7sdjnn50" path="res://weapons/enemy/single_enemy_weapon.tscn" id="3_5flew"]
+[ext_resource type="PackedScene" uid="uid://7gidkbdx57n6" path="res://weapons/enemy/kameer_enemy_bullet.tscn" id="4_nuhaq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1xbn8"]
 atlas = ExtResource("2_w7m6d")
@@ -146,7 +148,7 @@ collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_johge")
 move_speed = 350
-health = 10
+health = 75
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
@@ -159,4 +161,9 @@ position = Vector2(0, -5)
 rotation = 1.61448
 shape = SubResource("CapsuleShape2D_xtdkg")
 
+[node name="SingleEnemyWeapon" parent="." instance=ExtResource("3_5flew")]
+position = Vector2(0, 51)
+bullet_scene = ExtResource("4_nuhaq")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0wak536ur07d"
-path="res://.godot/imported/All.png-8d5e9ee6d1487599224423ab6849b5f4.ctex"
+uid="uid://bbdvtb4towgt2"
+path="res://.godot/imported/Blue Effect Bullet Impact Explosion 32x32.png-f022f0bc8e24cb24c2f141b83822feab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://All.png"
-dest_files=["res://.godot/imported/All.png-8d5e9ee6d1487599224423ab6849b5f4.ctex"]
+source_file="res://random_shit/Blue Effect Bullet Impact Explosion 32x32.png"
+dest_files=["res://.godot/imported/Blue Effect Bullet Impact Explosion 32x32.png-f022f0bc8e24cb24c2f141b83822feab.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dugn1xixwqv1i"
-path="res://.godot/imported/Yellow Effect Bullet Impact Explosion 32x32.png-ee32fa0e4adf0af11b819d4d36cfe3dd.ctex"
+path="res://.godot/imported/Yellow Effect Bullet Impact Explosion 32x32.png-4f35d1e787e0d0197b90580d3e1fbc92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Yellow Effect Bullet Impact Explosion 32x32.png"
-dest_files=["res://.godot/imported/Yellow Effect Bullet Impact Explosion 32x32.png-ee32fa0e4adf0af11b819d4d36cfe3dd.ctex"]
+source_file="res://random_shit/Yellow Effect Bullet Impact Explosion 32x32.png"
+dest_files=["res://.godot/imported/Yellow Effect Bullet Impact Explosion 32x32.png-4f35d1e787e0d0197b90580d3e1fbc92.ctex"]
 
 [params]
 

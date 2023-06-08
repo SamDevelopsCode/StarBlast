@@ -1,7 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://ctrgbvayma1s2"]
+[gd_scene load_steps=27 format=3 uid="uid://ctrgbvayma1s2"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_7rka1"]
 [ext_resource type="Texture2D" uid="uid://dt6v4cof1dhcq" path="res://enemies/kameer/art/kameer_cruiser.png" id="2_o1mp6"]
+[ext_resource type="PackedScene" uid="uid://d1uwhlrog0hdn" path="res://weapons/enemy/aiming_enemy_weapon_double.tscn" id="3_syi43"]
+[ext_resource type="PackedScene" uid="uid://7gidkbdx57n6" path="res://weapons/enemy/kameer_enemy_bullet.tscn" id="4_fe5cp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frev4"]
 atlas = ExtResource("2_o1mp6")
@@ -152,7 +154,7 @@ collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_7rka1")
 move_speed = 350
-health = 10
+health = 200
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
@@ -175,4 +177,13 @@ shape = SubResource("RectangleShape2D_rq3un")
 position = Vector2(80, -45.5)
 shape = SubResource("RectangleShape2D_rq3un")
 
+[node name="AimingEnemyWeaponDouble" parent="." instance=ExtResource("3_syi43")]
+position = Vector2(0, -62)
+bullet_scene = ExtResource("4_fe5cp")
+
+[node name="AimingEnemyWeaponDouble2" parent="." instance=ExtResource("3_syi43")]
+position = Vector2(0, 72)
+bullet_scene = ExtResource("4_fe5cp")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

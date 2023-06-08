@@ -130,8 +130,8 @@ radius = 34.0147
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_8bmhc")
-move_speed = 350
-health = 10
+move_speed = 400
+health = 7
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
@@ -144,3 +144,4 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_hi10i")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

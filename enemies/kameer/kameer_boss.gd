@@ -21,8 +21,7 @@ var dead := false
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	await get_tree().create_timer(.5).timeout
-	anim_player_movement.play("fly_on_screen")
-	
+	anim_player_movement.play("fly_on_screen")	
 	set_boss_difficulty()
 	print(health)
 
@@ -47,10 +46,12 @@ func _on_body_entered(body: Node2D) -> void:
 
 func die() -> void:
 	set_collision_layer_value(2, false)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(3, false)	
 	sprite.play("death")
 	boss_should_shoot = false
 	anim_player_movement.pause()
-	anim_player_gun.stop()	
+	anim_player_gun.stop()
 	#play sound fx for boss
 	await get_tree().create_timer(1).timeout	
 	emit_signal("boss_died", name)
@@ -68,39 +69,17 @@ func show_damaged_fx() -> void:
 	await get_tree().create_timer(.05).timeout
 	sprite.set_self_modulate(Color(1, 1, 1, 1))
 
-func play_random_anim():
-	randomize()
-	var random_pick = move_anim_chance.pick_random()
-	match random_pick:
-		1:
-			anim_player_movement.play("n_sweep")
-		2:
-			anim_player_movement.play("side_to_side")
-		3:
-			anim_player_movement.play("zig_zag")
-
-func play_random_gun_anim():
-	randomize()
-	var random_pick = gun_anim_chance.pick_random()
-	match random_pick:
-		1:
-			anim_player_gun.play("rotate_towards_down_dir")
-			fire_rate_timer.wait_time = .4
-		2:
-			anim_player_gun.play("rotate_gun_circular")
-			fire_rate_timer.wait_time = .2			
-
 func _on_fire_rate_timer_timeout() -> void:
 	if boss_should_shoot:
 		shoot()
 
 func set_boss_difficulty():
 	if (GameData.fire_rate <= 2 ) and (GameData.fire_type <= 2):
-		health = 100
+		health = 10
 	elif (GameData.fire_rate >= 4 ) and (GameData.fire_type >= 4):
-		health = 2000
+		health = 2500
 	else:
-		health = 750
+		health = 600
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	sprite.visible = false
@@ -110,9 +89,7 @@ func _on_movement_animation_player_animation_started(anim_name: StringName) -> v
 		player.set_input_is_valid(false)
 		var player_pos_tween = get_tree().create_tween()
 		player_pos_tween.tween_property(player, "global_position", Vector2(650, 1600), 2.5)
-	if anim_name == "side_to_side":
-		set_boss_should_shoot(true)
-		play_random_gun_anim()
+	
 	
 
 func _on_movement_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -120,6 +97,3 @@ func _on_movement_animation_player_animation_finished(anim_name: StringName) -> 
 		player.set_input_is_valid(true)
 		set_boss_should_shoot(true)
 		play_side_to_side_anim()
-	if anim_name == "side_to_side":
-		play_random_anim()
-

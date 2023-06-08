@@ -7,21 +7,22 @@
 radius = 6.0
 height = 24.0
 
-[node name="DredgeEnemyBullet" type="Area2D" groups=["enemy_bullet"]]
+[node name="KameerEnemyBullet" type="Area2D" groups=["enemy_bullet"]]
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("1_qg1d4")
-speed = 700
+speed = 800
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("2_0n400")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(1, -1.19209e-07)
+rotation = -1.60278
 shape = SubResource("CapsuleShape2D_bqlyg")
 
 [node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, -2)
-scale = Vector2(0.6, 1.6)
+position = Vector2(-1.18921, 0.750043)
+rotation = -1.59858
+scale = Vector2(0.871595, 1.97086)
