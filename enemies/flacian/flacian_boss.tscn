@@ -101,33 +101,6 @@ animations = [{
 radius = 183.973
 height = 492.109
 
-[sub_resource type="Animation" id="Animation_da7v5"]
-resource_name = "fly_on_screen"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(0.659754, 1),
-"update": 0,
-"values": [Vector2(600, -500), Vector2(600, 600)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
-
 [sub_resource type="Animation" id="Animation_bh8nk"]
 length = 0.001
 tracks/0/type = "value"
@@ -153,6 +126,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_da7v5"]
+resource_name = "fly_on_screen"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.659754, 1),
+"update": 0,
+"values": [Vector2(600, -500), Vector2(600, 600)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_ia6kv"]
@@ -189,6 +189,22 @@ tracks/1/keys = {
 "args": [],
 "method": &"play_random_anim"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_ycior"]
+resource_name = "side_to_side"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0318769, 1.09975, 2.35889, 3.47459, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(600, 600), Vector2(286, 871), Vector2(676, 1042), Vector2(971, 861), Vector2(600, 600)]
 }
 
 [sub_resource type="Animation" id="Animation_io051"]
@@ -236,22 +252,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_ycior"]
-resource_name = "side_to_side"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0318769, 1.09975, 2.35889, 3.47459, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(600, 600), Vector2(286, 871), Vector2(676, 1042), Vector2(971, 861), Vector2(600, 600)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jk0wj"]
 _data = {
 "RESET": SubResource("Animation_bh8nk"),
@@ -259,6 +259,21 @@ _data = {
 "n_sweep": SubResource("Animation_ia6kv"),
 "side_to_side": SubResource("Animation_ycior"),
 "zig_zag": SubResource("Animation_io051")
+}
+
+[sub_resource type="Animation" id="Animation_3p8d0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GunTurret:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_duskg"]
@@ -276,21 +291,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, -3.14159, -6.28319]
-}
-
-[sub_resource type="Animation" id="Animation_3p8d0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GunTurret:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_c08rt"]

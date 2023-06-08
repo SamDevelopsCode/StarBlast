@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://SPACEBOY.TTF" id="2_t7y7v"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_tdtkp"]
 [ext_resource type="Texture2D" uid="uid://c85dye611j5j" path="res://levels/art/level_2_bg.png" id="4_8l7tt"]
-[ext_resource type="PackedScene" path="res://player/player.tscn" id="5_o1jgq"]
+[ext_resource type="PackedScene" uid="uid://dpwx3cyloqlg4" path="res://player/player.tscn" id="5_o1jgq"]
 [ext_resource type="PackedScene" uid="uid://cs6niqmx4i272" path="res://enemy_spawner/enemy_spawner.tscn" id="6_1sgbg"]
 [ext_resource type="Script" path="res://enemy_spawner/spawn_info.gd" id="8_gf1e5"]
 [ext_resource type="PackedScene" uid="uid://ccescgchpvv50" path="res://enemies/flacian/flacian_scout.tscn" id="8_micxl"]
@@ -96,6 +96,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(650, 1400)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/HUD:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_tdmdh"]
 resource_name = "boss_defeated"
@@ -168,6 +180,18 @@ tracks/4/keys = {
 "method": &"enable_end_of_level_engine_fx"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/HUD:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_xpmgl"]
 resource_name = "player_enters_level"
@@ -211,14 +235,6 @@ _data = {
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snu0e"]
 bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Resource" id="Resource_pd4ok"]
-script = ExtResource("8_gf1e5")
-time_start = 5
-time_end = 6
-enemy = ExtResource("14_032j7")
-enemy_number = 1
-enemy_spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_82c6t"]
 script = ExtResource("8_gf1e5")
@@ -282,7 +298,15 @@ time_start = 85
 time_end = 120
 enemy = ExtResource("13_3bp7m")
 enemy_number = 1
-enemy_spawn_delay = 4
+enemy_spawn_delay = 3
+
+[sub_resource type="Resource" id="Resource_wsjj2"]
+script = ExtResource("8_gf1e5")
+time_start = 75
+time_end = 110
+enemy = ExtResource("8_micxl")
+enemy_number = 1
+enemy_spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_qb04g"]
 script = ExtResource("8_gf1e5")
@@ -290,7 +314,7 @@ time_start = 80
 time_end = 110
 enemy = ExtResource("11_op0pi")
 enemy_number = 1
-enemy_spawn_delay = 4
+enemy_spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_bay5h"]
 script = ExtResource("8_gf1e5")
@@ -298,7 +322,7 @@ time_start = 82
 time_end = 100
 enemy = ExtResource("14_8folo")
 enemy_number = 1
-enemy_spawn_delay = 3
+enemy_spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_2s4bt"]
 script = ExtResource("8_gf1e5")
@@ -370,6 +394,7 @@ Location:   47 Ursae Majoris"
 label_settings = SubResource("LabelSettings_io1mu")
 
 [node name="HUD" parent="UI" instance=ExtResource("2_h2bpn")]
+modulate = Color(1, 1, 1, 0)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("3_tdtkp")
@@ -404,7 +429,7 @@ fire_vibration_strong_magnitude = 0.0
 fire_vibration_length = 0.1
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_1sgbg")]
-spawns = Array[ExtResource("8_gf1e5")]([SubResource("Resource_pd4ok"), SubResource("Resource_82c6t"), SubResource("Resource_mjklg"), SubResource("Resource_vrgtj"), SubResource("Resource_3o7qs"), SubResource("Resource_e6yn8"), SubResource("Resource_0ne1d"), SubResource("Resource_7ssoe"), SubResource("Resource_untpc"), SubResource("Resource_qb04g"), SubResource("Resource_bay5h"), SubResource("Resource_2s4bt"), SubResource("Resource_j6pph"), SubResource("Resource_4a2w4"), SubResource("Resource_xiqmi"), SubResource("Resource_omech")])
+spawns = Array[ExtResource("8_gf1e5")]([SubResource("Resource_82c6t"), SubResource("Resource_mjklg"), SubResource("Resource_vrgtj"), SubResource("Resource_3o7qs"), SubResource("Resource_e6yn8"), SubResource("Resource_0ne1d"), SubResource("Resource_7ssoe"), SubResource("Resource_untpc"), SubResource("Resource_wsjj2"), SubResource("Resource_qb04g"), SubResource("Resource_bay5h"), SubResource("Resource_2s4bt"), SubResource("Resource_j6pph"), SubResource("Resource_4a2w4"), SubResource("Resource_xiqmi"), SubResource("Resource_omech")])
 
 [node name="DeathZone" type="Area2D" parent="."]
 position = Vector2(592, 2472)

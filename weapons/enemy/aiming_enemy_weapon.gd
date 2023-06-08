@@ -17,7 +17,7 @@ func _ready() -> void:
 func shoot():
 	if Player:
 		weapons.look_at(player.global_position)
-		for weapon in weapon_array:		
+		for weapon in weapon_array:
 			var bullet = bullet_scene.instantiate()
 			bullet.global_position = weapons.global_position
 			bullet.look_at(weapon.global_position)

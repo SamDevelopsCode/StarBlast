@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3]
+[gd_scene load_steps=21 format=3 uid="uid://dpwx3cyloqlg4"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_movka"]
 [ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/art/Main Ship - Base - Full health.png" id="2_82vat"]
@@ -153,6 +153,9 @@ height = 32.2483
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_movka")
+fire_vibration_weak_magnitude = 0.1
+fire_vibration_strong_magnitude = 0.1
+fire_vibration_length = 0.1
 
 [node name="EngineFX" type="GPUParticles2D" parent="."]
 position = Vector2(0, 19)

@@ -194,6 +194,22 @@ tracks/0/keys = {
 "values": [0.872665, 0.0, -0.872665]
 }
 
+[sub_resource type="Animation" id="Animation_xsvxh"]
+resource_name = "side_to_side"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(600, 600), Vector2(400, 676), Vector2(896, 740), Vector2(600, 600)]
+}
+
 [sub_resource type="Animation" id="Animation_2ispx"]
 resource_name = "swoop_deh_scoop"
 length = 6.0
@@ -275,22 +291,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_xsvxh"]
-resource_name = "side_to_side"
-length = 6.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(600, 600), Vector2(400, 676), Vector2(896, 740), Vector2(600, 600)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f6xu7"]
 _data = {
 "RESET": SubResource("Animation_pvjed"),
@@ -340,6 +340,7 @@ libraries = {
 [node name="GunTurret" type="Node2D" parent="."]
 
 [node name="BulletDirection" type="Marker2D" parent="GunTurret"]
+visible = false
 position = Vector2(0, 100)
 
 [node name="Sprite2D" type="Sprite2D" parent="GunTurret/BulletDirection"]

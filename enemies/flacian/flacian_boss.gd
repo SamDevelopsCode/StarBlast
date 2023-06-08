@@ -96,7 +96,7 @@ func _on_fire_rate_timer_timeout() -> void:
 
 func set_boss_difficulty():
 	if (GameData.fire_rate <= 2 ) and (GameData.fire_type <= 2):
-		health = 10
+		health = 100
 	elif (GameData.fire_rate >= 4 ) and (GameData.fire_type >= 4):
 		health = 2000
 	else:

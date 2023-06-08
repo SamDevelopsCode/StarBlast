@@ -11,16 +11,16 @@ height = 22.0
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("1_htt23")
-speed = 350
+speed = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
 texture = ExtResource("2_iamjs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(1, 0)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2jnrd")
 
 [node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, -3.5)
-scale = Vector2(0.6, 1.65)
+position = Vector2(-2, -4.76837e-07)
+scale = Vector2(1.5, 0.9)

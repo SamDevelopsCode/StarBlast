@@ -7,7 +7,7 @@ extends Node2D
 
 func _ready() -> void:
 	randomize()
-	timer.wait_time = randf_range(2.0, 5.0)	
+	timer.wait_time = randf_range(3.5, 5.0)	
 
 func shoot():
 	var bullet = bullet_scene.instantiate() as Node2D

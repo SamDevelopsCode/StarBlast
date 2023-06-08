@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3]
+[gd_scene load_steps=20 format=3 uid="uid://b72abdruv38vb"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_pffix"]
 [ext_resource type="PackedScene" uid="uid://bopq1cei63f4f" path="res://gui/hud.tscn" id="2_1vp26"]
@@ -7,14 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dmjb6muiwfs1f" path="res://levels/art/level_3_bg.png" id="4_pt85p"]
 [ext_resource type="PackedScene" path="res://player/player.tscn" id="5_otahq"]
 [ext_resource type="PackedScene" uid="uid://cs6niqmx4i272" path="res://enemy_spawner/enemy_spawner.tscn" id="6_8m8ie"]
-[ext_resource type="PackedScene" uid="uid://ccescgchpvv50" path="res://enemies/flacian/flacian_scout.tscn" id="7_7albf"]
-[ext_resource type="Script" path="res://enemy_spawner/spawn_info.gd" id="8_els3w"]
-[ext_resource type="PackedScene" uid="uid://br33nnncjbre0" path="res://enemies/flacian/flacian_slicer.tscn" id="9_wn32l"]
-[ext_resource type="PackedScene" uid="uid://bc62ajp873fm0" path="res://enemies/flacian/flacian_bomber.tscn" id="10_k2k5w"]
-[ext_resource type="PackedScene" uid="uid://7jdyxg0cbof6" path="res://enemies/flacian/flacian_frigate.tscn" id="11_wfjjb"]
-[ext_resource type="PackedScene" path="res://enemies/flacian/flacian_cruiser.tscn" id="12_vrd7q"]
-[ext_resource type="PackedScene" uid="uid://7p5ojlp30tht" path="res://enemies/flacian/flacian_warrior.tscn" id="13_jb5l0"]
-[ext_resource type="PackedScene" uid="uid://dccr7e8rg873w" path="res://enemies/flacian/flacian_boss.tscn" id="14_wds26"]
 [ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://audio/enemy_hit.wav" id="15_18ne7"]
 [ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://audio/player_death.wav" id="16_qldh3"]
 
@@ -59,65 +51,6 @@ _data = {
 font = ExtResource("2_5mvsc")
 font_size = 48
 
-[sub_resource type="Resource" id="Resource_cc8p3"]
-script = ExtResource("8_els3w")
-time_start = 0
-time_end = 15
-enemy = ExtResource("7_7albf")
-enemy_number = 1
-enemy_spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_8ln42"]
-script = ExtResource("8_els3w")
-time_start = 10
-time_end = 30
-enemy = ExtResource("9_wn32l")
-enemy_number = 2
-enemy_spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_343ho"]
-script = ExtResource("8_els3w")
-time_start = 20
-time_end = 40
-enemy = ExtResource("10_k2k5w")
-enemy_number = 2
-enemy_spawn_delay = 1
-
-[sub_resource type="Resource" id="Resource_403dm"]
-script = ExtResource("8_els3w")
-time_start = 30
-time_end = 60
-enemy = ExtResource("11_wfjjb")
-enemy_number = 1
-enemy_spawn_delay = 2
-
-[sub_resource type="Resource" id="Resource_ime3m"]
-script = ExtResource("8_els3w")
-time_start = 25
-time_end = 55
-enemy = ExtResource("12_vrd7q")
-enemy_number = 1
-enemy_spawn_delay = 1
-
-[sub_resource type="Resource" id="Resource_4lwb1"]
-script = ExtResource("8_els3w")
-time_start = 10
-time_end = 45
-enemy = ExtResource("13_jb5l0")
-enemy_number = 2
-enemy_spawn_delay = 3
-
-[sub_resource type="Resource" id="Resource_eq4mi"]
-script = ExtResource("8_els3w")
-time_start = 60
-time_end = 61
-enemy = ExtResource("14_wds26")
-enemy_number = 1
-enemy_spawn_delay = 1
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4j8yl"]
-size = Vector2(1518.8, 120.4)
-
 [sub_resource type="Animation" id="Animation_b4hwo"]
 length = 0.001
 tracks/0/type = "value"
@@ -155,6 +88,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(650, 1400)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/HUD:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_tdmdh"]
@@ -199,24 +144,10 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".")
+tracks/3/path = NodePath("Player")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(4.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"start_level_transition"
-}]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Player")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 3.8),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -227,39 +158,23 @@ tracks/4/keys = {
 "method": &"enable_end_of_level_engine_fx"
 }]
 }
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Player")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [false],
-"method": &"set_if_player_can_shoot"
-}]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Player")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [false],
-"method": &"set_input_is_valid"
-}]
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/HUD:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_xpmgl"]
 resource_name = "player_enters_level"
 length = 3.0
-step = 0.01
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -279,37 +194,14 @@ tracks/1/path = NodePath("Player")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.01, 2.2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"enable_end_of_level_engine_fx"
 }, {
-"args": [false],
-"method": &"set_input_is_valid"
-}, {
 "args": [],
 "method": &"disable_end_of_level_engine_fx"
-}, {
-"args": [true],
-"method": &"set_input_is_valid"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Player")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [false],
-"method": &"set_if_player_can_shoot"
-}, {
-"args": [true],
-"method": &"set_if_player_can_shoot"
 }]
 }
 
@@ -322,6 +214,9 @@ _data = {
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ah3r4"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4j8yl"]
+size = Vector2(1518.8, 120.4)
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_pffix")
@@ -350,6 +245,7 @@ Location:   42 Draconis b"
 label_settings = SubResource("LabelSettings_sf1ip")
 
 [node name="HUD" parent="UI" instance=ExtResource("2_1vp26")]
+modulate = Color(1, 1, 1, 0)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("3_eb28t")
@@ -361,6 +257,22 @@ motion_mirroring = Vector2(0, 2000)
 position = Vector2(640, 1000)
 texture = ExtResource("4_pt85p")
 
+[node name="LevelEventsAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hnhqj")
+}
+
+[node name="TopBar" type="Panel" parent="."]
+offset_top = -400.0
+offset_right = 1280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ah3r4")
+
+[node name="BottomBar" type="Panel" parent="."]
+offset_top = 2000.0
+offset_right = 1280.0
+offset_bottom = 2400.15
+theme_override_styles/panel = SubResource("StyleBoxFlat_ah3r4")
+
 [node name="Player" parent="." instance=ExtResource("5_otahq")]
 position = Vector2(650, 1400)
 fire_vibration_weak_magnitude = 1.0
@@ -368,7 +280,6 @@ fire_vibration_strong_magnitude = 0.0
 fire_vibration_length = 0.1
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_8m8ie")]
-spawns = Array[ExtResource("8_els3w")]([SubResource("Resource_cc8p3"), SubResource("Resource_8ln42"), SubResource("Resource_343ho"), SubResource("Resource_403dm"), SubResource("Resource_ime3m"), SubResource("Resource_4lwb1"), SubResource("Resource_eq4mi")])
 
 [node name="DeathZone" type="Area2D" parent="."]
 position = Vector2(592, 2472)
@@ -389,20 +300,6 @@ pitch_scale = 1.96
 stream = ExtResource("16_qldh3")
 volume_db = -6.674
 
-[node name="LevelEventsAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_hnhqj")
-}
-
-[node name="TopBar" type="Panel" parent="."]
-offset_top = -400.0
-offset_right = 1280.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ah3r4")
-
-[node name="BottomBar" type="Panel" parent="."]
-offset_top = 2000.0
-offset_right = 1280.0
-offset_bottom = 2400.15
-theme_override_styles/panel = SubResource("StyleBoxFlat_ah3r4")
-
+[connection signal="animation_finished" from="LevelEventsAnimationPlayer" to="." method="_on_level_events_animation_player_animation_finished"]
+[connection signal="animation_started" from="LevelEventsAnimationPlayer" to="." method="_on_level_events_animation_player_animation_started"]
 [connection signal="area_entered" from="DeathZone" to="." method="_on_enemy_death_zone_area_entered"]

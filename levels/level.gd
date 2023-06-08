@@ -11,6 +11,8 @@ var game_over_screen = preload("res://gui/game_over_screen.tscn")
 @onready var level_events_anim: AnimationPlayer = $LevelEventsAnimationPlayer
 
 func _ready() -> void:
+	var fade_in_hud = get_tree().create_tween()
+	fade_in_hud.tween_property(hud, "modulate", Color(1, 1, 1, 1), 10)
 	level_events_anim.play("player_enters_level")
 	enemy_spawner.connect("enemy_spawned", _on_enemy_spawner_enemy_spawned)
 	player.connect("damage_taken", _on_player_damage_taken)
@@ -88,11 +90,12 @@ func start_level_transition_to_3():
 func _on_level_events_animation_player_animation_started(anim_name: StringName) -> void:
 	if anim_name == "player_enters_level":
 		player.set_input_is_valid(false)
+	if anim_name == "boss_defeated":
+		player.set_input_is_valid(false)
 		
 func _on_level_events_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "player_enters_level":
 		player.set_input_is_valid(true)
-	if anim_name == "boss_defeated":
-		player.set_input_is_valid(false)
+	
 
 

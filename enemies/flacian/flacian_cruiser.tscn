@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_j4su3"]
 [ext_resource type="Texture2D" uid="uid://bwhfqn5y4k2st" path="res://enemies/flacian/art/flacian_cruiser.png" id="2_l2xsf"]
-[ext_resource type="PackedScene" uid="uid://d1uwhlrog0hdn" path="res://weapons/enemy/aiming_enemy_weapon_double.tscn" id="3_pd87v"]
+[ext_resource type="PackedScene" uid="uid://dhufyr4e5mg22" path="res://weapons/enemy/aiming_enemy_weapon_triple.tscn" id="3_nvf6d"]
 [ext_resource type="PackedScene" uid="uid://bmp1kq8vh37o8" path="res://weapons/enemy/flacian_enemy_bullet.tscn" id="4_k3ao5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ut6gg"]
@@ -125,7 +125,7 @@ size = Vector2(31, 129)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_j4su3")
-move_speed = 275
+move_speed = 250
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
@@ -146,7 +146,7 @@ shape = SubResource("RectangleShape2D_lghf0")
 position = Vector2(91, -33.5)
 shape = SubResource("RectangleShape2D_4154f")
 
-[node name="AimingEnemyWeaponDouble" parent="." instance=ExtResource("3_pd87v")]
+[node name="AimingEnemyWeaponTriple" parent="." instance=ExtResource("3_nvf6d")]
 bullet_scene = ExtResource("4_k3ao5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

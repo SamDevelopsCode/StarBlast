@@ -22,25 +22,31 @@ func _physics_process(delta: float) -> void:
 	global_position.y += move_speed * delta
 
 func take_damage(damage) -> void:	
-	show_damaged_fx()
-	health -= damage
 	if dead:
 		return
+	show_damaged_fx()
+	health -= damage	
 	if health <= 0:
 		dead = true
 		die()
 
 func die() -> void:	
 	set_collision_layer_value(2, false)
+	set_collision_mask_value(1, false)	
+	set_collision_mask_value(3, false)	
+	var enemy_children = get_children()
+	for component in enemy_children:
+		if component.name.contains("Weapon"):
+			component.queue_free()	
 	sprite.play("death")
 	emit_signal("enemy_died")	
 	if should_drop_powerup():
-		spawn_powerup()		
+		spawn_powerup()	
 	
 func _on_body_entered(body: Node2D) -> void:
 	take_damage(5)
 	body.take_damage(15)
-	body.show_damaged_fx()	
+	body.show_damaged_fx()
 	
 func show_damaged_fx() -> void:
 	sprite.set_self_modulate(Color(1, 0.03921568766236, 0.29411765933037, 0.9))
@@ -71,7 +77,6 @@ func should_drop_powerup() -> bool:
 		return true
 	else: 
 		return false
-
 
 func _on_sprite_animation_finished() -> void:
 	queue_free()

@@ -8,7 +8,7 @@ script = ExtResource("1_lushc")
 [node name="Weapons" type="Node2D" parent="."]
 
 [node name="AimDirectionMarker" type="Marker2D" parent="Weapons"]
-position = Vector2(61, 2)
+position = Vector2(61, 3)
 
 [node name="AimDirectionMarker2" type="Marker2D" parent="Weapons"]
 position = Vector2(61, -3)

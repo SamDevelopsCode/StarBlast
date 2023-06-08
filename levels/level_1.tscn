@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bopq1cei63f4f" path="res://gui/hud.tscn" id="2_h0j3i"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_hb8p3"]
 [ext_resource type="Texture2D" uid="uid://cn11ld3b2h4ns" path="res://levels/art/level_1_bg.png" id="4_tlsxy"]
-[ext_resource type="PackedScene" path="res://player/player.tscn" id="5_ew0g2"]
+[ext_resource type="PackedScene" uid="uid://dpwx3cyloqlg4" path="res://player/player.tscn" id="5_ew0g2"]
 [ext_resource type="PackedScene" uid="uid://cs6niqmx4i272" path="res://enemy_spawner/enemy_spawner.tscn" id="6_3se1a"]
 [ext_resource type="PackedScene" uid="uid://bpybcb3vesiyb" path="res://enemies/dredge/dredge_scout.tscn" id="8_3f1qs"]
 [ext_resource type="Script" path="res://enemy_spawner/spawn_info.gd" id="8_54t51"]
@@ -57,6 +57,184 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_j2rn2"]
 font = ExtResource("2_7pjuv")
 font_size = 48
+
+[sub_resource type="Animation" id="Animation_b4hwo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BottomBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2000)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(650, 1400)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/HUD:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tdmdh"]
+resource_name = "boss_defeated"
+length = 5.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopBar:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1.5, 1),
+"update": 0,
+"values": [Vector2(0, -400), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BottomBar:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1.5, 1),
+"update": 0,
+"values": [Vector2(0, 2000), Vector2(0, 1600)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 5),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(650, 1400), Vector2(652, -151)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_level_transition_to_2"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"disable_end_of_level_engine_fx"
+}, {
+"args": [],
+"method": &"enable_end_of_level_engine_fx"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/HUD:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xpmgl"]
+resource_name = "player_enters_level"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector2(650, 2305), Vector2(650, 1450)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.79),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"enable_end_of_level_engine_fx"
+}, {
+"args": [],
+"method": &"disable_end_of_level_engine_fx"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hnhqj"]
+_data = {
+"RESET": SubResource("Animation_b4hwo"),
+"boss_defeated": SubResource("Animation_tdmdh"),
+"player_enters_level": SubResource("Animation_xpmgl")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouvxm"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_p6b8t"]
 script = ExtResource("8_54t51")
@@ -189,166 +367,12 @@ enemy_spawn_delay = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j8yl"]
 size = Vector2(1518.8, 120.4)
 
-[sub_resource type="Animation" id="Animation_b4hwo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TopBar:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -400)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BottomBar:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 2000)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Player:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(650, 1400)]
-}
-
-[sub_resource type="Animation" id="Animation_tdmdh"]
-resource_name = "boss_defeated"
-length = 5.0
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TopBar:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1.5, 1),
-"update": 0,
-"values": [Vector2(0, -400), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BottomBar:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1.5, 1),
-"update": 0,
-"values": [Vector2(0, 2000), Vector2(0, 1600)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Player:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(3, 5),
-"transitions": PackedFloat32Array(5, 1),
-"update": 0,
-"values": [Vector2(650, 1400), Vector2(652, -151)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(4.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"start_level_transition_to_2"
-}]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Player")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 3.8),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"disable_end_of_level_engine_fx"
-}, {
-"args": [],
-"method": &"enable_end_of_level_engine_fx"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_xpmgl"]
-resource_name = "player_enters_level"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(0.378929, 1),
-"update": 0,
-"values": [Vector2(650, 2305), Vector2(650, 1450)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.79),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"enable_end_of_level_engine_fx"
-}, {
-"args": [],
-"method": &"disable_end_of_level_engine_fx"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hnhqj"]
-_data = {
-"RESET": SubResource("Animation_b4hwo"),
-"boss_defeated": SubResource("Animation_tdmdh"),
-"player_enters_level": SubResource("Animation_xpmgl")
-}
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouvxm"]
-bg_color = Color(0, 0, 0, 1)
-
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_q4jak")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+[node name="FadeInLocationLabel" type="AnimationPlayer" parent="UI"]
 root_node = NodePath("../..")
 autoplay = "fade_in_location_label"
 libraries = {
@@ -370,6 +394,7 @@ Location:   51 Pegasi b"
 label_settings = SubResource("LabelSettings_j2rn2")
 
 [node name="HUD" parent="UI" instance=ExtResource("2_h0j3i")]
+modulate = Color(1, 1, 1, 0)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("3_hb8p3")
@@ -380,6 +405,22 @@ motion_mirroring = Vector2(0, 2000)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(640, 1000)
 texture = ExtResource("4_tlsxy")
+
+[node name="LevelEventsAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hnhqj")
+}
+
+[node name="TopBar" type="Panel" parent="."]
+offset_top = -400.0
+offset_right = 1280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ouvxm")
+
+[node name="BottomBar" type="Panel" parent="."]
+offset_top = 2000.0
+offset_right = 1280.0
+offset_bottom = 2400.15
+theme_override_styles/panel = SubResource("StyleBoxFlat_ouvxm")
 
 [node name="Player" parent="." instance=ExtResource("5_ew0g2")]
 position = Vector2(650, 1400)
@@ -409,22 +450,6 @@ pitch_scale = 1.96
 stream = ExtResource("16_5yirf")
 volume_db = -6.674
 
-[node name="LevelEventsAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_hnhqj")
-}
-
-[node name="TopBar" type="Panel" parent="."]
-offset_top = -400.0
-offset_right = 1280.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ouvxm")
-
-[node name="BottomBar" type="Panel" parent="."]
-offset_top = 2000.0
-offset_right = 1280.0
-offset_bottom = 2400.15
-theme_override_styles/panel = SubResource("StyleBoxFlat_ouvxm")
-
-[connection signal="area_entered" from="DeathZone" to="." method="_on_enemy_death_zone_area_entered"]
 [connection signal="animation_finished" from="LevelEventsAnimationPlayer" to="." method="_on_level_events_animation_player_animation_finished"]
 [connection signal="animation_started" from="LevelEventsAnimationPlayer" to="." method="_on_level_events_animation_player_animation_started"]
+[connection signal="area_entered" from="DeathZone" to="." method="_on_enemy_death_zone_area_entered"]
