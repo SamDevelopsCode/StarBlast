@@ -17,7 +17,10 @@ var fire_rate_timer_wait_time = .3
 var fire_type = 1
 var speed = 400
 var speed_label = 1
+
 var score := 0
+# var enemies_killed = 0
+# powerups collected = 0
 
 func increase_score(score_to_add) -> void:
 	score += score_to_add
@@ -33,6 +36,13 @@ func increase_fire_rate():
 		emit_signal("fire_rate_changed", fire_rate)	
 	else:
 		return
+		
+func decrease_fire_rate():
+	if fire_rate <= 1:
+		return
+	else:
+		fire_rate -= 1
+		emit_signal("fire_rate_changed", fire_rate)
 
 func increase_fire_type():
 	if fire_type <= 3:
@@ -81,14 +91,7 @@ func decrease_fire_type():
 		return
 	else:
 		fire_type -= 1
-		emit_signal("fire_type_changed", fire_type)
-		
-func decrease_fire_rate():
-	if fire_rate <= 1:
-		return
-	else:
-		fire_rate -= 1
-		emit_signal("fire_rate_changed", fire_rate)
+		emit_signal("fire_type_changed", fire_type)		
 
 func refresh_player_health():
 	player_health = player_max_health

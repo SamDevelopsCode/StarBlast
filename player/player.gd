@@ -61,7 +61,7 @@ func move_player():
 		engine_fx.emitting = false
 	move_and_slide()
 	
-	global_position.x = clampf(global_position.x, 26, screen_size.x - 26)
+	global_position.x = clampf(global_position.x, 70, screen_size.x - 26)
 	global_position.y = clampf(global_position.y, 18, screen_size.y - 18) 
 
 func shoot() -> void:

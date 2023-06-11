@@ -9,6 +9,10 @@ var master_bus = AudioServer.get_bus_index("Master")
 @onready var title_label: Label = $TitleLabel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var menu: Control = $"."
+@onready var settings_button: TextureButton = $SettingsButton
+@onready var start_button: Button = $VBoxContainer/StartButton
+@onready var exit_button: Button = $VBoxContainer/ExitButton
+
 
 func _ready() -> void:
 	var fade_label_in = get_tree().create_tween()
@@ -19,6 +23,8 @@ func _on_start_button_pressed() -> void:
 	SceneTransitionManager.fade_to_level_1()
 	var tween = get_tree().create_tween()
 	tween.tween_property(menu, "modulate", Color(1, 1, 1, 0), 1)
+	start_button.disabled = true
+	exit_button.disabled = true
 	
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
@@ -55,4 +61,8 @@ func _on_fps_toggle_toggled(button_pressed: bool) -> void:
 	else:
 		emit_signal("fps_toggled", false)
 
+func _on_settings_button_focus_entered() -> void:
+	settings_button.self_modulate = Color(2, 2, 2 , 1)
 
+func _on_settings_button_focus_exited() -> void:
+	settings_button.self_modulate = Color(1, 1, 1, 1)

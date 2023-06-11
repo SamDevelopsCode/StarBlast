@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://dccr7e8rg873w"]
+[gd_scene load_steps=28 format=3 uid="uid://b1evug5mpak0m"]
 
-[ext_resource type="Script" path="res://enemies/flacian/flacian_boss.gd" id="1_08tqw"]
+[ext_resource type="Script" path="res://enemies/flacian_boss.gd" id="1_08tqw"]
 [ext_resource type="Texture2D" uid="uid://dfe3fk8sljo3q" path="res://enemies/flacian/art/flacian_boss.png" id="2_hpv1t"]
 [ext_resource type="PackedScene" path="res://weapons/enemy/flacian_boss_bullet.tscn" id="2_koh5r"]
 [ext_resource type="Texture2D" uid="uid://c8dhjwm48nee5" path="res://icon.svg" id="3_xgf1n"]
@@ -298,10 +298,6 @@ _data = {
 "rotate_towards_down_dir": SubResource("Animation_c08rt")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gs4fo"]
-radius = 183.973
-height = 492.109
-
 [node name="FlacianBoss" type="Area2D" groups=["enemy"]]
 position = Vector2(600, -500)
 collision_layer = 2
@@ -340,10 +336,8 @@ texture = ExtResource("3_xgf1n")
 wait_time = 0.3
 autostart = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -5)
-rotation = -0.00587034
-shape = SubResource("CapsuleShape2D_gs4fo")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-180, -178, -175, 171, -1, 257, 177, 167, 181, -178)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

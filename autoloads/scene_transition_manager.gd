@@ -2,9 +2,10 @@ extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-func _ready() -> void:
-#	fade_to_menu()
-	pass
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause_game"):
+		var current_value : bool = get_tree().paused
+		get_tree().paused = !current_value
 
 func fade_to_level_1():
 	animation_player.play("fade_to_level_1")
@@ -37,3 +38,4 @@ func change_level(level: int):
 			get_tree().change_scene_to_file("res://levels/menus/win_screen.tscn")
 		5: 
 			get_tree().change_scene_to_file("res://levels/menus/menu.tscn")
+			

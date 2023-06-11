@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://br33nnncjbre0"]
+[gd_scene load_steps=14 format=3 uid="uid://br33nnncjbre0"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_fw6q5"]
 [ext_resource type="Texture2D" uid="uid://6skivlkds6x4" path="res://enemies/flacian/art/flacian_slicer.png" id="2_v6b3b"]
@@ -81,16 +81,12 @@ animations = [{
 "speed": 14.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gs4fo"]
-radius = 28.0036
-height = 172.044
-
 [node name="FlacianSlicer" type="Area2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_fw6q5")
 move_speed = 800
-health = 5
+health = 11
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
@@ -98,10 +94,10 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_mn3ul")
 animation = &"death"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -3)
 rotation = 1.56701
-shape = SubResource("CapsuleShape2D_gs4fo")
+polygon = PackedVector2Array(-28.3141, 82.8934, 33.6817, 84.1281, 35.7309, 71.1358, 9.72732, 72.0373, 14.962, 10.0567, 26.9922, 2.10222, 22.0491, -12.9166, 12.0491, -12.9545, 13.2725, -71.9503, 35.2799, -73.867, 31.3254, -85.882, -30.6817, -84.1168)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

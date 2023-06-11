@@ -23,7 +23,6 @@ func _ready() -> void:
 	await get_tree().create_timer(.5).timeout
 	anim_player_movement.play("fly_on_screen")	
 	set_boss_difficulty()
-	print(health)
 
 func shoot() -> void:
 	var enemy_bullet = enemy_bullet_scene.instantiate() as Node2D
@@ -75,11 +74,11 @@ func _on_fire_rate_timer_timeout() -> void:
 
 func set_boss_difficulty():
 	if (GameData.fire_rate <= 2 ) and (GameData.fire_type <= 2):
-		health = 10
+		health = 30
 	elif (GameData.fire_rate >= 4 ) and (GameData.fire_type >= 4):
-		health = 2500
+		health = 3000
 	else:
-		health = 600
+		health = 1000
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	sprite.visible = false
@@ -88,9 +87,7 @@ func _on_movement_animation_player_animation_started(anim_name: StringName) -> v
 	if anim_name == "fly_on_screen":
 		player.set_input_is_valid(false)
 		var player_pos_tween = get_tree().create_tween()
-		player_pos_tween.tween_property(player, "global_position", Vector2(650, 1600), 2.5)
-	
-	
+		player_pos_tween.tween_property(player, "global_position", Vector2(650, 1600), 2.5)	
 
 func _on_movement_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fly_on_screen":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cl7n5ccuy60pc"]
+[gd_scene load_steps=20 format=3 uid="uid://cl7n5ccuy60pc"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_j4su3"]
 [ext_resource type="Texture2D" uid="uid://bwhfqn5y4k2st" path="res://enemies/flacian/art/flacian_cruiser.png" id="2_l2xsf"]
@@ -111,21 +111,12 @@ animations = [{
 "speed": 17.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gs4fo"]
-radius = 75.9742
-height = 280.028
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lghf0"]
-size = Vector2(35, 127)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4154f"]
-size = Vector2(31, 129)
-
 [node name="FlacianCruiser" type="Area2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_j4su3")
 move_speed = 250
+health = 125
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
@@ -133,21 +124,11 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_y3fnx")
 animation = &"death"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 17)
-rotation = 3.12554
-shape = SubResource("CapsuleShape2D_gs4fo")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-90.5, -34.5)
-shape = SubResource("RectangleShape2D_lghf0")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(91, -33.5)
-shape = SubResource("RectangleShape2D_4154f")
-
 [node name="AimingEnemyWeaponTriple" parent="." instance=ExtResource("3_nvf6d")]
 bullet_scene = ExtResource("4_k3ao5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-107, -85, -101, 21, -77, 35, -76, -15, -45, -14, -33, 77, -48, 57, -69, 69, -67, 114, -52, 122, -45, 96, -34, 103, -25, 153, 23, 153, 30, 101, 46, 101, 50, 123, 71, 112, 68, 64, 50, 54, 34, 73, 49, -14, 74, -14, 74, 36, 106, 22, 108, -89, 80, -98, -74, -101)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

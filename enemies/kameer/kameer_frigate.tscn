@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c8l5j1rb85us3"]
+[gd_scene load_steps=24 format=3 uid="uid://c8l5j1rb85us3"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_ko7he"]
 [ext_resource type="Texture2D" uid="uid://dtvrkyxxpd7k8" path="res://enemies/kameer/art/kameer_frigate.png" id="2_gk2j0"]
@@ -125,26 +125,24 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m2qbu"]
-radius = 45.0
-height = 132.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6ywt"]
+size = Vector2(58, 100)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_krmot"]
+height = 81.4067
 
 [node name="KameerFrigate" type="Area2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_ko7he")
 move_speed = 350
-health = 150
+health = 125
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_euxkw")
 animation = &"death"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_m2qbu")
 
 [node name="SingleEnemyWeapon" parent="." instance=ExtResource("3_g5d8b")]
 position = Vector2(-34, 79)
@@ -157,6 +155,20 @@ bullet_scene = ExtResource("4_vmee0")
 [node name="SingleEnemyWeapon3" parent="." instance=ExtResource("3_g5d8b")]
 position = Vector2(0, 114)
 bullet_scene = ExtResource("4_vmee0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_g6ywt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-42, -9)
+rotation = -0.473639
+shape = SubResource("CapsuleShape2D_krmot")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(42, -8)
+rotation = 0.495416
+shape = SubResource("CapsuleShape2D_krmot")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

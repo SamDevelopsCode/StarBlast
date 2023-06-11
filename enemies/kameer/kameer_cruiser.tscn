@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ctrgbvayma1s2"]
+[gd_scene load_steps=24 format=3 uid="uid://ctrgbvayma1s2"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_7rka1"]
 [ext_resource type="Texture2D" uid="uid://dt6v4cof1dhcq" path="res://enemies/kameer/art/kameer_cruiser.png" id="2_o1mp6"]
@@ -139,22 +139,12 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4tjb6"]
-radius = 67.0
-height = 268.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5780t"]
-size = Vector2(22, 103)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rq3un"]
-size = Vector2(26, 103)
-
 [node name="KameerCruiser" type="Area2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_7rka1")
 move_speed = 350
-health = 200
+health = 250
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
@@ -162,20 +152,8 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_smuad")
 animation = &"death"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 22)
-shape = SubResource("CapsuleShape2D_4tjb6")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-80, -47.5)
-shape = SubResource("RectangleShape2D_5780t")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_rq3un")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(80, -45.5)
-shape = SubResource("RectangleShape2D_rq3un")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-92, -96, -92, -17, -70, 28, -45, 146, -12, 147, -12, 91, 12, 90, 12, 147, 47, 147, 65, 64, 70, 25, 94, -15, 92, -104, 71, -68, -68, -67)
 
 [node name="AimingEnemyWeaponDouble" parent="." instance=ExtResource("3_syi43")]
 position = Vector2(0, -62)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b055x1gx1vnig"]
+[gd_scene load_steps=17 format=3 uid="uid://b055x1gx1vnig"]
 
 [ext_resource type="Script" path="res://levels/menus/win_screen.gd" id="1_dtby3"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="2_1pxps"]
 [ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/art/Main Ship - Base - Full health.png" id="2_cyc4q"]
 [ext_resource type="PackedScene" uid="uid://bau3vwxajqwug" path="res://levels/menus/background_bullet_spawner.tscn" id="2_o4xn3"]
 [ext_resource type="Texture2D" uid="uid://c85dye611j5j" path="res://levels/art/level_2_bg.png" id="3_rsy2d"]
+[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://random_shit/SPACEBOY.TTF" id="6_avnbv"]
 
 [sub_resource type="Animation" id="Animation_44oya"]
 length = 0.001
@@ -105,6 +106,10 @@ scale_curve = SubResource("CurveTexture_n3as6")
 color_ramp = SubResource("GradientTexture1D_qadm7")
 turbulence_noise_strength = 3.34
 
+[sub_resource type="LabelSettings" id="LabelSettings_ark07"]
+font = ExtResource("6_avnbv")
+font_size = 48
+
 [node name="WinScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -132,6 +137,20 @@ libraries = {
 "": SubResource("AnimationLibrary_lbann")
 }
 
+[node name="StatsPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 96.0
+offset_right = 1160.0
+offset_bottom = 368.0
+
+[node name="AssetSourcesPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 662.0
+offset_right = 516.0
+offset_bottom = 1594.0
+
 [node name="ShipSprite" type="Sprite2D" parent="."]
 z_index = 4
 position = Vector2(789, 2199)
@@ -148,3 +167,12 @@ lifetime = 0.5
 speed_scale = 0.75
 fixed_fps = 60
 trail_lifetime = 0.1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 1824.0
+offset_right = 1019.0
+offset_bottom = 1877.0
+text = "Thanks for playing"
+label_settings = SubResource("LabelSettings_ark07")

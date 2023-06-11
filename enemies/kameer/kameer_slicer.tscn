@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://csjoa5133xtxq"]
+[gd_scene load_steps=24 format=3 uid="uid://csjoa5133xtxq"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_8m2vj"]
 [ext_resource type="Texture2D" uid="uid://qxnkq3k6o1wm" path="res://enemies/kameer/art/kameer_slicer.png" id="2_fh3ei"]
@@ -124,7 +124,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtdkg"]
-radius = 30.9704
+radius = 10.8585
 height = 79.9237
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbgff"]
@@ -133,12 +133,15 @@ size = Vector2(43.95, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qx7cw"]
 size = Vector2(40.6371, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4ai6"]
+size = Vector2(25, 25)
+
 [node name="KameerSlicer" type="Area2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_8m2vj")
 move_speed = 725
-health = 7
+health = 16
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
@@ -147,7 +150,7 @@ sprite_frames = SubResource("SpriteFrames_aj4eh")
 animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, -1)
 rotation = 1.61448
 shape = SubResource("CapsuleShape2D_xtdkg")
 
@@ -160,6 +163,10 @@ shape = SubResource("RectangleShape2D_cbgff")
 position = Vector2(58, -15)
 rotation = -0.367429
 shape = SubResource("RectangleShape2D_qx7cw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 23.5)
+shape = SubResource("RectangleShape2D_y4ai6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

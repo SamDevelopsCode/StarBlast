@@ -1,6 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://ds5cwr58g2vrk"]
+[gd_scene load_steps=34 format=3 uid="uid://vq3h5r5jibku"]
 
-[ext_resource type="Script" path="res://enemies/kameer/kameer_boss.gd" id="1_n58ng"]
+[ext_resource type="Script" path="res://enemies/kameer_boss.gd" id="1_n58ng"]
 [ext_resource type="Texture2D" uid="uid://cysaqbgdtghbr" path="res://enemies/kameer/art/kameer_boss.png" id="2_aget8"]
 [ext_resource type="PackedScene" uid="uid://bhahgu73l4136" path="res://weapons/enemy/kameer_boss_bullet.tscn" id="2_e8kwg"]
 [ext_resource type="Texture2D" uid="uid://c8dhjwm48nee5" path="res://icon.svg" id="3_iripl"]
@@ -141,6 +141,21 @@ animations = [{
 "speed": 14.0
 }]
 
+[sub_resource type="Animation" id="Animation_7in5i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(600, -600)]
+}
+
 [sub_resource type="Animation" id="Animation_cblft"]
 resource_name = "fly_on_screen"
 length = 3.0
@@ -155,23 +170,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(600, -600), Vector2(600, 500)]
-}
-
-[sub_resource type="Animation" id="Animation_b3k5q"]
-resource_name = "side_to_side"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.5, 2.3, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(600, 500), Vector2(386, 820), Vector2(658, 932), Vector2(904, 804), Vector2(600, 500)]
 }
 
 [sub_resource type="Animation" id="Animation_ye2qm"]
@@ -190,19 +188,21 @@ tracks/0/keys = {
 "values": [Vector2(600, 500), Vector2(354, 473), Vector2(920, 484), Vector2(600, 500)]
 }
 
-[sub_resource type="Animation" id="Animation_7in5i"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_b3k5q"]
+resource_name = "side_to_side"
+length = 3.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.7, 1.5, 2.3, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(600, -600)]
+"values": [Vector2(600, 500), Vector2(386, 820), Vector2(658, 932), Vector2(904, 804), Vector2(600, 500)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v0lj6"]
@@ -251,24 +251,6 @@ _data = {
 "cone_of_death": SubResource("Animation_g76qc")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ohhxf"]
-radius = 209.0
-height = 984.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyry7"]
-size = Vector2(118, 513)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ooyor"]
-size = Vector2(123, 517)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wy2bm"]
-radius = 38.4623
-height = 244.216
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lr2du"]
-radius = 50.1672
-height = 228.001
-
 [node name="KameerBoss" type="Area2D" groups=["enemy"]]
 position = Vector2(600, -600)
 collision_layer = 2
@@ -304,30 +286,8 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_iripl")
 
 [node name="FireRateTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.15
 autostart = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 31)
-shape = SubResource("CapsuleShape2D_ohhxf")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-272, -150.5)
-shape = SubResource("RectangleShape2D_fyry7")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(272.5, -154.5)
-shape = SubResource("RectangleShape2D_ooyor")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(-240, 200)
-rotation = -0.431228
-shape = SubResource("CapsuleShape2D_wy2bm")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
-position = Vector2(235, 191)
-rotation = 0.490904
-shape = SubResource("CapsuleShape2D_lr2du")
 
 [node name="AimingEnemyWeaponTriple" parent="." instance=ExtResource("4_a7asx")]
 position = Vector2(132, -82)
@@ -336,6 +296,9 @@ bullet_scene = ExtResource("5_k5rwr")
 [node name="AimingEnemyWeaponTriple2" parent="." instance=ExtResource("4_a7asx")]
 position = Vector2(-128, -85)
 bullet_scene = ExtResource("5_k5rwr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-334, -446, -353, 112, -161, 504, -33, 532, -21, 422, 3, 410, 25, 434, 27, 534, 161, 510, 355, 104, 339, -447)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -19,7 +19,7 @@ func _ready() -> void:
 	hud.set_score_label(GameData.score)
 	hud.set_lives_label(GameData.player_lives)
 	hud.set_health_label(GameData.player_health)
-
+	
 func _on_enemy_death_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
 		area.queue_free()
