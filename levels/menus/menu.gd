@@ -12,12 +12,14 @@ var master_bus = AudioServer.get_bus_index("Master")
 @onready var settings_button: TextureButton = $SettingsButton
 @onready var start_button: Button = $VBoxContainer/StartButton
 @onready var exit_button: Button = $VBoxContainer/ExitButton
+@onready var tutorial_button: Button = $VBoxContainer/TutorialButton
+@onready var tutorial_panel: Panel = $TutorialPanel
 
 
 func _ready() -> void:
 	var fade_label_in = get_tree().create_tween()
 	fade_label_in.tween_property(title_label, "modulate", Color(1, 1, 1, 1), 2)
-	MusicController.fade_music_in("menu")		
+	GameData.reset_game_values()	
 
 func _on_start_button_pressed() -> void:
 	SceneTransitionManager.fade_to_level_1()
@@ -66,3 +68,12 @@ func _on_settings_button_focus_entered() -> void:
 
 func _on_settings_button_focus_exited() -> void:
 	settings_button.self_modulate = Color(1, 1, 1, 1)
+
+
+func _on_tutorial_button_pressed() -> void:
+	var current_state := tutorial_panel.visible
+	tutorial_panel.visible = !current_state
+
+
+func _on_tutorial_button_focus_exited() -> void:
+		tutorial_panel.visible = false

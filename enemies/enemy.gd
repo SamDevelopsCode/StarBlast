@@ -9,10 +9,15 @@ signal powerup_spawned(powerup_instance)
 var powerup_laser = preload("res://powerups/powerup_laser.tscn")
 var powerup_speed = preload("res://powerups/powerup_speed.tscn")
 var powerup_fire_rate = preload("res://powerups/powerup_fire_rate.tscn")
-var powerups = [powerup_laser, powerup_speed, powerup_fire_rate]
+var powerup_health = preload("res://powerups/powerup_health.tscn")
+var powerup_score = preload("res://powerups/powerup_score.tscn")
 
-var myArray := [1, 2, 2, 2, 2, 2, 2]
-var powerup_chance := [1, 1, 1, 1, 1, 2, 2 ,2, 3, 3]
+
+var powerups = [powerup_laser, powerup_speed, powerup_fire_rate, 
+powerup_health, powerup_score]
+
+var myArray := [1, 2, 2, 2, 2, 2]
+var powerup_chance := [1, 1, 1, 1, 1, 2, 2 ,2, 3, 3, 3, 4, 4, 5, 5]
 
 var dead := false
 
@@ -40,6 +45,7 @@ func die() -> void:
 			component.queue_free()	
 	sprite.play("death")
 	emit_signal("enemy_died")	
+	GameData.increment_enemies_killed()
 	if should_drop_powerup():
 		spawn_powerup()	
 	
@@ -67,6 +73,14 @@ func spawn_powerup() -> void:
 			emit_signal("powerup_spawned", powerup_instance)
 		3:
 			var powerup_instance = powerup_speed.instantiate() as Area2D
+			powerup_instance.global_position = global_position
+			emit_signal("powerup_spawned", powerup_instance)	
+		4:
+			var powerup_instance = powerup_health.instantiate() as Area2D
+			powerup_instance.global_position = global_position
+			emit_signal("powerup_spawned", powerup_instance)	
+		5:
+			var powerup_instance = powerup_score.instantiate() as Area2D
 			powerup_instance.global_position = global_position
 			emit_signal("powerup_spawned", powerup_instance)	
 

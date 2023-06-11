@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://bg0q6b1bhthkb"]
 
 [ext_resource type="Script" path="res://gui/hud.gd" id="1_ct85p"]
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://random_shit/SPACEBOY.TTF" id="1_oy3r3"]

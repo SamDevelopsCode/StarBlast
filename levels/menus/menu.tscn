@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://nwk853dmbcy8"]
+[gd_scene load_steps=24 format=3 uid="uid://nwk853dmbcy8"]
 
 [ext_resource type="Script" path="res://levels/menus/menu.gd" id="1_c41f7"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="2_1pxps"]
@@ -120,6 +120,21 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5o5y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_7g0uy"]
+font = ExtResource("7_da3lc")
+font_size = 38
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ow13"]
+font = ExtResource("7_da3lc")
+font_size = 24
+
 [node name="Menu" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -159,6 +174,11 @@ layout_mode = 2
 theme = ExtResource("3_7oxgc")
 text = "New Game"
 script = ExtResource("6_42xvk")
+
+[node name="TutorialButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_7oxgc")
+text = "How To Play"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -245,19 +265,91 @@ text = "Volume:"
 
 [node name="VolumeSlider" type="HSlider" parent="SettingsPanel/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../SettingsButton")
 min_value = -30.0
 max_value = 0.0
 
 [node name="FullScreenToggle" type="CheckButton" parent="SettingsPanel/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../SettingsButton")
 text = "Fullscreen"
 
 [node name="VsyncToggle" type="CheckButton" parent="SettingsPanel/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../SettingsButton")
 button_pressed = true
 text = "V-Sync"
 
+[node name="TutorialPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 257.0
+offset_top = 1507.0
+offset_right = 1211.0
+offset_bottom = 1935.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q5o5y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TutorialPanel/VBoxContainer"]
+layout_mode = 2
+text = "Instructions
+"
+label_settings = SubResource("LabelSettings_7g0uy")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Label" parent="TutorialPanel/VBoxContainer"]
+layout_mode = 2
+text = "
+"
+label_settings = SubResource("LabelSettings_7g0uy")
+horizontal_alignment = 1
+
+[node name="Movement" type="Label" parent="TutorialPanel/VBoxContainer"]
+layout_mode = 2
+text = "Movement: W A S D or Left Thumbpad
+"
+label_settings = SubResource("LabelSettings_2ow13")
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Label" parent="TutorialPanel/VBoxContainer"]
+layout_mode = 2
+text = "
+"
+label_settings = SubResource("LabelSettings_7g0uy")
+horizontal_alignment = 1
+
+[node name="Shoot" type="Label" parent="TutorialPanel/VBoxContainer"]
+layout_mode = 2
+text = "Fire Weapon: Space or Right Trigger"
+label_settings = SubResource("LabelSettings_2ow13")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer3" type="Label" parent="TutorialPanel/VBoxContainer"]
+layout_mode = 2
+text = "
+"
+label_settings = SubResource("LabelSettings_7g0uy")
+horizontal_alignment = 1
+
+[node name="Powerups" type="Label" parent="TutorialPanel/VBoxContainer"]
+layout_mode = 2
+text = "Killed enemies drop powerups. Collect for various effects
+"
+label_settings = SubResource("LabelSettings_2ow13")
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="focus_exited" from="VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_focus_exited"]
+[connection signal="pressed" from="VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="focus_entered" from="SettingsButton" to="." method="_on_settings_button_focus_entered"]
 [connection signal="focus_exited" from="SettingsButton" to="." method="_on_settings_button_focus_exited"]

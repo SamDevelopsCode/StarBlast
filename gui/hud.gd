@@ -15,6 +15,8 @@ func _ready() -> void:
 	GameData.connect("player_health_changed", set_health_label)	
 	GameData.connect("player_lives_changed", set_lives_label)	
 	GameData.connect("player_health_refreshed", set_health_label)
+	GameData.connect("player_healed", set_health_label)
+	
 	
 	set_fire_rate_label(GameData.fire_rate)
 	set_fire_type_label(GameData.fire_type)

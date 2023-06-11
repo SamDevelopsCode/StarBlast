@@ -3,36 +3,6 @@
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://random_shit/SPACEBOY.TTF" id="1_8m2cj"]
 [ext_resource type="Script" path="res://levels/menus/splash_screen.gd" id="1_vj5ho"]
 
-[sub_resource type="Animation" id="Animation_00o5m"]
-resource_name = "fade_splash_screen"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5, 4),
-"transitions": PackedFloat32Array(2.63902, 1, 0.659754),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(3.3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"fade_to_menu"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_3jsyn"]
 length = 0.001
 tracks/0/type = "value"
@@ -46,6 +16,39 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_00o5m"]
+resource_name = "fade_splash_screen"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(2.63902, 1, 0.812252),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3, 5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"fade_music_in_from_splash"
+}, {
+"args": [],
+"method": &"fade_to_menu"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x5m6x"]

@@ -15,7 +15,7 @@ func _ready() -> void:
 	timer.wait_time = randf_range(3.0, 5.0)
 
 func shoot():
-	if Player:
+	if player.is_alive:
 		weapons.look_at(player.global_position)
 		for weapon in weapon_array:
 			var bullet = bullet_scene.instantiate()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=44 format=3 uid="uid://cj2ylmhfpbg8s"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_pffix"]
-[ext_resource type="PackedScene" path="res://gui/hud.tscn" id="2_1vp26"]
+[ext_resource type="PackedScene" uid="uid://bg0q6b1bhthkb" path="res://gui/hud.tscn" id="2_1vp26"]
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://random_shit/SPACEBOY.TTF" id="2_5mvsc"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_eb28t"]
 [ext_resource type="Texture2D" uid="uid://dmjb6muiwfs1f" path="res://levels/art/level_3_bg.png" id="4_pt85p"]
@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://rtkr86nre33u" path="res://enemies/kameer/kameer_warrior.tscn" id="11_seirb"]
 [ext_resource type="PackedScene" uid="uid://c8l5j1rb85us3" path="res://enemies/kameer/kameer_frigate.tscn" id="12_obddk"]
 [ext_resource type="PackedScene" uid="uid://ctrgbvayma1s2" path="res://enemies/kameer/kameer_cruiser.tscn" id="13_anpcy"]
-[ext_resource type="PackedScene" uid="uid://ds5cwr58g2vrk" path="res://enemies/kameer/kameer_boss.tscn" id="14_ymjdm"]
-[ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://audio/enemy_hit.wav" id="15_18ne7"]
+[ext_resource type="PackedScene" uid="uid://vq3h5r5jibku" path="res://enemies/kameer/kameer_boss.tscn" id="14_ymjdm"]
+[ext_resource type="AudioStream" uid="uid://cdr8gw84gaqal" path="res://audio/EXPLDsgn_Explosion Impact_14.wav" id="15_jfkhl"]
 [ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://audio/player_death.wav" id="16_qldh3"]
 
 [sub_resource type="Animation" id="Animation_ul6ur"]
@@ -449,9 +449,8 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_4j8yl")
 
 [node name="EnemyHitSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_18ne7")
-volume_db = -6.118
-pitch_scale = 1.96
+stream = ExtResource("15_jfkhl")
+volume_db = -15.0
 
 [node name="PlayerDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_qldh3")

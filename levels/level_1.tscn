@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_q4jak"]
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://random_shit/SPACEBOY.TTF" id="2_7pjuv"]
-[ext_resource type="PackedScene" path="res://gui/hud.tscn" id="2_h0j3i"]
+[ext_resource type="PackedScene" uid="uid://bg0q6b1bhthkb" path="res://gui/hud.tscn" id="2_h0j3i"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="3_hb8p3"]
 [ext_resource type="Texture2D" uid="uid://cn11ld3b2h4ns" path="res://levels/art/level_1_bg.png" id="4_tlsxy"]
 [ext_resource type="PackedScene" path="res://player/player.tscn" id="5_ew0g2"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://6wda7d6rw872" path="res://enemies/dredge/dredge_bomber.tscn" id="11_k8hoo"]
 [ext_resource type="PackedScene" uid="uid://68xy7huef1p" path="res://enemies/dredge/dredge_warrior.tscn" id="12_s1bpk"]
 [ext_resource type="PackedScene" uid="uid://c2i237w0x7gph" path="res://enemies/dredge/dredge_boss.tscn" id="14_7u67c"]
-[ext_resource type="AudioStream" uid="uid://mg6rdbs08of4" path="res://audio/enemy_hit.wav" id="15_edr3n"]
+[ext_resource type="AudioStream" uid="uid://cdr8gw84gaqal" path="res://audio/EXPLDsgn_Explosion Impact_14.wav" id="15_e1bw6"]
 [ext_resource type="AudioStream" uid="uid://l5dlbo60drb3" path="res://audio/player_death.wav" id="16_5yirf"]
 
 [sub_resource type="Animation" id="Animation_ul6ur"]
@@ -271,10 +271,10 @@ enemy_spawn_delay = 1
 [sub_resource type="Resource" id="Resource_7jxmu"]
 script = ExtResource("8_54t51")
 time_start = 50
-time_end = 51
+time_end = 120
 enemy = ExtResource("8_rdr5r")
 enemy_number = 1
-enemy_spawn_delay = 1
+enemy_spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_85507"]
 script = ExtResource("8_54t51")
@@ -358,8 +358,8 @@ enemy_spawn_delay = 5
 
 [sub_resource type="Resource" id="Resource_s4sng"]
 script = ExtResource("8_54t51")
-time_start = 190
-time_end = 191
+time_start = 185
+time_end = 186
 enemy = ExtResource("14_7u67c")
 enemy_number = 1
 enemy_spawn_delay = 1
@@ -441,9 +441,8 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_4j8yl")
 
 [node name="EnemyHitSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_edr3n")
-volume_db = -10.0
-pitch_scale = 1.96
+stream = ExtResource("15_e1bw6")
+volume_db = -15.0
 
 [node name="PlayerDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_5yirf")

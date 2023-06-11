@@ -1,11 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://b055x1gx1vnig"]
+[gd_scene load_steps=24 format=3 uid="uid://b055x1gx1vnig"]
 
 [ext_resource type="Script" path="res://levels/menus/win_screen.gd" id="1_dtby3"]
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="2_1pxps"]
 [ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/art/Main Ship - Base - Full health.png" id="2_cyc4q"]
-[ext_resource type="PackedScene" uid="uid://bau3vwxajqwug" path="res://levels/menus/background_bullet_spawner.tscn" id="2_o4xn3"]
 [ext_resource type="Texture2D" uid="uid://c85dye611j5j" path="res://levels/art/level_2_bg.png" id="3_rsy2d"]
 [ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://random_shit/SPACEBOY.TTF" id="6_avnbv"]
+[ext_resource type="Theme" uid="uid://ugv1ptuyjojl" path="res://main_theme.tres" id="7_ki2jp"]
+[ext_resource type="Script" path="res://levels/menus/play_again_button.gd" id="8_61724"]
 
 [sub_resource type="Animation" id="Animation_44oya"]
 length = 0.001
@@ -77,6 +78,24 @@ _data = {
 "ship_idle": SubResource("Animation_i66jt")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmw0h"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4426t"]
+font = ExtResource("6_avnbv")
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hrr8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qo065"]
+font = ExtResource("6_avnbv")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_mhewb"]
+font = ExtResource("6_avnbv")
+font_size = 24
+
 [sub_resource type="Gradient" id="Gradient_uduvj"]
 offsets = PackedFloat32Array(0, 0.140271, 1)
 colors = PackedColorArray(1, 1, 0, 0, 1, 0.545098, 0, 1, 1, 0, 0, 0)
@@ -106,9 +125,12 @@ scale_curve = SubResource("CurveTexture_n3as6")
 color_ramp = SubResource("GradientTexture1D_qadm7")
 turbulence_noise_strength = 3.34
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3ee6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="LabelSettings" id="LabelSettings_ark07"]
 font = ExtResource("6_avnbv")
-font_size = 48
+font_size = 24
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -129,27 +151,119 @@ motion_mirroring = Vector2(0, 2000)
 position = Vector2(640, 1000)
 texture = ExtResource("3_rsy2d")
 
-[node name="BackgroundBulletSpawner" parent="." instance=ExtResource("2_o4xn3")]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "enter_ship"
 libraries = {
 "": SubResource("AnimationLibrary_lbann")
 }
 
-[node name="StatsPanel" type="Panel" parent="."]
+[node name="WinMessagePanel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 96.0
 offset_right = 1160.0
 offset_bottom = 368.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vmw0h")
 
-[node name="AssetSourcesPanel" type="Panel" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="WinMessagePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer2" type="Label" parent="WinMessagePanel/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_4426t")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Success!" type="Label" parent="WinMessagePanel/VBoxContainer"]
+layout_mode = 2
+text = "Success!"
+label_settings = SubResource("LabelSettings_4426t")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer" type="Label" parent="WinMessagePanel/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_4426t")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MainMessage" type="Label" parent="WinMessagePanel/VBoxContainer"]
+layout_mode = 2
+text = "You have defended the galaxy and are awarded the highest rank of flight officer. Your legend will be passed down for millenium to come."
+label_settings = SubResource("LabelSettings_4426t")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StatsPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 36.0
-offset_top = 662.0
-offset_right = 516.0
-offset_bottom = 1594.0
+offset_left = 60.0
+offset_top = 767.0
+offset_right = 752.0
+offset_bottom = 1253.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7hrr8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsTitle" type="Label" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "
+
+
+Stats
+
+
+
+"
+label_settings = SubResource("LabelSettings_qo065")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreHorizontal" type="HBoxContainer" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreTitle" type="Label" parent="StatsPanel/VBoxContainer/ScoreHorizontal"]
+layout_mode = 2
+text = "Score: "
+label_settings = SubResource("LabelSettings_mhewb")
+
+[node name="ScoreLabel" type="Label" parent="StatsPanel/VBoxContainer/ScoreHorizontal"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_mhewb")
+
+[node name="EnemiesKilledHorizontal" type="HBoxContainer" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="EnemiesKilledTitle" type="Label" parent="StatsPanel/VBoxContainer/EnemiesKilledHorizontal"]
+layout_mode = 2
+text = "Enemies Killed: "
+label_settings = SubResource("LabelSettings_mhewb")
+
+[node name="EnemiesKilledLabel" type="Label" parent="StatsPanel/VBoxContainer/EnemiesKilledHorizontal"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_mhewb")
+
+[node name="PowerupsCollectedHorizontal" type="HBoxContainer" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="PowerupsCollectedTitle" type="Label" parent="StatsPanel/VBoxContainer/PowerupsCollectedHorizontal"]
+layout_mode = 2
+text = "Powerups Collected: "
+label_settings = SubResource("LabelSettings_mhewb")
+
+[node name="PowerupsCollectedLabel" type="Label" parent="StatsPanel/VBoxContainer/PowerupsCollectedHorizontal"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_mhewb")
 
 [node name="ShipSprite" type="Sprite2D" parent="."]
 z_index = 4
@@ -168,11 +282,71 @@ speed_scale = 0.75
 fixed_fps = 60
 trail_lifetime = 0.1
 
-[node name="Label" type="Label" parent="."]
+[node name="AttributesPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 1824.0
-offset_right = 1019.0
-offset_bottom = 1877.0
-text = "Thanks for playing"
+offset_left = 29.0
+offset_top = 1624.0
+offset_right = 756.0
+offset_bottom = 1960.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w3ee6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AttributesPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArtTitle" type="Label" parent="AttributesPanel/VBoxContainer"]
+layout_mode = 2
+text = "Art:"
 label_settings = SubResource("LabelSettings_ark07")
+
+[node name="Artists" type="Label" parent="AttributesPanel/VBoxContainer"]
+layout_mode = 2
+text = "Backgrounds by Deep Fold
+Lasers by Wenrexa
+Ships by FoozleCC
+Icons by Mark Krukowski
+"
+label_settings = SubResource("LabelSettings_ark07")
+
+[node name="Spacer" type="Label" parent="AttributesPanel/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ark07")
+horizontal_alignment = 1
+
+[node name="SoundTitle" type="Label" parent="AttributesPanel/VBoxContainer"]
+layout_mode = 2
+text = "Sound:"
+label_settings = SubResource("LabelSettings_ark07")
+
+[node name="SoundDesigners" type="Label" parent="AttributesPanel/VBoxContainer"]
+layout_mode = 2
+text = "Music by DOS88"
+label_settings = SubResource("LabelSettings_ark07")
+
+[node name="Spacer2" type="Label" parent="AttributesPanel/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ark07")
+horizontal_alignment = 1
+
+[node name="ThanksMessage" type="Label" parent="AttributesPanel/VBoxContainer"]
+layout_mode = 2
+text = "Thank you for playing!"
+label_settings = SubResource("LabelSettings_ark07")
+horizontal_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 724.0
+offset_top = 1685.0
+offset_right = 1202.0
+offset_bottom = 1823.0
+theme = ExtResource("7_ki2jp")
+theme_override_font_sizes/font_size = 50
+text = "Play Again"
+script = ExtResource("8_61724")
+
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]

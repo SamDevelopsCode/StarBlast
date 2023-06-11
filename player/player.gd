@@ -159,3 +159,7 @@ func disable_end_of_level_engine_fx():
 	
 func set_input_is_valid(is_valid: bool):
 	input_is_valid = is_valid
+
+func heal():
+	GameData.heal_player()
+	

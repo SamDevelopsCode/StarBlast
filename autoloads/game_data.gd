@@ -7,6 +7,7 @@ signal speed_label_changed(speed_label)
 signal player_health_changed(player_health)
 signal player_health_refreshed(player_health)
 signal player_lives_changed(player_lives)
+signal player_healed(player_health)
 
 var player_max_health := 75	
 var player_health := 75
@@ -19,8 +20,8 @@ var speed = 400
 var speed_label = 1
 
 var score := 0
-# var enemies_killed = 0
-# powerups collected = 0
+var enemies_killed := 0
+var powerups_collected := 0
 
 func increase_score(score_to_add) -> void:
 	score += score_to_add
@@ -92,7 +93,34 @@ func decrease_fire_type():
 	else:
 		fire_type -= 1
 		emit_signal("fire_type_changed", fire_type)		
+	
+func heal_player():
+	player_health += 20
+	
+	if player_health > player_max_health:
+		player_health = player_max_health	
+	emit_signal("player_healed", player_health)
 
 func refresh_player_health():
 	player_health = player_max_health
 	emit_signal("player_health_refreshed", player_max_health)
+	
+func increment_enemies_killed():
+	enemies_killed += 1
+
+func increment_powerups_collected():
+	powerups_collected += 1
+	
+func reset_game_values():
+	player_max_health = 75	
+	player_health = 75
+	player_lives = 3
+	fire_rate = 1
+	fire_rate_timer_wait_time = .3
+	fire_type = 1
+	speed = 400
+	speed_label = 1
+	score = 0
+	enemies_killed = 0
+	powerups_collected = 0
+	
