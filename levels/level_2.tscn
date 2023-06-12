@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://wmgldgnf8pgj"]
+[gd_scene load_steps=45 format=3 uid="uid://wmgldgnf8pgj"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_naevg"]
 [ext_resource type="PackedScene" uid="uid://bg0q6b1bhthkb" path="res://gui/hud.tscn" id="2_h2bpn"]
@@ -236,6 +236,14 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snu0e"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Resource" id="Resource_fyxuw"]
+script = ExtResource("8_gf1e5")
+time_start = 8
+time_end = 9
+enemy = ExtResource("14_032j7")
+enemy_number = 1
+enemy_spawn_delay = 1
+
 [sub_resource type="Resource" id="Resource_82c6t"]
 script = ExtResource("8_gf1e5")
 time_start = 8
@@ -436,7 +444,7 @@ fire_vibration_weak_magnitude = 1.0
 fire_vibration_strong_magnitude = 0.0
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_1sgbg")]
-spawns = Array[ExtResource("8_gf1e5")]([SubResource("Resource_82c6t"), SubResource("Resource_mjklg"), SubResource("Resource_vrgtj"), SubResource("Resource_3o7qs"), SubResource("Resource_e6yn8"), SubResource("Resource_0ne1d"), SubResource("Resource_7ssoe"), SubResource("Resource_untpc"), SubResource("Resource_wsjj2"), SubResource("Resource_qb04g"), SubResource("Resource_bay5h"), SubResource("Resource_2s4bt"), SubResource("Resource_j6pph"), SubResource("Resource_2udhp"), SubResource("Resource_4a2w4"), SubResource("Resource_xiqmi"), SubResource("Resource_omech")])
+spawns = Array[ExtResource("8_gf1e5")]([SubResource("Resource_fyxuw"), SubResource("Resource_82c6t"), SubResource("Resource_mjklg"), SubResource("Resource_vrgtj"), SubResource("Resource_3o7qs"), SubResource("Resource_e6yn8"), SubResource("Resource_0ne1d"), SubResource("Resource_7ssoe"), SubResource("Resource_untpc"), SubResource("Resource_wsjj2"), SubResource("Resource_qb04g"), SubResource("Resource_bay5h"), SubResource("Resource_2s4bt"), SubResource("Resource_j6pph"), SubResource("Resource_2udhp"), SubResource("Resource_4a2w4"), SubResource("Resource_xiqmi"), SubResource("Resource_omech")])
 
 [node name="DeathZone" type="Area2D" parent="."]
 position = Vector2(592, 2472)

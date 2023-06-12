@@ -221,6 +221,7 @@ libraries = {
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 458.0
 offset_top = 801.0
 offset_right = 735.0

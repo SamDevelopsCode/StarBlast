@@ -6,8 +6,7 @@ signal boss_died(boss_name)
 @export var enemy_bullet_scene = Resource
 
 var boss_should_shoot := false
-var move_anim_chance := [1, 2, 3]
-var gun_anim_chance := [1, 2]
+var move_anim_chance := [1, 2]
 var player
 var dead := false
 
@@ -47,11 +46,14 @@ func die() -> void:
 	set_collision_layer_value(2, false)
 	set_collision_mask_value(1, false)
 	set_collision_mask_value(3, false)	
-	sprite.play("death")
+	var enemy_children = get_children()
+	for component in enemy_children:
+		if component.name.contains("Weapon"):
+			component.queue_free()	
 	boss_should_shoot = false
 	anim_player_movement.pause()
-	anim_player_gun.stop()
-	#play sound fx for boss
+	anim_player_gun.stop()		
+	sprite.play("death")
 	await get_tree().create_timer(1).timeout	
 	emit_signal("boss_died", name)
 	await get_tree().create_timer(1.5).timeout	
@@ -63,6 +65,15 @@ func set_boss_should_shoot(should_shoot: bool):
 func play_side_to_side_anim():
 	anim_player_movement.play("side_to_side")
 	
+func play_random_anim():
+	randomize()
+	var random_pick = move_anim_chance.pick_random()
+	match random_pick:
+		1:
+			anim_player_movement.play("hug_top_corners")
+		2:
+			anim_player_movement.play("side_to_side")
+			
 func show_damaged_fx() -> void:
 	sprite.set_self_modulate(Color(1, 0.03921568766236, 0.29411765933037, 0.9))
 	await get_tree().create_timer(.05).timeout
@@ -79,7 +90,8 @@ func set_boss_difficulty():
 		health = 3000
 	else:
 		health = 1000
-
+		
+		
 func _on_animated_sprite_2d_animation_finished() -> void:
 	sprite.visible = false
 	
@@ -91,6 +103,11 @@ func _on_movement_animation_player_animation_started(anim_name: StringName) -> v
 
 func _on_movement_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fly_on_screen":
+		set_collision_layer_value(2, true)		
 		player.set_input_is_valid(true)
 		set_boss_should_shoot(true)
 		play_side_to_side_anim()
+	if anim_name == "side_to_side":
+		play_random_anim()
+	if anim_name == "hug_top_corners":
+		play_random_anim()

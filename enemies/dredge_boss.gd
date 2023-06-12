@@ -50,12 +50,9 @@ func die() -> void:
 	boss_should_shoot = false
 	anim_player_movement.pause()
 	anim_player_gun.stop()	
-	#play sound fx for boss
 	await get_tree().create_timer(1).timeout	
 	emit_signal("boss_died", name)
 	await get_tree().create_timer(1.5).timeout
-	
-	#start levl transition cinematic
 	queue_free()
 
 func set_boss_should_shoot(should_shoot: bool):
@@ -111,11 +108,11 @@ func _on_movement_animation_player_animation_started(anim_name: StringName) -> v
 		player_pos_tween.tween_property(player, "global_position", Vector2(650, 1600), 2.5)
 	if anim_name == "side_to_side":
 		set_boss_should_shoot(true)
-		play_random_gun_anim()
-	
+		play_random_gun_anim()	
 
 func _on_movement_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fly_on_screen":
+		set_collision_layer_value(2, true)		
 		player.set_input_is_valid(true)
 		set_boss_should_shoot(true)
 		play_side_to_side_anim()

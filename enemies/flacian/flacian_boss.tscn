@@ -300,7 +300,7 @@ _data = {
 
 [node name="FlacianBoss" type="Area2D" groups=["enemy"]]
 position = Vector2(600, -500)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 13
 script = ExtResource("1_08tqw")
 enemy_bullet_scene = ExtResource("2_koh5r")
@@ -333,7 +333,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_xgf1n")
 
 [node name="FireRateTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.15
 autostart = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

@@ -19,8 +19,7 @@ func _input(event: InputEvent) -> void:
 		elif get_tree().paused == false: 
 			panel.visible = false
 			quit_game_button.disabled = true	
-			quit_game_button.release_focus()
-					
+			quit_game_button.release_focus()					
 		
 	if event.is_action_pressed("quit_game"):
 		get_tree().quit()

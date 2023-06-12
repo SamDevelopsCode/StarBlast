@@ -295,7 +295,7 @@ _data = {
 }
 
 [node name="DredgeBoss" type="Area2D" groups=["enemy"]]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 13
 script = ExtResource("1_ocvyl")
 health = 500
