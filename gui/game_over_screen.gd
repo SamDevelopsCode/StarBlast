@@ -18,5 +18,4 @@ func _ready() -> void:
 	
 
 func _on_button_pressed() -> void:
-	get_tree().reload_current_scene()
-	GameData.player_lives = 1
+	SceneTransitionManager.fade_to_menu()

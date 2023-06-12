@@ -123,4 +123,3 @@ func reset_game_values():
 	score = 0
 	enemies_killed = 0
 	powerups_collected = 0
-	

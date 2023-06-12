@@ -100,6 +100,3 @@ func _on_level_events_animation_player_animation_started(anim_name: StringName) 
 func _on_level_events_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "player_enters_level":
 		player.set_input_is_valid(true)
-	
-
-

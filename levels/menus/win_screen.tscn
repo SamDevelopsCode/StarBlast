@@ -194,7 +194,7 @@ autowrap_mode = 2
 
 [node name="MainMessage" type="Label" parent="WinMessagePanel/VBoxContainer"]
 layout_mode = 2
-text = "You have defended the galaxy and are awarded the highest rank of flight officer. Your legend will be passed down for millenium to come."
+text = "You have defended the galaxy and are awarded the highest rank of flight officer. Your legend will be passed down for millennia to come."
 label_settings = SubResource("LabelSettings_4426t")
 horizontal_alignment = 1
 autowrap_mode = 2
