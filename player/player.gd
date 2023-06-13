@@ -18,7 +18,7 @@ var powerup_fire_rate = preload("res://powerups/powerup_fire_rate.tscn")
 var screen_size : Vector2
 var can_fire
 var is_alive := true
-var input_is_valid
+@export var input_is_valid : bool
 
 @onready var laser_container: Node = $LaserContainer
 @onready var laser_1_pos = $Weapons/Lasers/Laser1Pos
@@ -35,6 +35,7 @@ var input_is_valid
 @onready var player_animations = $AnimationPlayer
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var animated_engine_fx: AnimatedSprite2D = $AnimatedEngineFx
+@onready var hurt_box: Area2D = $HurtBox
 
 
 func _ready() -> void:
@@ -76,16 +77,22 @@ func fire_lasers():
 	match fire_type:
 		1:
 			add_laser_projectile(laser_1_pos)
+			add_laser_projectile(laser_2_pos)
+			add_laser_projectile(laser_3_pos)
 		2:
 			add_laser_projectile(laser_1_pos)
 			add_laser_projectile(laser_2_pos)
 			add_laser_projectile(laser_3_pos)
+			add_laser_projectile(laser_4_pos)
+			add_laser_projectile(laser_5_pos)
 		3:
 			add_laser_projectile(laser_1_pos)
 			add_laser_projectile(laser_2_pos)
 			add_laser_projectile(laser_3_pos)
 			add_laser_projectile(laser_4_pos)
 			add_laser_projectile(laser_5_pos)
+			add_laser_projectile(laser_6_pos)
+			add_laser_projectile(laser_7_pos)
 		4:
 			add_laser_projectile(laser_1_pos)
 			add_laser_projectile(laser_2_pos)
@@ -106,23 +113,38 @@ func add_laser_projectile(laser_identifier) -> void:
 func increase_fire_type() -> void:	
 	GameData.increase_fire_type()
 	fire_type += 1
-	if fire_type > 4:
+	if fire_type >= 4:
 		fire_type = 4
-		GameData.increase_score(750)
+		
+func decrease_fire_type() -> void:	
+	GameData.decrease_fire_type()
+	fire_type -= 1
+	if fire_type <= 1:
+		fire_type = 1
 
 func increase_fire_rate():
 	GameData.increase_fire_rate()
 	fire_rate_timer.wait_time -= .05
 	if fire_rate_timer.wait_time <= .1:
 		fire_rate_timer.wait_time = .06
-		GameData.increase_score(750)
+
+func decrease_fire_rate():
+	GameData.decrease_fire_rate()
+	fire_rate_timer.wait_time += .05
+	if fire_rate_timer.wait_time >= .2:
+		fire_rate_timer.wait_time = .2
 
 func increase_speed():
 	GameData.increase_speed()
 	move_speed += 100
 	if move_speed >= 800:
 		move_speed = 800
-		GameData.increase_score(750)
+		
+func decrease_speed():
+	GameData.decrease_speed()
+	move_speed -= 100
+	if move_speed <= 400:
+		move_speed = 400
 
 func _on_fire_rate_timer_timeout() -> void:
 	can_fire = true
@@ -145,7 +167,7 @@ func show_damaged_fx() -> void:
 	$Sprite2D.set_self_modulate(Color(1, 1, 1, 1))
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	take_damage(2)
+	take_damage(8)
 	show_damaged_fx()
 	area.queue_free()
 
@@ -162,4 +184,5 @@ func set_input_is_valid(is_valid: bool):
 
 func heal():
 	GameData.heal_player()
+	
 	

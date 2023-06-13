@@ -31,9 +31,12 @@ func _on_player_damage_taken(damage) -> void:
 		if GameData.player_health <= 0:
 			player.is_alive = false
 			GameData.decrease_player_lives()
-			GameData.decrease_speed()
-			GameData.decrease_fire_type()		
-			GameData.decrease_fire_rate()	
+			player.decrease_speed()
+			player.decrease_fire_type()		
+			player.decrease_fire_rate()	
+			print("fire_rate is " + str(GameData.fire_rate))
+			print("fire_type is " + str(GameData.fire_type))
+			print("speed is " + str(GameData.speed_label))
 			
 			if GameData.player_lives > 0:
 				player.play_out_of_health_anim()
@@ -43,7 +46,9 @@ func _on_player_damage_taken(damage) -> void:
 			
 			if GameData.player_lives <= 0:
 				GameData.decrease_player_lives()
-				player.queue_free()
+				player.is_alive = false
+				player.modulate = Color(1, 1, 1, 0)
+				player.set_collision_layer_value(1, false)
 				player_death_sound.play()				
 				await get_tree().create_timer(1.5).timeout
 				var game_over_screen_instance = game_over_screen.instantiate()

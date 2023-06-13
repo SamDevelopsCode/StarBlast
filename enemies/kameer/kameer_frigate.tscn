@@ -136,7 +136,6 @@ collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_ko7he")
 move_speed = 350
-health = 125
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159

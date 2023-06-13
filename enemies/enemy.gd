@@ -12,12 +12,9 @@ var powerup_fire_rate = preload("res://powerups/powerup_fire_rate.tscn")
 var powerup_health = preload("res://powerups/powerup_health.tscn")
 var powerup_score = preload("res://powerups/powerup_score.tscn")
 
-
-var powerups = [powerup_laser, powerup_speed, powerup_fire_rate, 
-powerup_health, powerup_score]
-
-var myArray := [1, 2, 2, 2, 2, 2]
-var powerup_chance := [1, 1, 1, 1, 1, 2, 2 ,2, 3, 3, 3, 4, 4, 5, 5]
+var powerups = [powerup_laser,  powerup_fire_rate, powerup_speed, powerup_health, powerup_score]
+var powerup_spawn_chance := [1, 2, 2, 2, 2, 2, 2, 2, 2] # 12.5% spawn chance
+var powerup_type_chance := [1, 2, 3, 4, 5]
 
 var dead := false
 
@@ -51,7 +48,7 @@ func die() -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	take_damage(5)
-	body.take_damage(15)
+	body.take_damage(20)
 	body.show_damaged_fx()
 	
 func show_damaged_fx() -> void:
@@ -61,7 +58,7 @@ func show_damaged_fx() -> void:
 
 func spawn_powerup() -> void:
 	randomize()
-	var random_pick = powerup_chance.pick_random()
+	var random_pick = powerup_type_chance.pick_random()
 	match random_pick:
 		1:
 			var powerup_instance = powerup_laser.instantiate() as Area2D
@@ -86,7 +83,7 @@ func spawn_powerup() -> void:
 
 func should_drop_powerup() -> bool:
 	randomize()
-	var random_choice = myArray.pick_random()	
+	var random_choice = powerup_spawn_chance.pick_random()	
 	if random_choice == 1:
 		return true
 	else: 

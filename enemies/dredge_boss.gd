@@ -41,7 +41,7 @@ func take_damage(damage) -> void:
 		die()		
 		
 func _on_body_entered(body: Node2D) -> void:
-	body.take_damage(15)
+	body.take_damage(20)
 	body.show_damaged_fx()
 
 func die() -> void:
@@ -91,12 +91,26 @@ func _on_fire_rate_timer_timeout() -> void:
 		shoot()
 
 func set_boss_difficulty():
-	if (GameData.fire_rate <= 2 ) and (GameData.fire_type <= 2):
-		health = 30
-	elif (GameData.fire_rate >= 4 ) and (GameData.fire_type >= 4):
-		health = 3000
-	else:
+	if (GameData.fire_rate == 1 ) and (GameData.fire_type == 1):
+		health = 200
+	elif (GameData.fire_rate == 1 ) and (GameData.fire_type == 2):
+		health = 700
+	elif (GameData.fire_rate == 1 ) and (GameData.fire_type == 3):
 		health = 1000
+	elif (GameData.fire_rate == 1 ) and (GameData.fire_type == 4):
+		health = 1250
+	elif (GameData.fire_rate == 2 ) and (GameData.fire_type == 2):
+		health = 1400
+	elif (GameData.fire_rate == 2 ) and (GameData.fire_type == 3):
+		health = 2000
+	elif (GameData.fire_rate == 2 ) and (GameData.fire_type == 4):
+		health = 2500
+	elif (GameData.fire_rate == 3 ) and (GameData.fire_type == 3):
+		health = 3200
+	elif (GameData.fire_rate == 3 ) and (GameData.fire_type == 4):
+		health = 4000
+	elif (GameData.fire_rate == 4 ) and (GameData.fire_type == 4):
+		health = 5000
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	sprite.visible = false

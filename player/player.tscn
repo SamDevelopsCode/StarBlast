@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3]
+[gd_scene load_steps=21 format=3 uid="uid://cuwmnmago8rij"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_movka"]
 [ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/art/Main Ship - Base - Full health.png" id="2_82vat"]
@@ -150,6 +150,7 @@ radius = 9.05517
 height = 32.2483
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(133, 72)
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_movka")
@@ -186,11 +187,11 @@ shape = SubResource("CircleShape2D_yshd3")
 
 [node name="WeaponSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_w60rq")
-volume_db = -20.0
-pitch_scale = 2.25
+volume_db = -27.0
+pitch_scale = 2.0
 
 [node name="FireRateTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.2
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

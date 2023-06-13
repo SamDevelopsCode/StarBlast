@@ -33,19 +33,17 @@ func set_lives_label(lives) -> void:
 	lives_left.text = str(lives)
 
 func set_fire_rate_label(fire_rate) -> void:
-	if fire_rate >= 6:
-		fire_rate_label.text = "max"
-	else:		
-		fire_rate_label.text = str(fire_rate)
+	fire_rate_label.text = str(fire_rate)	
+	if fire_rate >= 4:
+		fire_rate_label.text = "max"	
 
 func set_fire_type_label(fire_type) -> void:
+	fire_type_label.text = str(fire_type)	
 	if fire_type >= 4:
 		fire_type_label.text = "max"
-	else:
-		fire_type_label.text = str(fire_type)
 
 func set_speed_label(speed) -> void:
+	speed_label.text = str(speed)
 	if speed >= 6:
 		speed_label.text = "max"
-	else:		
-		speed_label.text = str(speed)
+	
