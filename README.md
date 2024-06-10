@@ -13,7 +13,12 @@ This was my first foray into using the Godot Engine to make a small complete pro
 **Powerups:**
   5 powerups in total (health, fire rate, projectile count, score increase, move speed)
 
-Play here - https://kombooch.itch.io/starblast
+**UI System:**
+    Visually show all the pertinent stats the player needs to know
+    
+
+Try here - https://kombooch.itch.io/starblast
+
 ![gif1](https://github.com/SamDevelopsCode/StarBlast/assets/122749374/07ddb66f-53e7-467c-82d9-e6fbc80b6eea)
 
 ![image](https://github.com/SamDevelopsCode/StarBlast/assets/122749374/98c7bdcb-2e1d-43cd-beb3-dbac0ffbd7b9)
