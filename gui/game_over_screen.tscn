@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://defit6mtufyg3"]
 
 [ext_resource type="Script" path="res://gui/game_over_screen.gd" id="1_1vv28"]
-[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://random_shit/SPACEBOY.TTF" id="1_b3a2a"]
+[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://art/SPACEBOY.TTF" id="1_b3a2a"]
 [ext_resource type="Script" path="res://gui/button.gd" id="3_k7jma"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yutwe"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://levels/parallax_background.gd" id="2_1pxps"]
 [ext_resource type="Texture2D" uid="uid://bphwxf2glq4lt" path="res://player/art/Main Ship - Base - Full health.png" id="2_cyc4q"]
 [ext_resource type="Texture2D" uid="uid://c85dye611j5j" path="res://levels/art/level_2_bg.png" id="3_rsy2d"]
-[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://random_shit/SPACEBOY.TTF" id="6_avnbv"]
+[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://art/SPACEBOY.TTF" id="6_avnbv"]
 [ext_resource type="Theme" uid="uid://ugv1ptuyjojl" path="res://main_theme.tres" id="7_ki2jp"]
 [ext_resource type="Script" path="res://levels/menus/play_again_button.gd" id="8_61724"]
 

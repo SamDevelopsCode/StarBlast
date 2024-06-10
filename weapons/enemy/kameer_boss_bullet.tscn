@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bhahgu73l4136"]
 
 [ext_resource type="Script" path="res://weapons/enemy/enemy_bullet.gd" id="1_qbi05"]
-[ext_resource type="Texture2D" uid="uid://bbdvtb4towgt2" path="res://random_shit/Blue Effect Bullet Impact Explosion 32x32.png" id="2_f7wnt"]
+[ext_resource type="Texture2D" uid="uid://bbdvtb4towgt2" path="res://art/Blue Effect Bullet Impact Explosion 32x32.png" id="2_f7wnt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7jchx"]
 atlas = ExtResource("2_f7wnt")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsqd0pfppr2ub"]
 
-[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://random_shit/SPACEBOY.TTF" id="1_8m2cj"]
+[ext_resource type="FontFile" uid="uid://b6ol51f5b1c2j" path="res://art/SPACEBOY.TTF" id="1_8m2cj"]
 [ext_resource type="Script" path="res://levels/menus/splash_screen.gd" id="1_vj5ho"]
 
 [sub_resource type="Animation" id="Animation_3jsyn"]
@@ -75,10 +75,10 @@ grow_vertical = 2
 script = ExtResource("1_vj5ho")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "fade_splash_screen"
 libraries = {
 "": SubResource("AnimationLibrary_x5m6x")
 }
+autoplay = "fade_splash_screen"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

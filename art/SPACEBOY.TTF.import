@@ -3,18 +3,19 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b6ol51f5b1c2j"
-path="res://.godot/imported/SPACEBOY.TTF-76ddcf4a7ed4ec2777c44a8363b0cd03.fontdata"
+path="res://.godot/imported/SPACEBOY.TTF-d448c4c2ef0e5d584d53f604158033ac.fontdata"
 
 [deps]
 
-source_file="res://random_shit/SPACEBOY.TTF"
-dest_files=["res://.godot/imported/SPACEBOY.TTF-76ddcf4a7ed4ec2777c44a8363b0cd03.fontdata"]
+source_file="res://art/SPACEBOY.TTF"
+dest_files=["res://.godot/imported/SPACEBOY.TTF-d448c4c2ef0e5d584d53f604158033ac.fontdata"]
 
 [params]
 
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

@@ -41,7 +41,7 @@ var is_alive := true
 func _ready() -> void:
 	fire_type = GameData.fire_type
 	fire_rate_timer.wait_time = GameData.fire_rate_timer_wait_time
-	move_speed = GameData.speed	
+	move_speed = GameData.speed
 	screen_size = get_viewport_rect().size
 	animated_engine_fx.visible = false
 
@@ -61,9 +61,9 @@ func move_player():
 	else:
 		engine_fx.emitting = false
 	move_and_slide()
-	
+
 	global_position.x = clampf(global_position.x, 70, screen_size.x - 26)
-	global_position.y = clampf(global_position.y, 18, screen_size.y - 18) 
+	global_position.y = clampf(global_position.y, 18, screen_size.y - 18)
 
 func shoot() -> void:
 	if input_is_valid:
@@ -73,7 +73,7 @@ func fire_lasers():
 	can_fire = false
 	weapon_sound.play()
 	add_vibration()
-	
+
 	match fire_type:
 		1:
 			add_laser_projectile(laser_1_pos)
@@ -110,13 +110,13 @@ func add_laser_projectile(laser_identifier) -> void:
 	laser_instance.direction = laser_instance.global_position - global_position
 	get_tree().get_root().add_child(laser_instance)
 
-func increase_fire_type() -> void:	
+func increase_fire_type() -> void:
 	GameData.increase_fire_type()
 	fire_type += 1
 	if fire_type >= 4:
 		fire_type = 4
-		
-func decrease_fire_type() -> void:	
+
+func decrease_fire_type() -> void:
 	GameData.decrease_fire_type()
 	fire_type -= 1
 	if fire_type <= 1:
@@ -139,7 +139,7 @@ func increase_speed():
 	move_speed += 100
 	if move_speed >= 800:
 		move_speed = 800
-		
+
 func decrease_speed():
 	GameData.decrease_speed()
 	move_speed -= 100
@@ -157,7 +157,7 @@ func add_vibration() -> void:
 		fire_vibration_weak_magnitude,
 		fire_vibration_strong_magnitude,
 		fire_vibration_length)
-		
+
 func take_damage(amount) -> void:
 	emit_signal("damage_taken", amount)
 
@@ -174,15 +174,13 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 func enable_end_of_level_engine_fx():
 	animated_engine_fx.visible = true
 	animated_engine_fx.play("fire_engine")
-	
+
 func disable_end_of_level_engine_fx():
 	animated_engine_fx.visible = false
 	animated_engine_fx.stop()
-	
+
 func set_input_is_valid(is_valid: bool):
 	input_is_valid = is_valid
 
 func heal():
 	GameData.heal_player()
-	
-	
